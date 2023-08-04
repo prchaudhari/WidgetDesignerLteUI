@@ -1,18 +1,15 @@
-import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
 import * as $ from 'jquery';
-import * as jsrender from 'jsrender';
 @Component({
   selector: 'app-add-widget',
   templateUrl: './add-widget.component.html',
   styleUrls: ['./add-widget.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddWidgetComponent {
-  @ViewChild('renderTarget') renderTarget?: ElementRef;
-  renderedTemplate = ''; // Store the rendered template here
+export class AddWidgetComponent2 {
   ckeditorContent: any;
   htmltextvalue: string = "";
   newWidget: Widget = {
@@ -56,7 +53,7 @@ export class AddWidgetComponent {
     alert(this.newWidget.WidgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
     // var htmltext: string="";
     var jsonObject1: any = JSON.parse(jsonval);
-  
+    this.appendCss(customizeFormData);
     var newstr = "";
     // htmltext = this.newWidget.WidgetHtml;
     newstr = this.newWidget.WidgetHtml;
@@ -164,14 +161,6 @@ export class AddWidgetComponent {
     }
   }
   ShowPreview() {
-    var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
-    this.appendCss(this.newWidget.widgetCSS);
-    const data = {
-      title: 'Hello',
-      description: 'This is a description',
-    };
-
-    const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
-    this.renderedTemplate = template.render(jsonObject1); // Render the template with data
+    alert("Widget Preview");
   }
 }
