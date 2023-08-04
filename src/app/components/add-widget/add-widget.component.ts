@@ -50,7 +50,7 @@ export class AddWidgetComponent {
   }
 
   mapping(htmltext: string, jsonval: string, customizeFormData: string): void {
-    // alert(this.newWidget.widgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
+    alert(this.newWidget.WidgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
     // var htmltext: string="";
     var jsonObject1: any = JSON.parse(jsonval);
     this.appendCss(customizeFormData);

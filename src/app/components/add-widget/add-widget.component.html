@@ -3,7 +3,7 @@
     <h2 style="text-align:center">Widget Designer</h2>
   </div>
   <div class="rounded-3" style=" width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;
-      background-color: #f0f2f1; ">
+     ">
     <div class="container">
       <!--<button type="button" (click)="ShowPreview()" class="btn btn-primary">Preview</button>&nbsp;&nbsp;-->
       <button type="button"
@@ -14,7 +14,7 @@
       <div [innerHtml]="htmltextvalue"></div>
     </div>
   </div>
-  <div class="rounded-3" style="width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px; background-color: #f0f2f1 ">
+  <div class="rounded-3" style="width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
     <div class="row">
       <div class="col-10">
         <form #form="ngForm" (ngSubmit)="addWidget()">
@@ -55,8 +55,9 @@
             <label class="col-md-3 col-form-label" for="">
               Text Editor:
             </label>
-            <div class="col-md-9">
-              <ckeditor #WidgetHtml id="WidgetHtml" name="WidgetHtml" [(ngModel)]="newWidget.WidgetHtml"/>
+            <div class="col-md-9">            
+              <ckeditor typeof="text" #WidgetHtml id="WidgetHtml" name="WidgetHtml" [(ngModel)]="newWidget.WidgetHtml">
+              </ckeditor>
             </div>
           </div>
 
