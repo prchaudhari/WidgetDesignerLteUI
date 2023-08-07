@@ -55,9 +55,9 @@
             <label class="col-md-3 col-form-label" for="">
               Text Editor:
             </label>
-            <div class="col-md-9">
-              <ckeditor typeof="text" #WidgetHtml id="WidgetHtml" name="WidgetHtml" [(ngModel)]="newWidget.WidgetHtml">
-              </ckeditor>
+            <div class="col-md-9">            
+              <textarea typeof="text" style="width:100%" rows="10" id="WidgetHtml" name="WidgetHtml" [(ngModel)]="newWidget.WidgetHtml">
+              </textarea>
             </div>
           </div>
 

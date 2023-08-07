@@ -1,0 +1,11 @@
+.demo
+{
+    background-color:gainsboro;
+    color:blue;
+}
+.demo tbody tr{
+  background-color: aliceblue;
+  color: blue;
+}
+
+

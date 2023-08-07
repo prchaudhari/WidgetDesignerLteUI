@@ -9,12 +9,14 @@ import { CKEditorModule } from 'ng2-ckeditor';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { JsRenderTryComponent } from './components/JsRenderTry/JsRenderTry.component';
 @NgModule({
   declarations: [
     AppComponent,
     WidgetComponent,
     AddWidgetComponent,
-    DashboardComponent
+    DashboardComponent,
+    JsRenderTryComponent
   ],
   imports: [
     BrowserModule,

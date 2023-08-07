@@ -1,0 +1,41 @@
+<div class="container">
+  <div>
+    <h5 style="float:left">Widget Designer</h5>
+  </div>
+  <div [innerHTML]="tableContainer"></div>
+  <button type="button"
+          class="btn btn-primary"
+          (click)="Showtry()">
+    Preview
+  </button>
+  <div class="container">
+    <button type="button"
+            class="btn btn-primary"
+            (click)="ShowPreview()">
+      Preview
+    </button>
+    <div [innerHTML]="renderedTemplate"></div>
+  </div>
+  <form #form="ngForm">
+    <div class="form-group row required mb-3">
+      <label class="col-md-3 col-form-label" for="dataSourceJson">
+        Data Source Json:
+      </label>
+      <div class="col-md-9">
+        <textarea type="text" class="form-control" id="dataSourceJson" name="dataSourceJson"
+                  [(ngModel)]="dataSourceJson">
+              </textarea>
+      </div>
+    </div>
+
+    <div class="form-group row required mb-3">
+      <label class="col-md-3 col-form-label" for="">
+        Text Editor:
+      </label>
+      <div class="col-md-9" width="100%">
+        <textarea typeof="text"  id="WidgetHtml" name="WidgetHtml" [(ngModel)]="WidgetHtml">
+        </textarea>
+      </div>
+    </div>
+  </form>
+</div>

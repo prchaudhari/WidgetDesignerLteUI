@@ -1,0 +1,9 @@
+.demo
+{
+    background-color:burlywood;
+    color:blue;
+}
+.demo tbody tr{
+  background-color:cornsilk;
+  color: blue;
+}

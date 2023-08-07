@@ -18,6 +18,7 @@ export class AddWidgetComponent {
   renderedTemplate = ''; // Store the rendered template here
   ckeditorContent: any;
   htmltextvalue: string = "";
+  WidgetHtml: string = "";
   newWidget: Widget = {
     id: 0,
     widgetName: '',
@@ -44,6 +45,7 @@ export class AddWidgetComponent {
     });
   }
 
+  addWidget() {    
   addWidget() {
     const formData = new FormData();
     // Add other form fields to formData
@@ -68,6 +70,31 @@ export class AddWidgetComponent {
     });
   }
 
+  loadCSS() {
+    let fileRef;
+    fileRef = document.createElement('link');
+    fileRef.setAttribute('rel', 'stylesheet');
+    fileRef.setAttribute('type', 'text/css');
+    fileRef.setAttribute('href', '../../assets/dynamicThemes/cssTheme1.component.css');
+    if (typeof fileRef !== 'undefined') {
+      document.getElementsByTagName('head')[0].appendChild(fileRef);
+    }
+  }
+  
+  ShowPreview() {
+    this.loadCSS();
+    var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
+    //alert(this.newWidget.dataSourceJson);
+    this.appendCss(this.newWidget.widgetCSS);
+    
+    const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ employees: jsonObject1 });
+   // alert(renderedHtml);
+    // Insert the rendered HTML into the table container
+    this.renderedTemplate = renderedHtml;
+    //const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
+    //this.renderedTemplate = template.render(jsonObject1); // Render the template with data
+  }
+
   //onselectFile(event: any) {
   //  this.url = event.target.files[0];
   //  this.selectedFile = event.target.files[0] as File;
@@ -88,7 +115,7 @@ export class AddWidgetComponent {
     alert(this.newWidget.WidgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
     // var htmltext: string="";
     var jsonObject1: any = JSON.parse(jsonval);
-  
+
     var newstr = "";
     // htmltext = this.newWidget.WidgetHtml;
     newstr = this.newWidget.WidgetHtml;
@@ -194,16 +221,5 @@ export class AddWidgetComponent {
       }
       return indices;
     }
-  }
-  ShowPreview() {
-    var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
-    this.appendCss(this.newWidget.widgetCSS);
-    const data = {
-      title: 'Hello',
-      description: 'This is a description',
-    };
-
-    const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
-    this.renderedTemplate = template.render(jsonObject1); // Render the template with data
   }
 }
