@@ -46,7 +46,6 @@ export class AddWidgetComponent {
   }
 
   addWidget() {    
-  addWidget() {
     const formData = new FormData();
     // Add other form fields to formData
     formData.append('file', this.selectedFile, this.selectedFile.name);
