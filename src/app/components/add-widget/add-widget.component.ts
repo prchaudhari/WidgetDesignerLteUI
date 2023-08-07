@@ -15,6 +15,7 @@ export class AddWidgetComponent {
   renderedTemplate = ''; // Store the rendered template here
   ckeditorContent: any;
   htmltextvalue: string = "";
+  WidgetHtml: string = "";
   newWidget: Widget = {
     id: 0,
     widgetName: '',
@@ -40,7 +41,7 @@ export class AddWidgetComponent {
     });
   }
 
-  addWidget() {
+  addWidget() {    
     this.widgetService.addWidget(this.newWidget).subscribe({
       next: (widget) => {
         //1 this.router.navigate(['widget']);
@@ -165,13 +166,14 @@ export class AddWidgetComponent {
   }
   ShowPreview() {
     var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
+    alert(this.newWidget.dataSourceJson);
     this.appendCss(this.newWidget.widgetCSS);
-    const data = {
-      title: 'Hello',
-      description: 'This is a description',
-    };
-
-    const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
-    this.renderedTemplate = template.render(jsonObject1); // Render the template with data
+    
+    const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ employees: jsonObject1 });
+    alert(renderedHtml);
+    // Insert the rendered HTML into the table container
+    this.renderedTemplate = renderedHtml;
+    //const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
+    //this.renderedTemplate = template.render(jsonObject1); // Render the template with data
   }
 }
