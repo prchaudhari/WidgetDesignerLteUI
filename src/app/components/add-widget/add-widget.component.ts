@@ -53,11 +53,36 @@ export class AddWidgetComponent {
     });
   }
 
+  loadCSS() {
+    let fileRef;
+    fileRef = document.createElement('link');
+    fileRef.setAttribute('rel', 'stylesheet');
+    fileRef.setAttribute('type', 'text/css');
+    fileRef.setAttribute('href', '../../assets/dynamicThemes/cssTheme1.component.css');
+    if (typeof fileRef !== 'undefined') {
+      document.getElementsByTagName('head')[0].appendChild(fileRef);
+    }
+  }
+  
+  ShowPreview() {
+    this.loadCSS();
+    var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
+    //alert(this.newWidget.dataSourceJson);
+    this.appendCss(this.newWidget.widgetCSS);
+    
+    const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ employees: jsonObject1 });
+   // alert(renderedHtml);
+    // Insert the rendered HTML into the table container
+    this.renderedTemplate = renderedHtml;
+    //const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
+    //this.renderedTemplate = template.render(jsonObject1); // Render the template with data
+  }
+
   mapping(htmltext: string, jsonval: string, customizeFormData: string): void {
     alert(this.newWidget.WidgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
     // var htmltext: string="";
     var jsonObject1: any = JSON.parse(jsonval);
-  
+
     var newstr = "";
     // htmltext = this.newWidget.WidgetHtml;
     newstr = this.newWidget.WidgetHtml;
@@ -163,17 +188,5 @@ export class AddWidgetComponent {
       }
       return indices;
     }
-  }
-  ShowPreview() {
-    var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
-    alert(this.newWidget.dataSourceJson);
-    this.appendCss(this.newWidget.widgetCSS);
-    
-    const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ employees: jsonObject1 });
-    alert(renderedHtml);
-    // Insert the rendered HTML into the table container
-    this.renderedTemplate = renderedHtml;
-    //const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
-    //this.renderedTemplate = template.render(jsonObject1); // Render the template with data
   }
 }

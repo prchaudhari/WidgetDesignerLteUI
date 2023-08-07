@@ -1,0 +1,10 @@
+.demo
+{
+    background-color:thistle;
+    color:black;
+    font-weight:bold;
+}
+  .demo tbody tr {
+    background-color: cadetblue;
+    color: black;
+  }

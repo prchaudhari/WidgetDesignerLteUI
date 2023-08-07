@@ -28,7 +28,10 @@
               "src/styles.css",
               "node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
               "node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css",
-              "node_modules/admin-lte/dist/css/adminlte.min.css"
+              "node_modules/admin-lte/dist/css/adminlte.min.css",
+              "src/assets/dynamicThemes/cssTheme1.css",
+              "src/assets/dynamicThemes/cssTheme2.css",
+              "src/assets/dynamicThemes/cssTheme3.css"
             ],
             "scripts": [
               "node_modules/admin-lte/plugins/jquery/jquery.min.js",
