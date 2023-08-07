@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/co
 import { Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
+import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
 @Component({
@@ -11,6 +12,8 @@ import * as jsrender from 'jsrender';
   encapsulation: ViewEncapsulation.None
 })
 export class AddWidgetComponent {
+  selectedFile!: File;
+  url: string = "assets/img.jpg";
   @ViewChild('renderTarget') renderTarget?: ElementRef;
   renderedTemplate = ''; // Store the rendered template here
   ckeditorContent: any;
@@ -23,12 +26,13 @@ export class AddWidgetComponent {
     WidgetHtml: '',
     widgetCSS: '',
     widgetCSSUrl: '',
-    widgetIcon: '',
+    WidgetIconUrl: '',
     width: 0,
     height: 0,
   };
 
   constructor(
+    private http: HttpClient,
     private widgetService: WidgetService,
     private router: Router
   ) { }
@@ -41,6 +45,18 @@ export class AddWidgetComponent {
   }
 
   addWidget() {
+    const formData = new FormData();
+    // Add other form fields to formData
+    formData.append('file', this.selectedFile, this.selectedFile.name);
+
+    this.http.post<any>('api/submit', formData).subscribe(
+      (response) => {
+        console.log('Data submitted successfully');
+      },
+      (error) => {
+        console.error('Error submitting data:', error);
+      }
+    );
     this.widgetService.addWidget(this.newWidget).subscribe({
       next: (widget) => {
         //1 this.router.navigate(['widget']);
@@ -50,6 +66,22 @@ export class AddWidgetComponent {
         console.log(response);
       },
     });
+  }
+
+  //onselectFile(event: any) {
+  //  this.url = event.target.files[0];
+  //  this.selectedFile = event.target.files[0] as File;
+  //}
+
+  onselectFile(e: any) {
+    if (e.target.files) {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = (event: any) => {
+        alert(event.target.result);
+        this.url = event.target.result;
+      }
+    }
   }
 
   mapping(htmltext: string, jsonval: string, customizeFormData: string): void {

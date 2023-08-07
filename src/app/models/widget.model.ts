@@ -6,7 +6,7 @@ export interface Widget {
   WidgetHtml: string;
   widgetCSS: string;
   widgetCSSUrl: string;
-  widgetIcon: string;
+  WidgetIconUrl: string;
   width: number;
   height: number;
 }
