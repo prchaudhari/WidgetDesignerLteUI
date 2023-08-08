@@ -20,6 +20,7 @@ export class AddWidgetComponent {
   htmltextvalue: string = "";
   WidgetHtml: string = "";
   cssname: string = "";
+  imageFile: File;
   newWidget: Widget = {
     id: 0,
     widgetName: '',
@@ -45,22 +46,18 @@ export class AddWidgetComponent {
       $("style").append(customData);
     });
   }
-
  
   addWidget() {    
     const formData = new FormData();
-    // Add other form fields to formData
-    formData.append('file', this.selectedFile, this.selectedFile.name);
+    formData.append('widgetName', this.newWidget.widgetName);
+    formData.append('description', this.newWidget.description);
+    formData.append('dataSourceJson', this.newWidget.dataSourceJson);
+    formData.append('WidgetHtml', this.newWidget.WidgetHtml);
+    formData.append('width', this.newWidget.width.toString());
+    formData.append('height', this.newWidget.height.toString());
+    formData.append('WidgetIconUrl', this.imageFile);
 
-    this.http.post<any>('api/submit', formData).subscribe(
-      (response) => {
-        console.log('Data submitted successfully');
-      },
-      (error) => {
-        console.error('Error submitting data:', error);
-      }
-    );
-    this.widgetService.addWidget(this.newWidget).subscribe({
+    this.widgetService.addWidget(formData).subscribe({
       next: (widget) => {
         //1 this.router.navigate(['widget']);
         alert("data saved successfully");
@@ -70,20 +67,15 @@ export class AddWidgetComponent {
       },
     });
   }
-
   
   goToNewPage(css :string): void {
     this.router.navigate(['/widgetpreview', css]);
   }
 
   ShowPreview(cssName:string) {
-   
-   // window.open('/widgetpreview?css:' + this.cssname);
- 
-   // this.loadCSS();
+  
     var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
-    //alert(this.newWidget.dataSourceJson);
-    //this.appendCss(this.newWidget.widgetCSS);
+   
     
     const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ employees: jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
@@ -108,6 +100,7 @@ export class AddWidgetComponent {
     if (e.target.files) {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
+      this.imageFile = e.target.files[0];
       reader.onload = (event: any) => {
         alert(event.target.result);
         this.url = event.target.result;
