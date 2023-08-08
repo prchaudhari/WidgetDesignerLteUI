@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
 import { HttpClient } from '@angular/common/http';
@@ -19,6 +19,7 @@ export class AddWidgetComponent {
   ckeditorContent: any;
   htmltextvalue: string = "";
   WidgetHtml: string = "";
+  cssname: string = "";
   newWidget: Widget = {
     id: 0,
     widgetName: '',
@@ -45,6 +46,7 @@ export class AddWidgetComponent {
     });
   }
 
+ 
   addWidget() {    
     const formData = new FormData();
     // Add other form fields to formData
@@ -69,36 +71,39 @@ export class AddWidgetComponent {
     });
   }
 
-  loadCSS() {
-    let fileRef;
-    fileRef = document.createElement('link');
-    fileRef.setAttribute('rel', 'stylesheet');
-    fileRef.setAttribute('type', 'text/css');
-    fileRef.setAttribute('href', '../../assets/dynamicThemes/cssTheme1.component.css');
-    if (typeof fileRef !== 'undefined') {
-      document.getElementsByTagName('head')[0].appendChild(fileRef);
-    }
-  }
   
-  ShowPreview() {
-    this.loadCSS();
+  goToNewPage(css :string): void {
+    this.router.navigate(['/widgetpreview', css]);
+  }
+
+  ShowPreview(cssName:string) {
+   
+   // window.open('/widgetpreview?css:' + this.cssname);
+ 
+   // this.loadCSS();
     var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
     //alert(this.newWidget.dataSourceJson);
-    this.appendCss(this.newWidget.widgetCSS);
+    //this.appendCss(this.newWidget.widgetCSS);
     
     const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ employees: jsonObject1 });
-   // alert(renderedHtml);
+    localStorage.setItem('widgethtml', renderedHtml);
+    //const dataToSend = { key: renderedHtml }; // Data to be sent
+    //const navigationExtras: NavigationExtras = {
+    //  state: {
+    //    data: dataToSend
+    //  }
+    //};
+   // alert("css= " + cssName);
+    const url = this.router.createUrlTree(['/widgetpreview', '']);
+    window.open(url.toString(), '_blank'); // Open in a new tab
+    //this.router.navigate(['/widgetpreview', this.cssname]);
+  
     // Insert the rendered HTML into the table container
-    this.renderedTemplate = renderedHtml;
+   // this.renderedTemplate = renderedHtml;
     //const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
     //this.renderedTemplate = template.render(jsonObject1); // Render the template with data
   }
-
-  //onselectFile(event: any) {
-  //  this.url = event.target.files[0];
-  //  this.selectedFile = event.target.files[0] as File;
-  //}
-
+    
   onselectFile(e: any) {
     if (e.target.files) {
       var reader = new FileReader();

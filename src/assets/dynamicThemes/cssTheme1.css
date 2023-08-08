@@ -1,11 +1,25 @@
 .demo
 {
+    width:800px;
     background-color:gainsboro;
     color:blue;
 }
 .demo tbody tr{
-  background-color: aliceblue;
-  color: blue;
+  background-color:aliceblue;
+  color: red;
+}
+
+.imgcss{
+    width:30px;
+    height:30px;
+}
+
+.divdemo {
+    align-content:float;
+  width: 200px;
+  border: 2px solid black;
+  background-color:gainsboro;
+  color: black;
 }
 
 

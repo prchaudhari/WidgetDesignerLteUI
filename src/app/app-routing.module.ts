@@ -4,6 +4,7 @@ import { AddWidgetComponent } from './components/add-widget/add-widget.component
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WidgetComponent } from './components/widget/widget.component';
 import { JsRenderTryComponent } from './components/JsRenderTry/JsRenderTry.component';
+import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,14 @@ const routes: Routes = [
   {
     path: 'JsRenderTry',
     component: JsRenderTryComponent
+  },
+  {
+    path: 'widgetpreview/:css',
+    component: widgetpreviewComponent
+  },
+  {
+    path: 'widgetpreview',
+    component: widgetpreviewComponent
   }
 ];
 

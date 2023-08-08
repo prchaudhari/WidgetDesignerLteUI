@@ -10,13 +10,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { JsRenderTryComponent } from './components/JsRenderTry/JsRenderTry.component';
+import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview.component';
 @NgModule({
   declarations: [
     AppComponent,
     WidgetComponent,
     AddWidgetComponent,
     DashboardComponent,
-    JsRenderTryComponent
+    JsRenderTryComponent,
+    widgetpreviewComponent
   ],
   imports: [
     BrowserModule,

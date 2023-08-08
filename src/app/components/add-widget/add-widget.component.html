@@ -2,15 +2,30 @@
   <div>
     <h2 style="text-align:center">Widget Designer</h2>
   </div>
-  <div class="rounded-3" style=" width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;
-     ">
-    <div class="container">
+ 
+  <div class="rounded-3" style=" width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;     ">
+    <div class="row">
       <!--<button type="button" (click)="ShowPreview()" class="btn btn-primary">Preview</button>&nbsp;&nbsp;-->
-      <button type="button"
-              class="btn btn-primary"
-              (click)="ShowPreview()">
-        Preview
-      </button>
+      <div style="width:10%;padding-left:10px">
+        <!--<button (click)="goToNewPage('sdfs')">Go to New Page</button>-->
+        <button type="button"
+                class="btn btn-primary"
+                (click)="ShowPreview('')">
+          Preview
+        </button>
+      </div>
+      <div style="width:30%">
+        <!--<select class="form-control"
+                #cssname
+                id="cssname"
+                name="cssname"
+                required>
+          <option value="" selected>Select One CSS file</option>
+          <option value="assets/dynamicThemes/cssTheme1" selected>Theme1</option>
+          <option value="assets/dynamicThemes/cssTheme2" selected>Theme2</option>
+          <option value="assets/dynamicThemes/cssTheme3" selected>Theme3</option>
+        </select>-->
+      </div>
       <div [innerHTML]="renderedTemplate"></div>
     </div>
   </div>
@@ -55,7 +70,7 @@
             <label class="col-md-3 col-form-label" for="">
               Text Editor:
             </label>
-            <div class="col-md-9">            
+            <div class="col-md-9">
               <textarea typeof="text" style="width:100%" rows="10" id="WidgetHtml" name="WidgetHtml" [(ngModel)]="newWidget.WidgetHtml">
               </textarea>
             </div>
@@ -103,6 +118,6 @@
         </form>
       </div>
     </div>
-  
+
   </div>
 </div>
