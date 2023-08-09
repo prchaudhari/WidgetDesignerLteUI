@@ -1,0 +1,46 @@
+Widget Desinger -
+Page (table)
+Id -1
+Name -header
+Description
+DataSourceJson {header,Profile,scancode,addharno}
+PageHtml
+
+
+PageWidgetsDetails
+Id
+PageId -1
+WidgetId - 1
+StartRow - 5 row
+StartCol - 3 col
+Height - modify height - no rows
+Width - modify width  - no columns
+
+
+
+Fonts
+Id
+Fontname
+FontHtml
+
+json
+"header"
+{
+        "name": "Amit",
+        "balance": "10000",
+        "Address": {
+          "Line1": "Address Line1",
+          "Line2": {
+            "city": "Mumbai",
+            "state": "Maharashtra"
+          }
+        },
+		
+		
+total - 8 days
+widget listing - 2 day
+page creation with 2 step wizard - 6 days
+save- 
+preview - 
+Page Listing -   3 days
+widget creation UI - 

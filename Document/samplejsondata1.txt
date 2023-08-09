@@ -1,0 +1,99 @@
+[
+      {
+        "name": "Amit",
+        "balance": "10000",
+        "Address": {
+          "Line1": "Address Line1",
+          "Line2": {
+            "city": "Mumbai",
+            "state": "Maharashtra"
+          }
+        },
+        "src": "assets/img.jpg"
+      },
+      {
+        "name": "Jay",
+        "balance": "20000",
+        "Address": {
+          "Line1": "Jay Address Line11",
+          "Line2": "Jay Address Line2"
+        }
+      }
+    ]
+
+
+ <table class="demo">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{for employees}}
+            <tr>
+              <td>{{:name}}</td>
+              <td>{{:balance}}</td>
+              <td>{{:Address.Line1}}</td>
+              <td>{{if Address.Line2.city}} {{:Address.Line2.city}} {{/if}}</td>
+              <td>{{if Address.Line2.state}} {{:Address.Line2.state}} {{/if}}</td>
+              <td><img class="imgcss" src={{:src}}></img></td>
+            </tr>
+          {{/for}}
+        </tbody>
+      </table>
+	  
+	  [{"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"},{"name":"Jay","balance":"20000","Address":{"Line1":"Address Line11","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"}];
+	  
+	  <div >
+	   {{for employees}}
+	  <div class="divdemo">name: - {{:name}}<br />
+				Balance: - {{:balance}}<br />
+				Address: - {{:Address.Line1}}<br />
+				{{:Address.Line2.city}}<br />
+				{{:Address.Line2.state}}<br />
+				<img src="{{:src}}" class="imgcss"/></div>
+  {{/for}}</div>
+
+**************Single object**************************
+"header":
+{"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"}
+
+
+{{for employees}}
+<div class="divdemo">name: - {{:name}}<br />
+Balance: - {{:balance}}<br />
+Address: - {{:Address.Line1}}<br />
+{{:Address.Line2.city}}<br />
+{{:Address.Line2.state}}<br />
+<img class="imgcss" src="{{:src}}" style="height:100px; width:100px" /></div>
+{{/for}}
+****************************************
+	   const jsonData = [
+      {
+        "name": "Amit",
+        "balance": "10000",
+        "Address": {
+          "Line1": "Address Line1",
+          "Line2": {
+            "city": "Mumbai",
+            "state": "Maharashtra"
+          }
+        },
+        "src": "assets/img.jpg"
+      },
+      {
+        "name": "Jay",
+        "balance": "20000",
+        "Address": {
+          "Line1": "Jay Address Line11",
+          "Line2": "Jay Address Line2"
+        }
+      }
+    ];
+	
+	
