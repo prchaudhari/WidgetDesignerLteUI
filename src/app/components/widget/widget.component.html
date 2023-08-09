@@ -1,0 +1,39 @@
+<div class="container">
+  <div>
+    <h5 style="float:left">Widget Designer</h5>
+  </div>
+
+  <div style="float:right">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <button class="btn btn-primary" type="button">
+        <a style="color:white" class="navbar-brand" href="widget/add">Add Widget </a></button>
+      </div>
+    </nav>
+  </div>
+  <!--<table class="table table-success table-striped" *ngIf="widget && widget.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Id#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <th scope="col">Color</th>
+        <th scope="col">Price</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let widget of widget">
+        <th>{{ widget.id }}</th>
+        <th>{{ widget.name }}</th>
+        <th>{{ widget.type }}</th>
+        <th>{{ widget.color }}</th>
+        <th>{{ widget.price | currency }}</th>
+        <th><a [routerLink]="['/widget','edit',widget.id]">Edit</a></th>
+        <th><a [routerLink]="[]" (click)="deleteWidget(widget.id)">Delete</a></th>
+      </tr>
+    </tbody>
+  </table>-->
+  <!--<p *ngIf="!widget || widget.length == 0">No Widget Found!</p>-->
+</div>

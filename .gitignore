@@ -40,3 +40,8 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/.vs/slnx.sqlite
+/.vs/widgetAdminLteUI/FileContentIndex
+/.vs/widgetAdminLteUI/config/applicationhost.config
+/.vs/VSWorkspaceState.json
+/.vs/widgetAdminLteUI/v17/.wsuo

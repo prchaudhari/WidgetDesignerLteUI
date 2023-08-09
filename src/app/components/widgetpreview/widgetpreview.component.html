@@ -1,0 +1,64 @@
+<button (onCloseClick)="bsModalRef.hide()"></button>
+<div>
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6">
+          <h1>Widget Preview</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content px-2">
+    <div>
+     
+    </div>
+
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <label style="width:150px">Change Theme:</label>
+            <div style="width:30%; float:left">
+
+              <select class="form-control"
+                      id="cssname"
+                      name="cssname"
+                      [(ngModel)]="cssname"
+                      (change)="changeCSS()"
+                      required>
+                <option value="assets/dynamicThemes/cssTheme1.css" selected>Theme1</option>
+                <option value="assets/dynamicThemes/cssTheme2.css">Theme2</option>
+                <option value="assets/dynamicThemes/cssTheme3.css">Theme3</option>
+              </select>
+            </div>
+            <div style="width:30%;float:right">
+              <button type="button"
+                      class="btn btn-primary"
+                      (click)="changeCSS()">
+                Change Theme
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="col-10">
+            <div style="width:100%" [innerHTML]="renderedTemplate"></div>
+          </div>
+        </div>
+        <div class="card-footer table-card-footer bg-light border-top">
+          <div class="row">
+            <div class="col-sm-4 col-12 text-sm-left text-center">
+            </div>
+
+            <div class="col-sm-4 col-12">
+              <div class="float-sm-right m-auto">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
