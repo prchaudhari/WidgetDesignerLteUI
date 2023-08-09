@@ -9,4 +9,8 @@ export interface Widget {
   WidgetIconUrl: string;
   width: number;
   height: number;
+  dataBindingJsonNode: string;
+  fontName: string;
+  startCol: number;
+  startRow: number;
 }

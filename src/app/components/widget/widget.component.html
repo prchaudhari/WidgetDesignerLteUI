@@ -7,10 +7,43 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <button class="btn btn-primary" type="button">
-        <a style="color:white" class="navbar-brand" href="widget/add">Add Widget </a></button>
+          <a style="color:white" class="navbar-brand" href="widget/add">Add Widget </a>
+        </button>
       </div>
     </nav>
   </div>
+  <br />
+  <br />
+  <br />
+  <section class="content" *ngIf="widget && widget.length > 0">
+    <div class="container-fluid">
+      <h5 class="mb-2">Available Widgets</h5>
+      <div class="row">
+        <div class="col-md-3 col-sm-4 col-4" *ngFor="let widget of widget">
+          <div class="info-box">
+            <span class="info-box-icon bg-info"><i [ngClass]=" widget.fontName"></i></span>
+            <div class="info-box-content">
+              <p>{{ widget.widgetName }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div _ngcontent-uwb-c5="" class="widget-card ng-star-inserted">
+  <div _ngcontent-uwb-c5="" class="hide-radio widget-icons">
+    <label _ngcontent-uwb-c5="">
+    <input _ngcontent-uwb-c5="" id="inputWidgetImage" name="widgetType" type="radio">
+    <span _ngcontent-uwb-c5="" class="fa fa-address-card-o">
+      </span>
+      </label>
+    </div>
+  <label _ngcontent-uwb-c5="" class="text-center width100 pt-2 m-0 widget-name">
+    Account Information
+    </label>
+  </div>
+
   <!--<table class="table table-success table-striped" *ngIf="widget && widget.length > 0">
     <thead>
       <tr>

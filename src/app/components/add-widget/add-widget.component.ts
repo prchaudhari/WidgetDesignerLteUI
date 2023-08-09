@@ -32,6 +32,10 @@ export class AddWidgetComponent {
     WidgetIconUrl: '',
     width: 0,
     height: 0,
+    dataBindingJsonNode: '',
+    fontName: '',
+    startCol: 0,
+    startRow: 0,
   };
 
   constructor(
