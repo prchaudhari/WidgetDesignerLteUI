@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, ViewEncapsulation,OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-JsRenderTry',
   templateUrl: './JsRenderTry.component.html',
@@ -15,6 +16,12 @@ export class JsRenderTryComponent {
   dataSourceJson: string = "";
   WidgetHtml: string = "";
   Showtry() {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Do you want to continue',
+      icon: 'error',
+      confirmButtonText: 'Cool'
+    })
     alert("hi");
     // JSON data
     const jsonData = [
