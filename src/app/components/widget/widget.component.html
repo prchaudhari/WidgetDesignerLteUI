@@ -15,7 +15,7 @@
   <br />
   <br />
   <br />
-  <!--<section class="content" *ngIf="widget && widget.length > 0">
+  <section class="content" *ngIf="widget && widget.length > 0">
     <div class="container-fluid">
       <h5 class="mb-2">Available Widgets</h5>
       <div class="row">
@@ -24,79 +24,82 @@
             <span class="info-box-icon bg-info"><i [ngClass]=" widget.fontName"></i></span>
             <div class="info-box-content">
               <p>{{ widget.widgetName }}</p>
-              <a [routerLink]="['/widget','edit',widget.id]">Edit</a>-->
-  <!--<a [routerLink]="[]" (click)="deleteWidget(widget.id)">Delete</a>-->
-  <!--</div>
+              <a [routerLink]="['/widget','edit',widget.id]">Edit</a>
+  <a [routerLink]="[]" (click)="deleteWidget(widget.id)">Delete</a>
+  </div>
           </div>
         </div>
       </div>
     </div>
-  </section>-->
+  </section>
 
   <h5 class="mb-2">Available Widgets</h5>
-  <!--<div class="card border-0 mb-2" *ngIf="widget && widget.length > 0">
-    <div class="card-body position-relative">
-      <div class="ng-starinserted">
-        <div class="row" *ngFor="let widget of widget">
-          <div class="col-sm-7">
-            <div class="widget-card ng-star-inserted">
-              <div class="hide-radio widget-icons">
-                <label>
-                  <span><i style='font-size:40px;' [ngClass]=" widget.fontName"></i></span>
-                </label>
-              </div>
-              <label class="text-center width100 pt-2 m-0 widget-name">
-                {{ widget.widgetName }}
-                <a [routerLink]="['/widget','edit',widget.id]">Edit</a>
+
+  <div _ngcontent-ath-c5="" class="card border-0 mb-2 card-shadow">
+   <div _ngcontent-ath-c5="" class="card-body position-relative">
+    <div _ngcontent-ath-c5="">
+     <div _ngcontent-ath-c5="">
+      <div _ngcontent-ath-c5="" class="row">
+       <div _ngcontent-ath-c5="" class="col-sm-7" *ngIf="widget && widget.length > 0">
+        <div _ngcontent-ath-c5="" class="widget-card" *ngFor="let widget of widget">
+         <div _ngcontent-ath-c5="" class="hide-radio widget-icons">
+          <label _ngcontent-ath-c5="">
+           <input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio">
+           <span _ngcontent-ath-c5="" class="info-box-icon bg-info">
+             <i [ngClass]=" widget.fontName"></i>
+           </span>
+            </label>
+           </div>
+         <label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">
+           {{ widget.widgetName }}
+           </label>
+          </div>
+         </div>
+       <div _ngcontent-ath-c5="" class="col-sm-5">
+        <div _ngcontent-ath-c5="" class="row">
+         <div _ngcontent-ath-c5="" class="col-sm-12">
+          <div _ngcontent-ath-c5="" class="mb-3">
+           <h6 _ngcontent-ath-c5="" class="mb-1">
+            Account Information
+             </h6>
+           <div _ngcontent-ath-c5="">
+            <label _ngcontent-ath-c5="" class="mb-0">
+             Description :
               </label>
+            <span _ngcontent-ath-c5="" class="ml-1">
+             Account Details
+              </span>
+             </div>
+           <div _ngcontent-ath-c5="">
+            <label _ngcontent-ath-c5="" class="mb-0">
+             Page Types :
+              </label>
+            <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
+             Home
+              </h6>
+            <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
+             Saving Account
+              </h6>
+            <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
+             Current Account
+              </h6>
+             </div>
             </div>
-          </div>
-          <div _ngcontent-ath-c5="" class="col-sm-5">
-            <div _ngcontent-ath-c5=""
-                 class="row">
-              <div _ngcontent-ath-c5="" class="col-sm-12">
-                <div _ngcontent-ath-c5=""
-                     class="mb-3">
-                  <h6 _ngcontent-ath-c5="" class="mb-1">
-                    Account Information
-                  </h6>
-                  <div _ngcontent-ath-c5="">
-                    <label _ngcontent-ath-c5="" class="mb-0">
-                      Description :
-                    </label>
-                    <span _ngcontent-ath-c5="" class="ml-1">Account Details</span>
-                  </div>
-                  <div _ngcontent-ath-c5="">
-                    <label _ngcontent-ath-c5="" class="mb-0">
-                      Page Types :
-                    </label>
-                    <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
-                      Home
-                    </h6>
-                    <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
-                      Saving Account
-                    </h6>
-                    <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
-                      Current Account
-                    </h6>
-                  </div>
-                </div>
-                <div _ngcontent-ath-c5="" class="card card-shadow preview-container float-right width100"
-                     style="position:initial;right:0;">
-                  <div _ngcontent-ath-c5="" class="card-body d-flex justify-content-center align-items-center">
-                    <img _ngcontent-ath-c5="" class="img-fluid" id="imgWidget" src="assets/images/AccountInfoWidget.PNG">
-                  </div>
-                </div>
-              </div>
+          <div _ngcontent-ath-c5="" class="card card-shadow preview-container float-right width100" style="position:initial;right:0;">
+           <div _ngcontent-ath-c5="" class="card-body d-flex justify-content-center align-items-center">
+            <img _ngcontent-ath-c5="" class="img-fluid" id="imgWidget" src="assets/images/AccountInfoWidget.PNG">
+             </div>
             </div>
+           </div>
           </div>
+         </div>
         </div>
+       </div>
+     <div _ngcontent-ath-c5="" class="row">
+       </div>
       </div>
-    </div>
-  </div>-->
-
-
-  <div _ngcontent-ath-c5="" class="card border-0 mb-2 card-shadow"><div _ngcontent-ath-c5="" class="card-body position-relative"><!----><div _ngcontent-ath-c5=""><!----><div _ngcontent-ath-c5=""><div _ngcontent-ath-c5="" class="row"><div _ngcontent-ath-c5="" class="col-sm-7"><!----><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="fa fa-address-card-o"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Account Information</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-AnalyticsWidget"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Analytics</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-AvailableBalanceWidget"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Current : Available Balance</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-widget-multi-column2"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Current Transaction</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="fa fa-address-book-o"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Customer Information</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="fa fa-image"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Image</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="fa fa-bell-o"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Reminder &amp; Recommendation</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-AvailableBalanceWidget"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Saving : Available Balance</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-widget-multi-column2"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Saving Transaction</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-widget-line-chart2"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Saving Trend</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-rp-production1"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Spending Trend</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="fa fa-code"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">StaticHtml</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-widget-single-column2"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Summary at Glance</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-rp-quality1"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Top 4 Income Sources</label></div><div _ngcontent-ath-c5="" class="widget-card"><div _ngcontent-ath-c5="" class="hide-radio widget-icons"><label _ngcontent-ath-c5=""><input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio"><span _ngcontent-ath-c5="" class="icon-videoWidget"></span></label></div><label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">Video</label></div></div><div _ngcontent-ath-c5="" class="col-sm-5"><div _ngcontent-ath-c5="" class="row"><div _ngcontent-ath-c5="" class="col-sm-12"><div _ngcontent-ath-c5="" class="mb-3"><!----><h6 _ngcontent-ath-c5="" class="mb-1">Account Information</h6><!----><div _ngcontent-ath-c5=""><label _ngcontent-ath-c5="" class="mb-0">Description : </label><span _ngcontent-ath-c5="" class="ml-1">Account Details</span></div><!----><div _ngcontent-ath-c5=""><label _ngcontent-ath-c5="" class="mb-0">Page Types :</label><!----><h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">Home</h6><h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">Saving Account</h6><h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">Current Account</h6></div></div><div _ngcontent-ath-c5="" class="card card-shadow preview-container float-right width100" style="position:initial;right:0;"><!----><div _ngcontent-ath-c5="" class="card-body d-flex justify-content-center align-items-center"><img _ngcontent-ath-c5="" class="img-fluid" id="imgWidget" src="assets/images/AccountInfoWidget.PNG"></div></div></div></div></div></div></div><div _ngcontent-ath-c5="" class="row"><!----></div></div></div></div>
+     </div>
+  </div>
 
   <p *ngIf="!widget || widget.length == 0">No Widget Found!</p>
 </div>
