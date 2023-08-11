@@ -1,17 +1,21 @@
-import { Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewChild, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
 import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
+import { FontAwesomeService } from 'src/app/services/font-awesome.service';
 @Component({
   selector: 'app-add-widget',
   templateUrl: './add-widget.component.html',
   styleUrls: ['./add-widget.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class AddWidgetComponent {
+export class AddWidgetComponent implements OnInit {
+  iconList: string[] = [
+    'search', 'home', 'user', // Add more icon names
+  ];
   selectedFile!: File;
   url: string = "assets/img.jpg";
   @ViewChild('renderTarget') renderTarget?: ElementRef;
@@ -21,6 +25,7 @@ export class AddWidgetComponent {
   WidgetHtml: string = "";
   cssname: string = "";
   imageFile: File;
+  iconClasses: string[] = [];
   newWidget: Widget = {
     id: 0,
     widgetName: '',
@@ -41,8 +46,15 @@ export class AddWidgetComponent {
   constructor(
     private http: HttpClient,
     private widgetService: WidgetService,
+    private fontAwesomeService: FontAwesomeService,
     private router: Router
   ) { }
+
+    ngOnInit(): void {
+      this.fontAwesomeService.getIconClassNames().subscribe((icons) => {
+        this.iconClasses = icons;
+      });
+    }
 
   appendCss(customData: string) {
 

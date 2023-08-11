@@ -21,7 +21,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-4 col-4" *ngFor="let widget of widget">
           <div class="info-box">
-            <span class="info-box-icon bg-info"><i [ngClass]=" widget.fontName"></i></span>
+            <span class="info-box-icon bg-info"><i [ngClass]="widget.fontName"></i></span>
             <div class="info-box-content">
               <p>{{ widget.widgetName }}</p>
               <a [routerLink]="['/widget','edit',widget.id]">Edit</a>
