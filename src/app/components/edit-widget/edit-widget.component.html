@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Add new widget</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="updateWidget()">
+        <div class="mb-3">
+          <label for="id" class="form-label">Id</label>
+          <input type="text" class="form-control bg-light" id="id" name="id" readonly [(ngModel)]="updateWidgetRequest.id" />
+        </div>
+        <div class="mb-3">
+          <label for="widgetName" class="form-label">Widget Name</label>
+          <input type="text" class="form-control" id="widgetName" name="widgetName" [(ngModel)]="updateWidgetRequest.widgetName" />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="description" name="description" [(ngModel)]="updateWidgetRequest.description" />
+        </div>
+        <div class="mb-3">
+          <label for="dataSourceJson" class="form-label">Data Source Json</label>
+          <input type="text" class="form-control" id="dataSourceJson" name="dataSourceJson" [(ngModel)]="updateWidgetRequest.dataSourceJson" />
+        </div>
+        <div class="mb-3">
+          <label for="WidgetHtml" class="form-label">Widget Html</label>
+          <input type="text" class="form-control" id="WidgetHtml" name="WidgetHtml" [(ngModel)]="updateWidgetRequest.WidgetHtml" />
+        </div>
+        <div class="mb-3">
+          <label for="widgetCSS" class="form-label">Widget CSS</label>
+          <input type="text" class="form-control" id="widgetCSS" name="widgetCSS" [(ngModel)]="updateWidgetRequest.widgetCSS" />
+        </div>
+        <div class="mb-3">
+          <label for="widgetCSSUrl" class="form-label">Widget CSS Url</label>
+          <input type="text" class="form-control" id="widgetCSSUrl" name="widgetCSSUrl" [(ngModel)]="updateWidgetRequest.widgetCSSUrl" />
+        </div>
+        <div class="mb-3">
+          <label for="WidgetIconUrl" class="form-label">Widget Icon Url</label>
+          <input type="text" class="form-control" id="WidgetIconUrl" name="WidgetIconUrl" [(ngModel)]="updateWidgetRequest.WidgetIconUrl" />
+        </div>
+        <div class="mb-3">
+          <label for="width" class="form-label">Width</label>
+          <input type="text" class="form-control" id="width" name="width" [(ngModel)]="updateWidgetRequest.width" />
+        </div>
+        <div class="mb-3">
+          <label for="height" class="form-label">Height</label>
+          <input type="text" class="form-control" id="height" name="height" [(ngModel)]="updateWidgetRequest.height" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+      <div class="card-body">
+        <button type="button" class="btn btn-success swalDefaultSuccess">
+          Launch Success Toast
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
