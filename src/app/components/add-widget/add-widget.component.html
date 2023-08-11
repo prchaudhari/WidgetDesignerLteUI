@@ -15,16 +15,6 @@
         </button>
       </div>
       <div style="width:30%">
-        <!--<select class="form-control"
-                #cssname
-                id="cssname"
-                name="cssname"
-                required>
-          <option value="" selected>Select One CSS file</option>
-          <option value="assets/dynamicThemes/cssTheme1" selected>Theme1</option>
-          <option value="assets/dynamicThemes/cssTheme2" selected>Theme2</option>
-          <option value="assets/dynamicThemes/cssTheme3" selected>Theme3</option>
-        </select>-->
       </div>
       <div [innerHTML]="renderedTemplate"></div>
     </div>
@@ -56,7 +46,7 @@
           </div>
           <div class="form-group row required mb-3">
             <label class="col-md-3 col-form-label" for="dataBindingJsonNode">
-              dataBindingJsonNode:
+              Data Binding Json Node:
             </label>
             <div class="col-md-9">
               <input type="text" class="form-control" id="dataBindingJsonNode" name="dataBindingJsonNode" [(ngModel)]="newWidget.dataBindingJsonNode" />
@@ -75,7 +65,7 @@
 
           <div class="form-group row required mb-3">
             <label class="col-md-3 col-form-label" for="">
-              Text Editor:
+              Widget Html:
             </label>
             <div class="col-md-9">
               <textarea typeof="text" style="width:100%" rows="10" id="WidgetHtml" name="WidgetHtml" [(ngModel)]="newWidget.WidgetHtml">
@@ -85,7 +75,7 @@
 
           <div class="form-group row required mb-3">
             <label class="col-md-3 col-form-label" for="">
-              WidgetIcon:
+              Widget Icon:
             </label>
             <div class="col-md-9">
               <img [src]="url" height="100" />
@@ -100,16 +90,6 @@
               <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName" />
             </div>
           </div>
-          <!--<div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="widgetCSS">
-              Widget CSS:
-            </label>
-            <div class="col-md-9">
-              <textarea type="text" class="form-control" id="widgetCSS" name="widgetCSS" #widgetCSS
-                        [(ngModel)]="newWidget.widgetCSS">
-              </textarea>
-            </div>
-          </div>-->
 
           <div class="form-group row required">
             <label class="col-md-3 col-form-label" for="width">

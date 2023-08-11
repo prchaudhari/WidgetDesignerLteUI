@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { JsRenderTryComponent } from './components/JsRenderTry/JsRenderTry.component';
 import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview.component';
-
+import { EditWidgetComponent } from './components/edit-widget/edit-widget.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +19,8 @@ import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview
     AddWidgetComponent,
     DashboardComponent,
     JsRenderTryComponent,
-    widgetpreviewComponent
+    widgetpreviewComponent,
+    EditWidgetComponent
   ],
   imports: [
     BrowserModule,

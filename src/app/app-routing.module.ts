@@ -5,6 +5,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WidgetComponent } from './components/widget/widget.component';
 import { JsRenderTryComponent } from './components/JsRenderTry/JsRenderTry.component';
 import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview.component';
+import { EditWidgetComponent } from './components/edit-widget/edit-widget.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: 'widgetpreview',
     component: widgetpreviewComponent
+  },
+  {
+    path: 'widget/edit/:id',
+    component: EditWidgetComponent
   }
 ];
 

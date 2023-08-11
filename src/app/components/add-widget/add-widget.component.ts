@@ -57,17 +57,21 @@ export class AddWidgetComponent {
     formData.append('description', this.newWidget.description);
     formData.append('dataSourceJson', this.newWidget.dataSourceJson);
     formData.append('WidgetHtml', this.newWidget.WidgetHtml);
+    formData.append('dataBindingJsonNode', this.newWidget.dataBindingJsonNode);
+    formData.append('fontName', this.newWidget.fontName);
     formData.append('width', this.newWidget.width.toString());
     formData.append('height', this.newWidget.height.toString());
+    formData.append('startCol', this.newWidget.startCol.toString());
+    formData.append('startRow', this.newWidget.startRow.toString());
     formData.append('WidgetIconUrl', this.imageFile);
     formData.append('dataBindingJsonNode', this.newWidget.dataBindingJsonNode.toString());
     formData.append('fontName', this.newWidget.fontName.toString());
     formData.append('startCol', this.newWidget.startCol.toString());
     formData.append('startRow', this.newWidget.startRow.toString());
     this.widgetService.addWidget(formData).subscribe({
-      next: (widget) => {
-        //1 this.router.navigate(['widget']);
+      next: (_widget) => {
         alert("data saved successfully");
+        this.router.navigate(['widget']);
       },
       error: (response) => {
         console.log(response);
