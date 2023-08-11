@@ -15,23 +15,23 @@
   <br />
   <br />
   <br />
-  <!--<section class="content" *ngIf="widget && widget.length > 0">
+  <section class="content" *ngIf="widget && widget.length > 0">
     <div class="container-fluid">
       <h5 class="mb-2">Available Widgets</h5>
       <div class="row">
         <div class="col-md-3 col-sm-4 col-4" *ngFor="let widget of widget">
           <div class="info-box">
-            <span class="info-box-icon bg-info"><i [ngClass]=" widget.fontName"></i></span>
+            <span class="info-box-icon bg-info"><i [ngClass]="widget.fontName"></i></span>
             <div class="info-box-content">
               <p>{{ widget.widgetName }}</p>
-              <a [routerLink]="['/widget','edit',widget.id]">Edit</a>-->
-  <!--<a [routerLink]="[]" (click)="deleteWidget(widget.id)">Delete</a>-->
-  <!--</div>
+              <a [routerLink]="['/widget','edit',widget.id]">Edit</a>
+  <a [routerLink]="[]" (click)="deleteWidget(widget.id)">Delete</a>
+  </div>
           </div>
         </div>
       </div>
     </div>
-  </section>-->
+  </section>
 
   <h5 class="mb-2">Available Widgets</h5>
   <!--<div class="card border-0 mb-2" *ngIf="widget && widget.length > 0">

@@ -87,6 +87,10 @@
               Font Name:
             </label>
             <div class="col-md-9">
+              <select>
+                <option *ngFor="let icon of iconClasses">{{ icon }}</option>
+              </select>
+
               <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName" />
             </div>
           </div>

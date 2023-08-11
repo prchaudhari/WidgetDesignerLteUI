@@ -27,7 +27,7 @@ export class WidgetComponent {
     });
   }
 
-  deleteWidget(id: string) {
+  deleteWidget(id: number) {
     this.widgetService.deleteWidget(Number(id)).subscribe({
       next: (response) => {
         let currentUrl = this.router.url;
