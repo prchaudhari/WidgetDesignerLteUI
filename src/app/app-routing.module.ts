@@ -6,6 +6,8 @@ import { WidgetComponent } from './components/widget/widget.component';
 import { JsRenderTryComponent } from './components/JsRenderTry/JsRenderTry.component';
 import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview.component';
 import { EditWidgetComponent } from './components/edit-widget/edit-widget.component';
+import { PageWizard1Component } from './components/page-wizard1/page-wizard1.component';
+import { PagesComponent } from './components/pages/pages.component';
 
 const routes: Routes = [
   {
@@ -39,7 +41,19 @@ const routes: Routes = [
   {
     path: 'widget/edit/:id',
     component: EditWidgetComponent
-  }
+  },
+  {
+    path: 'pages',
+    component: PagesComponent
+  },
+  {
+    path: 'page-wizard1',
+    component: PageWizard1Component
+  },
+  {
+    path: 'pages/add',
+    component: PageWizard1Component
+  },
 ];
 
 @NgModule({

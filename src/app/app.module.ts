@@ -12,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { JsRenderTryComponent } from './components/JsRenderTry/JsRenderTry.component';
 import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview.component';
 import { EditWidgetComponent } from './components/edit-widget/edit-widget.component';
+import { PageWizard1Component } from './components/page-wizard1/page-wizard1.component';
+import { PagesComponent } from './components/pages/pages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,9 @@ import { EditWidgetComponent } from './components/edit-widget/edit-widget.compon
     DashboardComponent,
     JsRenderTryComponent,
     widgetpreviewComponent,
-    EditWidgetComponent
+    EditWidgetComponent,
+    PageWizard1Component,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
