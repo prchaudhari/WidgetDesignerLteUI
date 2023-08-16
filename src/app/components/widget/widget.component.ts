@@ -9,8 +9,10 @@ import { WidgetService } from '../../services/widget.service';
   styleUrls: ['./widget.component.css']
 })
 export class WidgetComponent {
-   widget: Widget[] = [];
-
+  widget: Widget[] = [];
+  clickWidget: Widget;
+  url: string = "assets/sampledata1.png";
+  /*url: string = "assets/sampledata1.png";*/
     constructor(
     private widgetService: WidgetService,
     private router: Router
@@ -27,16 +29,30 @@ export class WidgetComponent {
     });
   }
 
-  deleteWidget(id: number) {
-    this.widgetService.deleteWidget(Number(id)).subscribe({
-      next: (response) => {
-        let currentUrl = this.router.url;
-        this.router
-          .navigateByUrl('/', { skipLocationChange: true })
-          .then(() => {
-            this.router.navigate([currentUrl]);
-          });
-      }
+  showWidget(id:number) {
+    this.widgetService.getWidget(id).subscribe({
+      next: (widget1) => {
+        this.clickWidget = widget1;
+      },
+      error: (response) => {
+        console.log(response);
+      },
     });
+  }
+
+  deleteWidget(id: number) {
+    if (confirm("Are you sure to delete ")) {
+
+      this.widgetService.deleteWidget(Number(id)).subscribe({
+        next: (response) => {
+          let currentUrl = this.router.url;
+          this.router
+            .navigateByUrl('/', { skipLocationChange: true })
+            .then(() => {
+              this.router.navigate([currentUrl]);
+            });
+        }
+      });
+    }
   }
 }

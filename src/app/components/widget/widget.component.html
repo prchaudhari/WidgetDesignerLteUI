@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" >
   <div>
-    <h5 style="float:left">Widget Designer</h5>
+    <h5 style="float:left">Available Widgets</h5>
   </div>
 
   <div style="float:right">
@@ -16,104 +16,73 @@
   <br />
   <br />
   <section class="content" *ngIf="widget && widget.length > 0">
-    <div class="container-fluid">
-      <h5 class="mb-2">Available Widgets</h5>
-      <div class="row">
-        <div class="col-md-3 col-sm-4 col-4" *ngFor="let widget of widget">
-          <div class="info-box">
-            <span class="info-box-icon bg-info"><i [ngClass]="widget.fontName"></i></span>
-            <div class="info-box-content">
-              <p>{{ widget.widgetName }}</p>
-              <a [routerLink]="['/widget','edit',widget.id]">Edit</a>
-  <a [routerLink]="[]" (click)="deleteWidget(widget.id)">Delete</a>
-  </div>
-          </div>
-        </div>
-      </div>
+    <div class="container-fluid" style="width:60%;float:left">
+      <table>
+        <tr>
+          <td>
+            <div class="row">
+              <div style="width:150px" *ngFor="let widget of widget">
+                <div class="info-box" style="border: 2px solid grey; border-radius: 10px; width: 100%" (click)="showWidget(widget.id)">
+                  <table style="width: 100%; text-align: center">
+                    <tr>
+                      <span style="width: 100%" class="info-box-icon"><i [ngClass]="widget.fontName"></i></span>
+                    </tr>
+                    <tr>
+                      {{ widget.widgetName }}
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
     </div>
   </section>
 
-  <h5 class="mb-2">Available Widgets</h5>
-
-  <div _ngcontent-ath-c5="" class="card border-0 mb-2 card-shadow">
-   <div _ngcontent-ath-c5="" class="card-body position-relative">
-    <div _ngcontent-ath-c5="">
-     <div _ngcontent-ath-c5="">
-      <div _ngcontent-ath-c5="" class="row">
-       <div _ngcontent-ath-c5="" class="col-sm-7" *ngIf="widget && widget.length > 0">
-        <div _ngcontent-ath-c5="" class="widget-card" *ngFor="let widget of widget">
-         <div _ngcontent-ath-c5="" class="hide-radio widget-icons">
-          <label _ngcontent-ath-c5="">
-           <input _ngcontent-ath-c5="" id="inputWidgetImage" name="widgetType" type="radio">
-           <span _ngcontent-ath-c5="" class="info-box-icon bg-info">
-             <i [ngClass]=" widget.fontName"></i>
-           </span>
-            </label>
-           </div>
-         <label _ngcontent-ath-c5="" class="text-center width100 pt-2 m-0 widget-name">
-           {{ widget.widgetName }}
-           </label>
-          </div>
-         </div>
-       <div _ngcontent-ath-c5="" class="col-sm-5">
-        <div _ngcontent-ath-c5="" class="row">
-         <div _ngcontent-ath-c5="" class="col-sm-12">
-          <div _ngcontent-ath-c5="" class="mb-3">
-           <h6 _ngcontent-ath-c5="" class="mb-1">
-            Account Information
-             </h6>
-           <div _ngcontent-ath-c5="">
-            <label _ngcontent-ath-c5="" class="mb-0">
-             Description :
-              </label>
-            <span _ngcontent-ath-c5="" class="ml-1">
-             Account Details
-              </span>
-             </div>
-           <div _ngcontent-ath-c5="">
-            <label _ngcontent-ath-c5="" class="mb-0">
-             Page Types :
-              </label>
-            <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
-             Home
-              </h6>
-            <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
-             Saving Account
-              </h6>
-            <h6 _ngcontent-ath-c5="" class="badge badge-secondary p-1 ml-1 mb-0">
-             Current Account
-              </h6>
-             </div>
-            </div>
-          <div _ngcontent-ath-c5="" class="card card-shadow preview-container float-right width100" style="position:initial;right:0;">
-           <div _ngcontent-ath-c5="" class="card-body d-flex justify-content-center align-items-center">
-            <img _ngcontent-ath-c5="" class="img-fluid" id="imgWidget" src="assets/images/AccountInfoWidget.PNG">
-             </div>
-            </div>
-           </div>
-          </div>
-         </div>
-        </div>
-       </div>
-     <div _ngcontent-ath-c5="" class="row">
-       </div>
-      </div>
-     </div>
-  </div>
+  <section class="content" *ngIf="widget && widget.length > 0">
+    <div class="container-fluid" style="width:40%;float:right">
+      <table>
+        <tr>
+          <td style="">
+              <div style="width: auto; padding:10px" >
+                <div>
+                  <table style="width: auto; text-align: left;padding-left:10px">
+                    <tr>
+                      <div _ngcontent-ath-c5="">
+                        <label _ngcontent-ath-c5="" class="mb-0">
+                          Widget Name :
+                        </label>
+                        <span _ngcontent-ath-c5="" class="ml-1">
+                          {{ clickWidget.widgetName }}
+                        </span>
+                        <a title="Edit" style="float:right;padding-right:30px" [routerLink]="['/widget','edit',clickWidget.id]"><i class="fas fa-pencil-alt"></i></a>
+                      </div>
+                      <div _ngcontent-ath-c5="">
+                        <label _ngcontent-ath-c5="" class="mb-0">
+                          Description :
+                        </label>
+                        <span _ngcontent-ath-c5="" class="ml-1">
+                          {{ clickWidget.description }}
+                        </span>
+                        <a title="Delete" style="float: right; padding-right:30px" (click)="deleteWidget(clickWidget.id)"><i class="fa-regular fa-trash-can"></i></a>
+                      </div>
+                    </tr>
+                    <tr style="height:10px">
+                    </tr>
+                    <tr style="text-align:center">
+                      <div style="border: 1px solid grey; border-radius: 20px;width:400px;padding:40px">
+                        <img style=" height:200px;width:300px" src="{{url}}" />
+                      </div>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </section>
 
   <p *ngIf="!widget || widget.length == 0">No Widget Found!</p>
 </div>
-<!--<div style="height:100px;width:120px" *ngFor="let widget of widget">
-
-  <div style="padding-top:8px" class="small-box bg-info">
-    &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-    <i style='font-size:40px;' [ngClass]=" widget.fontName"></i>
-    <br />
-    <br />-->
-<!--<a style="float:right" [routerLink]="['/widget','edit',widget.id]"><i class="fas fa-pencil-alt"></i></a>-->
-<!--<a href="#" class="small-box-footer">
-      {{ widget.widgetName }}
-    </a>
-
-  </div>
-</div>-->
