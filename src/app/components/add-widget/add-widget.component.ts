@@ -100,7 +100,7 @@ export class AddWidgetComponent implements OnInit {
     var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
    
     
-    const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ employees: jsonObject1 });
+    const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ abc:jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
     //const dataToSend = { key: renderedHtml }; // Data to be sent
     //const navigationExtras: NavigationExtras = {

@@ -15,37 +15,40 @@
   <br />
   <br />
   <br />
-  <section class="content" *ngIf="widget && widget.length > 0">
-    <div class="container-fluid" style="width:60%;float:left">
-      <table>
-        <tr>
-          <td>
-            <div class="row">
-              <div style="width:150px" *ngFor="let widget of widget">
-                <div class="info-box" style="border: 2px solid grey; border-radius: 10px; width: 100%" (click)="showWidget(widget.id)">
-                  <table style="width: 100%; text-align: center">
-                    <tr>
-                      <span style="width: 100%" class="info-box-icon"><i [ngClass]="widget.fontName"></i></span>
-                    </tr>
-                    <tr>
-                      {{ widget.widgetName }}
-                    </tr>
-                  </table>
+  <br />
+  <br />
+  <section  style="border: 2px solid red; border-radius: 10px;height:700px">
+    <section *ngIf="widget && widget.length > 0">
+      <div  style="width:60%;float:left">
+        <table>
+          <tr>
+            <td>
+              <div class="row">
+                <div style="width:150px" *ngFor="let widget of widget">
+                  <div class="info-box" style="border: 2px solid grey; border-radius: 10px; width: 100%" (click)="showWidget(widget.id)">
+                    <table style="width: 100%; text-align: center">
+                      <tr>
+                        <span style="width: 100%" class="info-box-icon"><i [ngClass]="widget.fontName"></i></span>
+                      </tr>
+                      <tr>
+                        {{ widget.widgetName }}
+                      </tr>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </section>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
 
-  <section class="content" *ngIf="widget && widget.length > 0">
-    <div class="container-fluid" style="width:40%;float:right">
-      <table>
-        <tr>
-          <td style="">
-              <div style="width: auto; padding:10px" >
+    <section  *ngIf="widget && widget.length > 0">
+      <div style="width:40%;float:right">
+        <table>
+          <tr>
+            <td style="">
+              <div style="width: auto; padding:10px">
                 <div>
                   <table style="width: auto; text-align: left;padding-left:10px">
                     <tr>
@@ -78,11 +81,11 @@
                   </table>
                 </div>
               </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
   </section>
-
   <p *ngIf="!widget || widget.length == 0">No Widget Found!</p>
 </div>
