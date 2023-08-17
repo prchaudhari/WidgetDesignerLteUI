@@ -53,9 +53,9 @@ export class EditWidgetComponent {
           this.widgetService.getWidget(Number(id)).subscribe({
             next: (widget) => {
               this.updateWidgetRequest = widget;
-              alert(widget.widgetIconUrl); 
+              //alert(widget.widgetIconUrl); 
               this.url = this.imagePath + widget.widgetIconUrl;
-              alert(this.url);
+             // alert(this.url);
             },
           });
         }
@@ -93,7 +93,7 @@ export class EditWidgetComponent {
     var jsonObject1: any = JSON.parse(this.updateWidgetRequest.dataSourceJson);
 
 
-    const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ employees: jsonObject1 });
+    const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ abc: jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
     //const dataToSend = { key: renderedHtml }; // Data to be sent
     //const navigationExtras: NavigationExtras = {

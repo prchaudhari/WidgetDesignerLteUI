@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
-
+import { AppConfig } from '../../../config';
 @Component({
   selector: 'app-widget',
   templateUrl: './widget.component.html',
@@ -11,7 +11,9 @@ import { WidgetService } from '../../services/widget.service';
 export class WidgetComponent {
   widget: Widget[] = [];
   clickWidget: Widget;
-  url: string = "assets/sampledata1.png";
+  imagePath: string = AppConfig.imagePath;
+  url: string = "";// "assets/img.jpg";
+ // url: string = "assets/sampledata1.png";
   /*url: string = "assets/sampledata1.png";*/
     constructor(
     private widgetService: WidgetService,
@@ -22,6 +24,9 @@ export class WidgetComponent {
     this.widgetService.getAllWidget().subscribe({
       next: (widget) => {
         this.widget = widget;
+        this.widget.forEach(node => {
+          node.widgetIconUrl = this.imagePath + node.widgetIconUrl;
+        });        
       },
       error: (response) => {
         console.log(response);
@@ -33,6 +38,7 @@ export class WidgetComponent {
     this.widgetService.getWidget(id).subscribe({
       next: (widget1) => {
         this.clickWidget = widget1;
+        this.clickWidget.widgetIconUrl = this.imagePath + this.clickWidget.widgetIconUrl;
       },
       error: (response) => {
         console.log(response);
