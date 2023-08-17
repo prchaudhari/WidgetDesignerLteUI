@@ -4,7 +4,7 @@ import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
 import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
-
+import { AppConfig } from '../../../config';
 
 @Component({
   selector: 'app-edit-widget',
@@ -13,7 +13,8 @@ import * as jsrender from 'jsrender';
 })
 export class EditWidgetComponent {
   selectedFile!: File;
-  url: string = "assets/img.jpg";
+  imagePath: string = AppConfig.imagePath;  
+  url: string = "";// "assets/img.jpg";
   imageFile: File;
   @ViewChild('renderTarget') renderTarget?: ElementRef;
   renderedTemplate = '';
@@ -26,10 +27,10 @@ export class EditWidgetComponent {
       widgetName: '',
       description: '',
       dataSourceJson: '',
-      WidgetHtml: '',
+    widgetHtml: '',
       widgetCSS: '',
       widgetCSSUrl: '',
-      WidgetIconUrl: '',
+    widgetIconUrl: '',
       width: 0,
       height: 0,
       dataBindingJsonNode: '',
@@ -52,6 +53,9 @@ export class EditWidgetComponent {
           this.widgetService.getWidget(Number(id)).subscribe({
             next: (widget) => {
               this.updateWidgetRequest = widget;
+              alert(widget.widgetIconUrl); 
+              this.url = this.imagePath + widget.widgetIconUrl;
+              alert(this.url);
             },
           });
         }
@@ -89,7 +93,7 @@ export class EditWidgetComponent {
     var jsonObject1: any = JSON.parse(this.updateWidgetRequest.dataSourceJson);
 
 
-    const renderedHtml = jsrender.templates(this.updateWidgetRequest.WidgetHtml).render({ employees: jsonObject1 });
+    const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ employees: jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
     //const dataToSend = { key: renderedHtml }; // Data to be sent
     //const navigationExtras: NavigationExtras = {

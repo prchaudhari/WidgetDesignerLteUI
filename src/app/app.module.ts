@@ -14,6 +14,7 @@ import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview
 import { EditWidgetComponent } from './components/edit-widget/edit-widget.component';
 import { PageWizard1Component } from './components/page-wizard1/page-wizard1.component';
 import { PagesComponent } from './components/pages/pages.component';
+import { AppConfig } from '../config';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,7 @@ import { PagesComponent } from './components/pages/pages.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{ provide: 'APP_CONFIG', useValue: AppConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

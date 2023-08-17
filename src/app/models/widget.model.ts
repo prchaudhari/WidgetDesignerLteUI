@@ -3,10 +3,10 @@ export interface Widget {
   widgetName: string;
   description: string;
   dataSourceJson: string;
-  WidgetHtml: string;
+  widgetHtml: string;
   widgetCSS: string;
   widgetCSSUrl: string;
-  WidgetIconUrl: string;
+  widgetIconUrl: string;
   width: number;
   height: number;
   dataBindingJsonNode: string;

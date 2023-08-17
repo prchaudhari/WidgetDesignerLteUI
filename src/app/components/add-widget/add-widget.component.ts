@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
 import { FontAwesomeService } from 'src/app/services/font-awesome.service';
+import { AppConfig } from '../../../config';
 @Component({
   selector: 'app-add-widget',
   templateUrl: './add-widget.component.html',
@@ -17,7 +18,9 @@ export class AddWidgetComponent implements OnInit {
     'search', 'home', 'user', // Add more icon names
   ];
   selectedFile!: File;
-  url: string = "assets/img.jpg";
+ 
+  imagePath: string = AppConfig.imagePath;
+  url: string = this.imagePath + "try.jpg";
   @ViewChild('renderTarget') renderTarget?: ElementRef;
   renderedTemplate = ''; // Store the rendered template here
   ckeditorContent: any;
@@ -31,10 +34,10 @@ export class AddWidgetComponent implements OnInit {
     widgetName: '',
     description: '',
     dataSourceJson: '',
-    WidgetHtml: '',
+    widgetHtml: '',
     widgetCSS: '',
     widgetCSSUrl: '',
-    WidgetIconUrl: '',
+    widgetIconUrl: '',
     width: 0,
     height: 0,
     dataBindingJsonNode: '',
@@ -54,6 +57,7 @@ export class AddWidgetComponent implements OnInit {
       this.fontAwesomeService.getIconClassNames().subscribe((icons) => {
         this.iconClasses = icons;
       });
+      alert(this.imagePath);
     }
 
   appendCss(customData: string) {
@@ -68,7 +72,7 @@ export class AddWidgetComponent implements OnInit {
     formData.append('widgetName', this.newWidget.widgetName);
     formData.append('description', this.newWidget.description);
     formData.append('dataSourceJson', this.newWidget.dataSourceJson);
-    formData.append('WidgetHtml', this.newWidget.WidgetHtml);
+    formData.append('WidgetHtml', this.newWidget.widgetHtml);
     formData.append('dataBindingJsonNode', this.newWidget.dataBindingJsonNode);
     formData.append('fontName', this.newWidget.fontName);
     formData.append('width', this.newWidget.width.toString());
@@ -100,7 +104,7 @@ export class AddWidgetComponent implements OnInit {
     var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
    
     
-    const renderedHtml = jsrender.templates(this.newWidget.WidgetHtml).render({ abc:jsonObject1 });
+    const renderedHtml = jsrender.templates(this.newWidget.widgetHtml).render({ abc:jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
     //const dataToSend = { key: renderedHtml }; // Data to be sent
     //const navigationExtras: NavigationExtras = {
@@ -132,13 +136,13 @@ export class AddWidgetComponent implements OnInit {
   }
 
   mapping(htmltext: string, jsonval: string, customizeFormData: string): void {
-    alert(this.newWidget.WidgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
+    alert(this.newWidget.widgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
     // var htmltext: string="";
     var jsonObject1: any = JSON.parse(jsonval);
 
     var newstr = "";
     // htmltext = this.newWidget.WidgetHtml;
-    newstr = this.newWidget.WidgetHtml;
+    newstr = this.newWidget.widgetHtml;
     this.htmltextvalue = newstr;
     if (!(jsonObject1 instanceof Array)) {
       var indices = getIndicesOf("@@", htmltext, true);

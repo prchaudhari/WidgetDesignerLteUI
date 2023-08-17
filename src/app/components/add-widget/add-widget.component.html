@@ -64,11 +64,11 @@
           </div>
 
           <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="WidgetHtml">
+            <label class="col-md-3 col-form-label" for="widgetHtml">
               Widget Html:                              
             </label>
             <div class="col-md-9">
-              <textarea typeof="text" style="width:100%" rows="10" id="WidgetHtml" name="WidgetHtml" [(ngModel)]="newWidget.WidgetHtml">
+              <textarea typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="newWidget.widgetHtml">
               </textarea>
             </div>
           </div>
@@ -79,6 +79,7 @@
             </label>
             <div class="col-md-9">
               <img [src]="url" height="100" />
+              <!--<img src="https://localhost:44381//uploads//a26ca398-160f-4a37-b7c6-7e1d6152add3.jpeg" height="100" />-->
               <input type="file" name="WidgetIconUrl" (change)="onselectFile($event)">
             </div>
           </div>
