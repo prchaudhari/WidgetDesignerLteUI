@@ -8,6 +8,7 @@ import { widgetpreviewComponent } from './components/widgetpreview/widgetpreview
 import { EditWidgetComponent } from './components/edit-widget/edit-widget.component';
 import { PageWizard1Component } from './components/page-wizard1/page-wizard1.component';
 import { PagesComponent } from './components/pages/pages.component';
+import { EditPageWizard1Component } from './components/edit-page-wizard1/edit-page-wizard1.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'pages/add',
     component: PageWizard1Component
+  },
+  {
+    path: 'page/edit/:id',
+    component: EditPageWizard1Component
   },
 ];
 

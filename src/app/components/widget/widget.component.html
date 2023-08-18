@@ -1,6 +1,11 @@
-<div class="container" >
+<div class="container">
   <div>
     <h5 style="float:left;padding-top:40px;padding-left:100px">Available Widgets</h5>
+  </div>
+
+
+  <div *ngIf="!(widget && widget.length > 0)" class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
   </div>
 
   <div style="float:right">
@@ -16,10 +21,10 @@
   <br />
   <br />
   <br />
- 
-  <section  style="border: 2px solid grey; border-radius: 10px;height:500px;padding-top:10px">
+
+  <section style="border: 2px solid grey; border-radius: 10px;height:500px;padding-top:10px">
     <section *ngIf="widget && widget.length > 0">
-      <div  style="width:60%;float:left">
+      <div style="width:60%;float:left">
         <table>
           <tr>
             <td>
@@ -43,7 +48,7 @@
       </div>
     </section>
 
-    <section  *ngIf="widget && widget.length > 0">
+    <section *ngIf="widget && widget.length > 0">
       <div style="width:40%;float:right">
         <table>
           <tr>
