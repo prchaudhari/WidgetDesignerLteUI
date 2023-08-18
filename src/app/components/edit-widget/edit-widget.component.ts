@@ -63,8 +63,21 @@ export class EditWidgetComponent {
     });
   }
   updateWidget() {
+    const formData = new FormData();
+    formData.append('widgetName', this.updateWidgetRequest.widgetName);
+    formData.append('description', this.updateWidgetRequest.description);
+    formData.append('dataSourceJson', this.updateWidgetRequest.dataSourceJson);
+    formData.append('WidgetHtml', this.updateWidgetRequest.widgetHtml);
+    formData.append('dataBindingJsonNode', this.updateWidgetRequest.dataBindingJsonNode);
+    formData.append('fontName', this.updateWidgetRequest.fontName);
+    formData.append('width', this.updateWidgetRequest.width.toString());
+    formData.append('height', this.updateWidgetRequest.height.toString());
+    formData.append('startCol', this.updateWidgetRequest.startCol.toString());
+    formData.append('startRow', this.updateWidgetRequest.startRow.toString());
+    formData.append('WidgetIconUrl', this.imageFile);
+   
     this.widgetService
-      .updateWidget(this.updateWidgetRequest.id, this.updateWidgetRequest)
+      .updateWidget(this.updateWidgetRequest.id, formData)
       .subscribe({
         next: (response) => {
           alert("data update successfully");

@@ -13,8 +13,7 @@ export class WidgetComponent {
   clickWidget: Widget;
   imagePath: string = AppConfig.imagePath;
   url: string = "";// "assets/img.jpg";
- // url: string = "assets/sampledata1.png";
-  /*url: string = "assets/sampledata1.png";*/
+ 
     constructor(
     private widgetService: WidgetService,
     private router: Router
@@ -26,12 +25,24 @@ export class WidgetComponent {
         this.widget = widget;
         this.widget.forEach(node => {
           node.widgetIconUrl = this.imagePath + node.widgetIconUrl;
-        });        
+        });
+
+        this.widgetService.getWidget(this.widget[0].id).subscribe({
+          next: (widget1) => {
+            this.clickWidget = widget1;
+            this.clickWidget.widgetIconUrl = this.imagePath + this.clickWidget.widgetIconUrl;
+          },
+          error: (response) => {
+            console.log(response);
+          },
+        });
       },
       error: (response) => {
         console.log(response);
       },
     });
+
+
   }
 
   showWidget(id:number) {

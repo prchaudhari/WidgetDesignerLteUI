@@ -30,7 +30,7 @@
                       <tr>
                         <span style="width: 100%" class="info-box-icon"><i [ngClass]="widget.fontName"></i></span>
                       </tr>
-                      <tr>
+                      <tr class="overflowtext" title="{{ widget.widgetName }}">
                         {{ widget.widgetName }}
                       </tr>
                     </table>
@@ -53,22 +53,25 @@
                   <table style="width: auto; text-align: left;padding-left:10px">
                     <tr>
                       <div _ngcontent-ath-c5="">
+
                         <label _ngcontent-ath-c5="" class="mb-0">
                           Widget Name :
                         </label>
                         <span _ngcontent-ath-c5="" class="ml-1">
                           {{ clickWidget.widgetName }}
                         </span>
-                        <a title="Edit" style="float:right;padding-right:30px" [routerLink]="['/widget','edit',clickWidget.id]"><i class="fas fa-pencil-alt"></i></a>
+                        <span style="float:right;">
+                          <a title="Edit" [routerLink]="['/widget','edit',clickWidget.id]"><i class="fas fa-pencil-alt"></i></a>&nbsp;&nbsp;
+                          <a title="Delete" (click)="deleteWidget(clickWidget.id)"><i class="fa-regular fa-trash-can"></i></a>
+                        </span>
                       </div>
                       <div _ngcontent-ath-c5="">
                         <label _ngcontent-ath-c5="" class="mb-0">
                           Description :
                         </label>
-                        <span _ngcontent-ath-c5="" class="ml-1">
+                        <span _ngcontent-ath-c5="" class="ml-3" style="width:50px">
                           {{ clickWidget.description }}
                         </span>
-                        <a title="Delete" style="float: right; padding-right:30px" (click)="deleteWidget(clickWidget.id)"><i class="fa-regular fa-trash-can"></i></a>
                       </div>
                     </tr>
                     <tr style="height:10px">

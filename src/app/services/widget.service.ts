@@ -29,8 +29,8 @@ export class WidgetService {
     return this.http.get<Widget>(this.baseApiUrl + '/api/widgets/' + id);
   }
 
-  updateWidget(id: number, updateWidgetRequest: Widget): Observable<Widget> {
-    return this.http.put<Widget>(this.baseApiUrl + '/api/widgets/' + id, updateWidgetRequest);
+  updateWidget(id: number, formData: FormData): Observable<Widget> {
+    return this.http.put<Widget>(this.baseApiUrl + '/api/widgets/' + id, formData);
   }
 
   deleteWidget(id: number): Observable<Widget> {
