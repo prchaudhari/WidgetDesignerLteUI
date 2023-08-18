@@ -1,6 +1,8 @@
 <div class="container">
-  <h1>Edit widget</h1>
-  <div class="rounded-3" style=" width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;     ">
+  <div>
+    <h2 style="text-align:center">Edit Widget </h2>
+  </div>
+  <div class="rounded-3" style=" width: 100%; border: 1px solid black; padding: 8px;">
     <div class="row">
       <!--<button type="button" (click)="ShowPreview()" class="btn btn-primary">Preview</button>&nbsp;&nbsp;-->
       <div style="width:10%;padding-left:10px">
@@ -16,96 +18,97 @@
       <div [innerHTML]="renderedTemplate"></div>
     </div>
   </div>
+  <div class="rounded-3" style="width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
+    <div class="row">
+      <div class="col-8">
+        <form #form="ngForm" (ngSubmit)="updateWidget()">
 
-  <div class="row">
-    <div class="col-6">
-      <form #form="ngForm" (ngSubmit)="updateWidget()">
-
-        <div class="form-group row required mb-3">
-          <label class="col-md-3 col-form-label" for="widgetName">
-            Widget Name:
-          </label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" id="widgetName" name="widgetName" [(ngModel)]="updateWidgetRequest.widgetName" />
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="widgetName">
+              Widget Name:
+            </label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" id="widgetName" name="widgetName" [(ngModel)]="updateWidgetRequest.widgetName" />
+            </div>
           </div>
-        </div>
 
-        <div class="form-group row required mb-3">
-          <label class="col-md-3 col-form-label" for="description">
-            Description:
-          </label>
-          <div class="col-md-9">
-            <textarea placeholder="Enter description" type="text" class="form-control" name="description"
-                      id="description"
-                      [(ngModel)]="updateWidgetRequest.description">
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="description">
+              Description:
+            </label>
+            <div class="col-md-9">
+              <textarea placeholder="Enter description" type="text" class="form-control" name="description"
+                        id="description"
+                        [(ngModel)]="updateWidgetRequest.description">
                  </textarea>
+            </div>
           </div>
-        </div>
-        <div class="form-group row required mb-3">
-          <label class="col-md-3 col-form-label" for="dataBindingJsonNode">
-            Data Binding Json Node:
-          </label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" id="dataBindingJsonNode" name="dataBindingJsonNode" [(ngModel)]="updateWidgetRequest.dataBindingJsonNode" />
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="dataBindingJsonNode">
+              Data Binding Json Node:
+            </label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" id="dataBindingJsonNode" name="dataBindingJsonNode" [(ngModel)]="updateWidgetRequest.dataBindingJsonNode" />
+            </div>
           </div>
-        </div>
-        <div class="form-group row required mb-3">
-          <label class="col-md-3 col-form-label" for="dataSourceJson">
-            Data Source Json:
-          </label>
-          <div class="col-md-9">
-            <textarea type="text" class="form-control" id="dataSourceJson" name="dataSourceJson" #dataSourceJson
-                      [(ngModel)]="updateWidgetRequest.dataSourceJson">
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="dataSourceJson">
+              Data Source Json:
+            </label>
+            <div class="col-md-9">
+              <textarea type="text" class="form-control" id="dataSourceJson" name="dataSourceJson" #dataSourceJson
+                        [(ngModel)]="updateWidgetRequest.dataSourceJson">
               </textarea>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group row required mb-3">
-          <label class="col-md-3 col-form-label" for="widgetHtml">
-            Widget Html:
-          </label>
-          <div class="col-md-9">
-            <textarea typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="updateWidgetRequest.widgetHtml">
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="widgetHtml">
+              Widget Html:
+            </label>
+            <div class="col-md-9">
+              <textarea typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="updateWidgetRequest.widgetHtml">
               </textarea>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group row required mb-3">
-          <label class="col-md-3 col-form-label" for="WidgetIconUrl">
-            Widget Icon:
-          </label>
-          <div class="col-md-9">
-            <img [src]="url" height="100" />
-            <input type="file" name="WidgetIconUrl" (change)="onselectFile($event)">
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="WidgetIconUrl">
+              Widget Icon:
+            </label>
+            <div class="col-md-9">
+              <img [src]="url" height="100" />
+              <input type="file" name="WidgetIconUrl" (change)="onselectFile($event)">
+            </div>
           </div>
-        </div>
-        <div class="form-group row required mb-3">
-          <label class="col-md-3 col-form-label" for="fontName">
-            Font Name:
-          </label>
-          <div class="col-md-9">
-            <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="updateWidgetRequest.fontName" />
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="fontName">
+              Font Name:
+            </label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="updateWidgetRequest.fontName" />
+            </div>
           </div>
-        </div>
 
-        <div class="form-group row required">
-          <label class="col-md-3 col-form-label" for="width">
-            Initial Width:
-          </label>
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="width" name="width" [(ngModel)]="updateWidgetRequest.width" />
+          <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="width">
+              Initial Width:
+            </label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="width" name="width" [(ngModel)]="updateWidgetRequest.width" />
+            </div>
+            <label class="col-md-2 col-form-label" for="height">
+              Initial Height:
+            </label>
+            <div class="col-md-3">
+              <input type="text" class="form-control" id="height" name="height" [(ngModel)]="updateWidgetRequest.height" />
+            </div>
           </div>
-          <label class="col-md-2 col-form-label" for="height">
-            Initial Height:
-          </label>
-          <div class="col-md-3">
-            <input type="text" class="form-control" id="height" name="height" [(ngModel)]="updateWidgetRequest.height" />
+          <div>
+            <button type="submit" class="btn btn-primary">Update</button>
           </div>
-        </div>
-        <div>
-          <button type="submit" class="btn btn-primary">Update</button>
-        </div>
-      </form>
+        </form>
+      </div>
+    </div>
     </div>
   </div>
-</div>
