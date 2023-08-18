@@ -1,17 +1,51 @@
-[]
 {
-"header":
-{
-	"src":"img.jpg"
-}
-"profile"
-{
-	[{"name":"sfksj","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"},{"name":"Jay","balance":"20000","Address":{"Line1":"Address Line11","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"}]
-}
-"aadharno"
-{
-	"no" : "123517265 12371289"
-}]
+      "title": "The A team",
+      "members": [
+        {
+          "name": "Pete",
+          "address": {
+            "city": "Seattle"
+          }
+        },
+        {
+          "name": "Heidi",
+          "address": {
+            "city": "Sidney"
+          }
+        }
+      ]
+    }
+	
+	<b>{{:title}}</b>
+<ul>
+  {{for members}}
+      <li>{{:name}} lives in <b>{{:address.city}}</b></li>
+  {{/for}}
+</ul>
+************************************************
+
+[
+      {
+        "name": "Amit",
+        "balance": "10000",
+        "Address": {
+          "Line1": "Address Line1",
+          "Line2": {
+            "city": "Mumbai",
+            "state": "Maharashtra"
+          }
+        },
+        "src": "assets/img.jpg"
+      },
+      {
+        "name": "Jay",
+        "balance": "20000",
+        "Address": {
+          "Line1": "Jay Address Line11",
+          "Line2": "Jay Address Line2"
+        }
+      }
+    ]
 
 
  <table class="demo">
@@ -56,14 +90,14 @@
 {"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"}
 
 
-{{for employees}}
-<div class="divdemo">name: - {{:name}}<br />
-Balance: - {{:balance}}<br />
-Address: - {{:Address.Line1}}<br />
-{{:Address.Line2.city}}<br />
-{{:Address.Line2.state}}<br />
-<img class="imgcss" src="{{:src}}" style="height:100px; width:100px" /></div>
-{{/for}}
+	{{for abc}}
+	<div class="divdemo">name: - {{:name}}<br />
+	Balance: - {{:balance}}<br />
+	Address: - {{:Address.Line1}}<br />
+	{{:Address.Line2.city}}<br />
+	{{:Address.Line2.state}}<br />
+	<img class="imgcss" src="{{:src}}" style="height:100px; width:100px" /></div>
+	{{/for}}
 ****************************************
 	   const jsonData = [
       {

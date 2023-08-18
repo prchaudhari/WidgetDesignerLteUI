@@ -43,7 +43,7 @@ export class widgetpreviewComponent implements OnInit
   loadhtml() {
     this.loadCSS();
    const token = localStorage.getItem('widgethtml');
-    //alert(token);
+    alert(token);
     this.renderedTemplate = token == null ? '' : token;
     //this.Activatedroute.queryParams.subscribe(params => {
     //  const data = params['css']; // Access the data

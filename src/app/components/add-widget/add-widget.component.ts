@@ -57,7 +57,7 @@ export class AddWidgetComponent implements OnInit {
       this.fontAwesomeService.getIconClassNames().subscribe((icons) => {
         this.iconClasses = icons;
       });
-      alert(this.imagePath);
+      //alert(this.imagePath);
     }
 
   appendCss(customData: string) {
@@ -102,9 +102,11 @@ export class AddWidgetComponent implements OnInit {
   ShowPreview(cssName:string) {
   
     var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
-   
-    
-    const renderedHtml = jsrender.templates(this.newWidget.widgetHtml).render({ abc:jsonObject1 });
+    var tagname: string = "abc";
+    this.newWidget.widgetHtml = "{{for " +tagname+ "}}" + this.newWidget.widgetHtml;
+    this.newWidget.widgetHtml = this.newWidget.widgetHtml + "{{/for}}";
+    const renderedHtml = jsrender.templates(this.newWidget.widgetHtml).render({ [tagname]:jsonObject1 });
+    //alert(renderedHtml);
     localStorage.setItem('widgethtml', renderedHtml);
     //const dataToSend = { key: renderedHtml }; // Data to be sent
     //const navigationExtras: NavigationExtras = {
