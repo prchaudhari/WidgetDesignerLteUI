@@ -26,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          {{for employees}}
+          {{for abc}}
             <tr>
               <td>{{:name}}</td>
               <td>{{:balance}}</td>

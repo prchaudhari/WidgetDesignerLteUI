@@ -57,7 +57,6 @@ export class AddWidgetComponent implements OnInit {
       this.fontAwesomeService.getIconClassNames().subscribe((icons) => {
         this.iconClasses = icons;
       });
-      alert(this.imagePath);
     }
 
   appendCss(customData: string) {
