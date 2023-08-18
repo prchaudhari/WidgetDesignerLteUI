@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Widget } from '../models/widget.model';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { PageWidgetsDetails } from '../models/pagewidgetsdetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,9 @@ export class WidgetService {
     // Replace with your backend API endpoint that serves the list of files
     //alert("servcies");
     return this.http.get<string[]>('/api/assets/dynamicThemes');
+  }
+  getPageWidgets(id:number): Observable<PageWidgetsDetails[]> {
+    return this.http.get<PageWidgetsDetails[]>(this.baseApiUrl + '/api/widgets/pagewidgets/' + id);
   }
 
 }
