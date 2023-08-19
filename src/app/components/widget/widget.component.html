@@ -29,8 +29,9 @@
           <tr>
             <td>
               <div class="row">
-                <div style="width:150px" *ngFor="let widget of widget">
-                  <div class="info-box" style="border: 2px solid grey; border-radius: 10px; width: 100%" (click)="showWidget(widget.id)">
+                <div style="width:150px" *ngFor="let widget of widget;
+                     let i = index">
+                  <div (click)="setRow(i)" [ngClass]="{'highlight': selectedIndex === i}" class="info-box" style="border: 2px solid grey; border-radius: 10px; width: 100%" (click)="showWidget(widget.id)">
                     <table style="width: 100%; text-align: center">
                       <tr>
                         <span style="width: 100%" class="info-box-icon"><i [ngClass]="widget.fontName"></i></span>

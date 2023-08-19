@@ -13,6 +13,7 @@ export class WidgetComponent {
   clickWidget: Widget;
   imagePath: string = AppConfig.imagePath;
   url: string = "";// "assets/img.jpg";
+    selectedIndex: number;
  
     constructor(
     private widgetService: WidgetService,
@@ -71,5 +72,9 @@ export class WidgetComponent {
         }
       });
     }
+  }
+
+  public setRow(_index: number) {
+    this.selectedIndex = _index;
   }
 }

@@ -5,3 +5,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.highlight {
+  background-color: lightsteelblue;
+}
