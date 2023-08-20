@@ -1,25 +1,46 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
-import { GridStack } from 'gridstack'; // Import Gridstack module type
 import { Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
+import { GridStack, GridStackOptions } from "gridstack";
+
+import { GridStackWidget } from "gridstack/dist/types";
+
+type GridMode = "edit" | "view";
 
 @Component({
   selector: 'app-add-page',
   templateUrl: './add-page.component.html',
   styleUrls: ['./add-page.component.css']
 })
-export class AddPageComponent {
+export class AddPageComponent implements OnInit, AfterViewInit {
  
   widget: Widget[] = [];
   constructor(
     private widgetService: WidgetService,
     private router: Router
   ) { }
-  
+
+  private gridStackOptions: GridStackOptions = {
+    disableResize: false,
+    disableDrag: false,
+    margin: 18,
+    column: 4,
+    cellHeight: 108
+  };
+
+  mode: GridMode = "edit";
+  items: GridStackWidget[] = [];
+  time: Date;
+  grid: GridStack;
+
+
+  ngAfterViewInit(): void {
+    this.grid = GridStack.init(this.gridStackOptions);
+  }
 
   ngOnInit(): void {
     // Your initialization logic
@@ -54,7 +75,9 @@ export class AddPageComponent {
       animate: true, // You can customize options based on your requirements
       draggable: {
         handle: '.grid-stack-item-content' // Use your specific handle class here
+
       }
+
     }, '#advanced-grid')
       .load(advanced);
 
@@ -64,8 +87,7 @@ export class AddPageComponent {
 
 
 
-
-
+   
 
 
   }
