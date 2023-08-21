@@ -37,5 +37,5 @@ export class PagesService {
   deletePage(id: number): Observable<Pages> {
     return this.http.delete<Pages>(this.baseApiUrl + '/api/pages/' + id);
   } 
-
+  //g
 }
