@@ -32,9 +32,7 @@ import { NgModule } from '@angular/core';
     PagesComponent,
     EditPageWizard1Component,
     AddPageComponent,
-    pagepreviewComponent
-    AddPageComponent,
-    
+    pagepreviewComponent,
   ],
   imports: [
     BrowserModule,
