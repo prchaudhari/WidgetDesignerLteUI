@@ -8,7 +8,7 @@ import { PageModel } from '../models/pagesmodel.model';
   providedIn: 'root'
 })
 export class PagesService {
-  baseApiUrl: string = "https://localhost:7296";
+  baseApiUrl: string = "https://localhost:44381";
 
   constructor(private http: HttpClient) { }
 

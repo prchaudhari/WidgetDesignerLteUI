@@ -1,3 +1,22 @@
+page level datason data
+
+{
+"header":
+{
+	"src":"img.jpg"
+}
+"profile"
+{
+	[{"name":"sfksj","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"},{"name":"Jay","balance":"20000","Address":{"Line1":"Address Line11","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"}]
+}
+"aadharno"
+{
+	"no" : "123517265 12371289"
+}
+
+
+
+
 Widget Desinger -
 Page (table)
 Id -1

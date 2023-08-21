@@ -15,6 +15,7 @@ import { PagesComponent } from './components/pages/pages.component';
 import { AppConfig } from '../config';
 import { EditPageWizard1Component } from './components/edit-page-wizard1/edit-page-wizard1.component';
 import { AddPageComponent } from './components/add-page/add-page.component';
+import { pagepreviewComponent } from './components/pagepreview/pagepreview.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -30,6 +31,8 @@ import { NgModule } from '@angular/core';
     PageWizard1Component,
     PagesComponent,
     EditPageWizard1Component,
+    AddPageComponent,
+    pagepreviewComponent
     AddPageComponent,
     
   ],
