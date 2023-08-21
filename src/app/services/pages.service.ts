@@ -8,7 +8,7 @@ import { PageModel } from '../models/pagesmodel.model';
   providedIn: 'root'
 })
 export class PagesService {
-  baseApiUrl: string = "https://localhost:7296";
+  baseApiUrl: string = "https://localhost:44381";
 
   constructor(private http: HttpClient) { }
 
@@ -16,9 +16,9 @@ export class PagesService {
     return this.http.get<Pages[]>(this.baseApiUrl + '/api/pages');
   }
 
-  addPage(formData: FormData) {
+  addPage(formData: any) {
     //newWidget.id = '00000000-0000-0000-0000-000000000000';  
-    return this.http.post<Pages>(this.baseApiUrl + '/api/page', formData);
+    return this.http.post<Pages>(this.baseApiUrl + '/api/pages', formData);
   }
   //addWidget(formData: FormData) {
   //  return this.http.post(this.baseApiUrl + '/api/pages', formData);

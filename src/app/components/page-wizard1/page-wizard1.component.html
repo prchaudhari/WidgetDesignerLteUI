@@ -6,49 +6,50 @@
   <div class="rounded-3" style="width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
     <div class="row">
       <div class="col-8">
-        <form #form="ngForm">
+      
+          <form #form="ngForm" (ngSubmit)="addPage(form.value)">
 
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="">
-              Page Name:
-            </label>
-            <div class="col-md-9">
-              <input type="text" class="form-control" id="" name=""  />
+            <div class="form-group row required mb-3">
+              <label class="col-md-3 col-form-label" for="">
+                Page Name:
+              </label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" id="pageName" name="pageName" ngModel/>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="description">
-              Description:
-            </label>
-            <div class="col-md-9">
-              <textarea placeholder="Enter description" type="text" class="form-control" name="description"
-                        id="description">
+            <div class="form-group row required mb-3">
+              <label class="col-md-3 col-form-label" for="description">
+                Description:
+              </label>
+              <div class="col-md-9">
+                <textarea placeholder="Enter description" type="text" class="form-control" name="description"
+                          id="description" ngModel>
                  </textarea>
+              </div>
             </div>
-          </div>
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="dataSourceJson">
-              Data Source Json:
-            </label>
-            <div class="col-md-9">
-              <textarea type="text" class="form-control" id="dataSourceJson" name="dataSourceJson" #dataSourceJson
-                        >
+            <div class="form-group row required mb-3">
+              <label class="col-md-3 col-form-label" for="dataSourceJson">
+                Data Source Json:
+              </label>
+              <div class="col-md-9">
+                <textarea type="text" class="form-control" id="dataSourceJson" name="dataSourceJson" #dataSourceJson ngModel>
               </textarea>
+              </div>
             </div>
-          </div>         
-          <div>
-            <button class="btn btn-primary" type="button">
-              <a style="color:white" class="navbar-brand" (click)="addPage()" href="pages/addpage">Next</a>
-            </button>
-            &nbsp;
+            <div>
+              <button style="color:white" class="btn btn-primary navbar-brand" type="submit">
+               Next
+              </button>
+              &nbsp;
 
-            <button class="btn btn-primary" type="button">
-              <a style="color:white" class="navbar-brand" href="pages">Cancel</a>
-            </button>
-          </div>
-        </form>
-      </div>
+              <button    class="navbar-brand btn btn-primary navbar-brand" type="button">
+                <a style="color:white" href="pages">Cancel</a>
+              </button>
+            </div>
+          </form>
+</div>
     </div>
   </div>
 </div>
+<h2>{{ form.value|json}} </h2>
