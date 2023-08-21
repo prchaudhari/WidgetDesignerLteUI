@@ -108,7 +108,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
   }
 
- 
+  showPreview() {
+    this.router.navigate(['pagepreview']);
+  }
 
   saveAndUpdatePageWidgetContent() {
     
