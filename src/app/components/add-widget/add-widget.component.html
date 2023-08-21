@@ -87,34 +87,60 @@
             <label class="col-md-3 col-form-label" for="fontName">
               Font Name:
             </label>
-            <div class="col-md-9">
-              <select>
-                <option *ngFor="let icon of iconClasses">{{ icon }}</option>
-              </select>
 
-              <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName" />
-            </div>
+            <ng-select [items]="options" for="fontName" [(ngModel)]="newWidget.fontName">
+              <ng-option *ngFor="let option of options" [value]="option.id">{{option.fontName}}></ng-option>
+            </ng-select>
+
+            <!--<ng-select [items]="iconList" appendTo="body"
+   placeholder="Select Fruits"></ng-select>-->
+            <!--<div class="dropdown h-10" class="statusDropdownContainer">
+  <a class="btn btn-white dropdown-toggle mb-2 statusFilterDropdown h-10 flex-middle" href="#" role="button"
+     id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="text-truncate">Expert: {{selectedValue ? selectedValue : 'All'}}</span>
+  </a>
+  <div class="dropdown-menu w-10 pt-0" aria-labelledby="dropdownMenuButton">
+    <input type="text" class="w-10 p-2 searchInput" [ngModel]="searchValue" (ngModelChange)="filterDropdown($event)">
+    <a *ngFor="let option of filteredOptions; let i=index" class="dropdown-item pointer text-contain"
+       [ngClass]="{'alternateBackground': i%2 == 0 }" (click)="selectValue(option.fontName)">
+      {{option.fontName}}
+    </a>
+    <div *ngIf="filteredOptions.length <=0" class="text-center text-muted mt-1">No expert found</div>
+  </div>
+  </div>-->
+            <!--<input type="text" placeholder="Search" (input)="filterOptions($event)">
+  <select [(ngModel)]="selectedOption">
+    <option value="" disabled>Select an option</option>
+    <option *ngFor="let option of filteredOptions" [value]="option.fontClass">{{ option.fontName }}</option>
+    </select>-->
+            <!--<div class="col-md-9">
+    <select [(ngModel)]="selectedValue">
+      <option *ngFor="let icon of filteredOptions" [value]="icon.fontName">{{ icon.fontName }}</option>
+    </select>
+    <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName" />
+    {{selectedValue}}
+  </div>-->
           </div>
 
-          <div class="form-group row required">
-            <label class="col-md-3 col-form-label" for="width">
-              Initial Width:
-            </label>
-            <div class="col-md-4">
-              <input type="text" class="form-control" id="width" name="width" [(ngModel)]="newWidget.width" />
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="width">
+                Initial Width:
+              </label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="width" name="width" [(ngModel)]="newWidget.width" />
+              </div>
+              <label class="col-md-2 col-form-label" for="height">
+                Initial Height:
+              </label>
+              <div class="col-md-3">
+                <input type="text" class="form-control" id="height" name="height" [(ngModel)]="newWidget.height" />
+              </div>
             </div>
-            <label class="col-md-2 col-form-label" for="height">
-              Initial Height:
-            </label>
-            <div class="col-md-3">
-              <input type="text" class="form-control" id="height" name="height" [(ngModel)]="newWidget.height" />
-            </div>
-          </div>
-          <div>
+            <div>
 
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </form>
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+</form>
       </div>
     </div>
 

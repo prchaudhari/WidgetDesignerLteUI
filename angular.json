@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@ng-select/ng-select/themes/default.theme.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
@@ -36,7 +37,7 @@
               "node_modules/ngx-toastr/toastr.css",
               "node_modules/gridstack/dist/gridstack-extra.css",
               "node_modules/gridstack/dist/gridstack.min.css"
-              
+
             ],
             "scripts": [
               "node_modules/admin-lte/plugins/jquery/jquery.min.js",

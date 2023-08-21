@@ -8,7 +8,7 @@ import { PageWidgetsDetails } from '../models/pagewidgetsdetails.model';
   providedIn: 'root'
 })
 export class WidgetService {
-  baseApiUrl: string = "https://localhost:7296";
+  baseApiUrl: string = "https://localhost:44381";
 
   constructor(private http: HttpClient) { }
 
