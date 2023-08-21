@@ -1,0 +1,10 @@
+::ng-deep .grid-stack-item-content .ui-draggable-handle {
+  background-color: #454d55;
+}
+
+::ng-deep .grid-stack > .grid-stack-item > .grid-stack-item-content {
+  background-color: #454d55;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 3px #0000000a;
+  background: #454d55 !important;
+}

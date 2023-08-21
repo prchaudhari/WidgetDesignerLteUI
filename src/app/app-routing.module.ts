@@ -9,6 +9,7 @@ import { EditWidgetComponent } from './components/edit-widget/edit-widget.compon
 import { PageWizard1Component } from './components/page-wizard1/page-wizard1.component';
 import { PagesComponent } from './components/pages/pages.component';
 import { EditPageWizard1Component } from './components/edit-page-wizard1/edit-page-wizard1.component';
+import { AddPageComponent } from './components/add-page/add-page.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,12 @@ const routes: Routes = [
     path: 'pages/add',
     component: PageWizard1Component
   },
+  {
+    path: 'pages/addpage',
+    component: AddPageComponent
+  },
+
+
   {
     path: 'page/edit/:id',
     component: EditPageWizard1Component

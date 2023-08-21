@@ -16,6 +16,7 @@ import { PageWizard1Component } from './components/page-wizard1/page-wizard1.com
 import { PagesComponent } from './components/pages/pages.component';
 import { AppConfig } from '../config';
 import { EditPageWizard1Component } from './components/edit-page-wizard1/edit-page-wizard1.component';
+import { AddPageComponent } from './components/add-page/add-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { EditPageWizard1Component } from './components/edit-page-wizard1/edit-pa
     EditWidgetComponent,
     PageWizard1Component,
     PagesComponent,
-    EditPageWizard1Component
+    EditPageWizard1Component,
+    AddPageComponent
   ],
   imports: [
     BrowserModule,
