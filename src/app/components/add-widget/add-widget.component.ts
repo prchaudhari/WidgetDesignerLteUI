@@ -7,6 +7,8 @@ import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
 import { FontAwesomeService } from 'src/app/services/font-awesome.service';
 import { AppConfig } from '../../../config';
+import { FontsService } from '../../services/fonts.service ';
+import { Fonts } from '../../models/fonts.model ';
 @Component({
   selector: 'app-add-widget',
   templateUrl: './add-widget.component.html',
@@ -15,10 +17,15 @@ import { AppConfig } from '../../../config';
 })
 export class AddWidgetComponent implements OnInit {
   iconList: string[] = [
-    'search', 'home', 'user', // Add more icon names
+    'search', 'home', 'user',// Add more icon names
   ];
+  selectedCity: any;
+  selectedCityIds: string[];
+  selectedCityName = 'Vilnius';
+  selectedCityId: number;
+  selectedUserIds: number[];
   selectedFile!: File;
- 
+  selectedValue: string = '';
   imagePath: string = AppConfig.imagePath;
   url: string = this.imagePath + "try.jpg";
   @ViewChild('renderTarget') renderTarget?: ElementRef;
@@ -28,7 +35,11 @@ export class AddWidgetComponent implements OnInit {
   WidgetHtml: string = "";
   cssname: string = "";
   imageFile: File;
-  iconClasses: string[] = [];
+  options: Fonts[] = [];
+  filteredOptions: Fonts[] = [];
+  selectedOption: string = '';
+  public searchValue: any;
+
   newWidget: Widget = {
     id: 0,
     widgetName: '',
@@ -49,13 +60,19 @@ export class AddWidgetComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private widgetService: WidgetService,
+    private fontsService: FontsService,
     private fontAwesomeService: FontAwesomeService,
     private router: Router
   ) { }
 
-    ngOnInit(): void {
-      this.fontAwesomeService.getIconClassNames().subscribe((icons) => {
-        this.iconClasses = icons;
+  ngOnInit(): void {
+    //this.fontsService.getAllFonts().subscribe((icons) => {
+    //  this.iconClasses = icons;
+    //});
+      this.fontsService.getAllFonts().subscribe(options => {
+        this.options = options;
+        this.filteredOptions = [...options];
+     
       });
       //alert(this.imagePath);
     }
@@ -93,6 +110,34 @@ export class AddWidgetComponent implements OnInit {
         console.log(response);
       },
     });
+  }
+
+
+  filterDropdown(e: Event) {
+    console.log("e in filterDropdown -------> ", e);
+    window.scrollTo(window.scrollX, window.scrollY + 1);
+    let searchString = (e.target as HTMLInputElement).value.toLowerCase();
+    if (!searchString) {
+      this.filteredOptions = this.filteredOptions.slice();
+      return;
+    } else {
+      this.filteredOptions = this.filteredOptions.filter(
+        user => user.fontName.toLowerCase().indexOf(searchString) > -1
+      );
+    }
+    window.scrollTo(window.scrollX, window.scrollY - 1);
+    console.log("this.filteredList indropdown -------> ", this.filteredOptions);
+  }
+
+  selectValue(name: string) {
+    this.selectedValue = name;
+  }
+
+  filterOptions(event: Event): void {
+    const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
+    this.filteredOptions = this.options.filter(option =>
+      option.fontName.toLowerCase().includes(searchTerm)
+    );
   }
   
   goToNewPage(css :string): void {

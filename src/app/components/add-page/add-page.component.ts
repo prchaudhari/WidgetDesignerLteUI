@@ -50,7 +50,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   constructor(
     private pagesService: PagesService,
     private widgetService: WidgetService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {
     this.getState = location.getState(); // Assign value to getState
   }
@@ -105,7 +106,14 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     });
   }
 
+
   // Function to save and update page widget content
+
+  showPreview() {
+    this.router.navigate(['pagepreview']);
+  }
+
+
   saveAndUpdatePageWidgetContent() {
     const items = $(".grid-stack .grid-stack-item");
     const itemsArray = Array.from(items);
