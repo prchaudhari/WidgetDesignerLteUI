@@ -19,6 +19,22 @@ type GridMode = "edit" | "view";
 export class AddPageComponent implements OnInit, AfterViewInit {
  
   widget: Widget[] = [];
+  //newPage: Page = {
+  //  id: 0,
+  //  widgetName: '',
+  //  description: '',
+  //  dataSourceJson: '',
+  //  widgetHtml: '',
+  //  widgetCSS: '',
+  //  widgetCSSUrl: '',
+  //  widgetIconUrl: '',
+  //  width: 0,
+  //  height: 0,
+  //  dataBindingJsonNode: '',
+  //  fontName: '',
+  //  startCol: 0,
+  //  startRow: 0,
+  //};
   constructor(
     private widgetService: WidgetService,
     private router: Router
@@ -91,12 +107,35 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
 
   }
-  saveAndUpdateWidgetContent() {
-    const items = $(".grid-stack .grid-stack-item");
 
-      console.log(items);
-   
+ 
 
+  saveAndUpdatePageWidgetContent() {
+    
+  //  const formData = new FormData();
+  //  formData.append('widgetName', this.updateWidgetRequest.widgetName);
+  //  formData.append('description', this.updateWidgetRequest.description);
+  //  formData.append('dataSourceJson', this.updateWidgetRequest.dataSourceJson);
+  //  formData.append('WidgetHtml', this.updateWidgetRequest.widgetHtml);
+  //  formData.append('dataBindingJsonNode', this.updateWidgetRequest.dataBindingJsonNode);
+  //  formData.append('fontName', this.updateWidgetRequest.fontName);
+  //  formData.append('width', this.updateWidgetRequest.width.toString());
+  //  formData.append('height', this.updateWidgetRequest.height.toString());
+  //  formData.append('startCol', this.updateWidgetRequest.startCol.toString());
+  //  formData.append('startRow', this.updateWidgetRequest.startRow.toString());
+  //  formData.append('WidgetIconUrl', this.imageFile);
+
+  //  this.widgetService
+  //    .updateWidget(this.updateWidgetRequest.id, formData)
+  //    .subscribe({
+  //      next: (response) => {
+  //        alert("data update successfully");
+  //        this.router.navigate(['widget']);
+  //      },
+  //      error: (error) => {
+  //        console.log(error);
+  //      },
+  //    });
   }
 
  

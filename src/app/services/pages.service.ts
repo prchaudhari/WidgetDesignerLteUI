@@ -16,13 +16,14 @@ export class PagesService {
     return this.http.get<Pages[]>(this.baseApiUrl + '/api/pages');
   }
 
-  addPage(newPage: PageModel): Observable<PageModel> {
+  addPage(formData: FormData) {
     //newWidget.id = '00000000-0000-0000-0000-000000000000';  
-    return this.http.post<PageModel>(this.baseApiUrl + '/api/pages', newPage);
+    return this.http.post<Pages>(this.baseApiUrl + '/api/page', formData);
   }
   //addWidget(formData: FormData) {
   //  return this.http.post(this.baseApiUrl + '/api/pages', formData);
   //}
+ 
 
 
   getPage(id: number): Observable<Pages> {
