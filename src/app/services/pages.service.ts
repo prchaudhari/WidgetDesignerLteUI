@@ -8,7 +8,7 @@ import { PageModel } from '../models/pagesmodel.model';
   providedIn: 'root'
 })
 export class PagesService {
-  baseApiUrl: string = "https://localhost:44381";
+  baseApiUrl: string = "https://localhost:7296";
 
   constructor(private http: HttpClient) { }
 
@@ -16,13 +16,14 @@ export class PagesService {
     return this.http.get<Pages[]>(this.baseApiUrl + '/api/pages');
   }
 
-  addPage(newPage: PageModel): Observable<PageModel> {
+  addPage(formData: FormData) {
     //newWidget.id = '00000000-0000-0000-0000-000000000000';  
-    return this.http.post<PageModel>(this.baseApiUrl + '/api/pages', newPage);
+    return this.http.post<Pages>(this.baseApiUrl + '/api/page', formData);
   }
   //addWidget(formData: FormData) {
   //  return this.http.post(this.baseApiUrl + '/api/pages', formData);
   //}
+ 
 
 
   getPage(id: number): Observable<Pages> {
@@ -36,5 +37,5 @@ export class PagesService {
   deletePage(id: number): Observable<Pages> {
     return this.http.delete<Pages>(this.baseApiUrl + '/api/pages/' + id);
   } 
-
+  //g
 }
