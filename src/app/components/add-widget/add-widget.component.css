@@ -23,20 +23,23 @@ p {
 
 .ng-select .ng-select-container {
   background-color: black;
+  color:white;
 }
 
 .ng-option {
-  background-color: dimgrey;
+  background-color: dimgrey; 
 }
 
 
 .ng-dropdown-panel {
   .ng-option {
+        background-color:dimgray !important;
+        color:white;
     &.ng-option-marked {
-      background-color: red !important;
+      background-color:aliceblue !important;
 
       &:hover {
-        background-color: blue !important;
+        background-color:darkgray !important;
       }
     }
   }
