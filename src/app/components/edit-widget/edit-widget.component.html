@@ -67,7 +67,7 @@
               Widget Html:
             </label>
             <div class="col-md-9">
-              <textarea typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="updateWidgetRequest.widgetHtml">
+              <textarea class="widgetHtml" typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="updateWidgetRequest.widgetHtml">
               </textarea>
             </div>
           </div>
@@ -85,13 +85,14 @@
             <label class="col-md-3 col-form-label" for="fontName">
               Font Name:
             </label>
-            <ng-select [(ngModel)]="updateWidgetRequest.fontName">
-              <ng-option *ngFor="let option of options" [value]="option.id">{{option.fontName}}</ng-option>
-            </ng-select>
 
-            <!--<div class="col-md-9">
-    <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="updateWidgetRequest.fontName" />
-  </div>-->
+            <ng-select class="col-md-9" id="fontName" name="fontName" [(ngModel)]="updateWidgetRequest.fontName">
+              <ng-option *ngFor="let option of options" [value]="option.fontClass">
+                <span style="width: 15%" class="info-box-icon"><i [ngClass]="option.fontClass"></i></span>
+                &nbsp;&nbsp;
+                {{option.fontName}}
+              </ng-option>
+            </ng-select>
           </div>
 
           <div class="form-group row required">

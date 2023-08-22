@@ -2,6 +2,11 @@ p {
   font-family: Lato;
 }
 
+.widgetHtml {
+  background-color: #343a40;
+  color:white;
+}
+
 
 .statusDropdownContainer, .calendarBtnContainer {
   padding-top: 6px;
@@ -22,8 +27,8 @@ p {
 }
 
 .ng-select .ng-select-container {
-  background-color: black;
-  color:white;
+  background-color: #343a40;
+  color: white;
 }
 
 .ng-option {
