@@ -33,13 +33,29 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   widgetsItemsArr: any = [];
   pageHtml1: any = "";
 
+
+
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
     disableResize: false,
     disableDrag: false,
     margin: 18,
     column: 4,
-    cellHeight: 108
+    cellHeight: 108,
+    acceptWidgets: true,
+    removable: '#trash',
+    animate: true,
+    float: true,
+
+    draggable: {
+
+      
+      handle: '.grid-stack-item-content'
+    },
+    children: [ // or call load()/addWidget() with same data
+      { x: 1, y: 0, content: 'Item 2' },
+      { x: 0, y: 1, content: 'Item 3' },
+    ]
   };
 
   mode: GridMode = "edit";
@@ -50,8 +66,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   constructor(
     private pagesService: PagesService,
     private widgetService: WidgetService,
-    private location: Location,
-    private router: Router
+    private location: Location
   ) {
     this.getState = location.getState(); // Assign value to getState
   }
@@ -61,6 +76,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     this.grid = GridStack.init(this.gridStackOptions);
     this.grid.enableMove(true);
     this.grid.enableResize(true);
+    
   }
 
   ngOnInit(): void {
@@ -84,34 +100,44 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     ];
 
     // Initialize advanced GridStack layout
-    const advGrid = GridStack.init({
-      margin: 5,
-      acceptWidgets: true,
-      removable: '#trash',
-      animate: true,
-      draggable: {
-        handle: '.grid-stack-item-content'
-      }
-    }, '#advanced-grid')
+    const advGrid = GridStack.init(this.gridStackOptions
+, '#advanced-grid')
       .load(advanced);
 
-    advGrid.enableMove(true);
-    advGrid.enableResize(true);
+  //  var grid = $('.grid-stack').data('gridstack');
+    var html = '<div>'
+    html += '<div class="grid-stack-item-content">';
+    html += '<div class="col-md-3"> <label> Sample Textbox </label></div>';
+    html += '<div class="col-md-9"> <input type="text" class="form-control" /> </div>';
+    html += '</div></div>';
+
+    
+
+   // advGrid.addWidget(html, { w: 3 ,h:4})
+    advGrid.addWidget({ x: 0, y: 0, minW: 1, content: 'Item d' })
+   
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
+      
+      
+      
+    
       scroll: false,
       appendTo: 'body',
       helper: 'clone'
     });
+
+    advGrid.enableMove(true);
+    advGrid.enableResize(true);
+
+
   }
 
+  
 
-  // Function to save and update page widget content
+ 
 
-  showPreview() {
-    this.router.navigate(['pagepreview']);
-  }
 
 
   saveAndUpdatePageWidgetContent() {
@@ -126,10 +152,10 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         "id": 0,
         "pageId": 0,
         "widgetId": 3,
-        "width": node.getAttribute("gs-w"),
-        "height": node.getAttribute("gs-h"),
-        "startCol": node.getAttribute("gs-y"),
-        "startRow": node.getAttribute("gs-x")
+        "width": node.getAttribute("gs-w") ?? "0",
+        "height": node.getAttribute("gs-h") ?? "0",
+        "startCol": node.getAttribute("gs-y") ?? "0",
+        "startRow": node.getAttribute("gs-x") ?? "0"
       };
       this.widgetsItemsArr.push(obj);
     });
@@ -138,8 +164,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     const data = {
       id: '0',
       pageName: this.getState.pageName,
-      description: this.getState.description,
-      dataSourceJson: this.getState.dataSourceJson.toString(),
+      description: this.getState.description ?? "",
+      dataSourceJson: this.getState.dataSourceJson.toString()??"",
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: this.getState.pageCSSUrl ?? "",
       widgets: this.widgetsItemsArr
