@@ -20,3 +20,27 @@ p {
   justify-content: center;
   text-align: center;
 }
+
+.ng-select .ng-select-container {
+  background-color: black;
+  color:white;
+}
+
+.ng-option {
+  background-color: dimgrey; 
+}
+
+
+.ng-dropdown-panel {
+  .ng-option {
+        background-color:dimgray !important;
+        color:white;
+    &.ng-option-marked {
+      background-color:aliceblue !important;
+
+      &:hover {
+        background-color:darkgray !important;
+      }
+    }
+  }
+}

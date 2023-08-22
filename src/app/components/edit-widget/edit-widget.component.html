@@ -85,9 +85,13 @@
             <label class="col-md-3 col-form-label" for="fontName">
               Font Name:
             </label>
-            <div class="col-md-9">
-              <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="updateWidgetRequest.fontName" />
-            </div>
+            <ng-select [(ngModel)]="updateWidgetRequest.fontName">
+              <ng-option *ngFor="let option of options" [value]="option.id">{{option.fontName}}</ng-option>
+            </ng-select>
+
+            <!--<div class="col-md-9">
+    <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="updateWidgetRequest.fontName" />
+  </div>-->
           </div>
 
           <div class="form-group row required">
