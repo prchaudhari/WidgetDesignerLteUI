@@ -5,6 +5,7 @@ import { WidgetService } from '../../services/widget.service';
 import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
 import { AppConfig } from '../../../config';
+import { Fonts } from '../../models/fonts.model ';
 
 @Component({
   selector: 'app-edit-widget',
@@ -22,6 +23,7 @@ export class EditWidgetComponent {
   htmltextvalue: string = "";
   WidgetHtml: string = "";
   cssname: string = "";
+   options: Fonts[] = [];
   updateWidgetRequest: Widget = {
       id: 0,
       widgetName: '',

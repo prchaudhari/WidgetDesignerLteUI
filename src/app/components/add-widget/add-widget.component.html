@@ -88,12 +88,22 @@
               Font Name:
             </label>
 
-            <ng-select [items]="options" for="fontName" [(ngModel)]="newWidget.fontName">
-              <ng-option *ngFor="let option of options" [value]="option.id">{{option.fontName}}></ng-option>
+            <ng-select class="col-md-9" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName">
+              <ng-option *ngFor="let option of options" [value]="option.fontClass">
+                <span style="width: 15%" class="info-box-icon"><i [ngClass]="option.fontClass"></i></span>
+                &nbsp;&nbsp;
+                {{option.fontName}}
+              </ng-option>
             </ng-select>
 
+            <!--<select [(ngModel)]="selectedValue">
+              <option *ngFor="let option of options" [value]="option.fontName">{{ option.fontName }}</option>
+            </select>
+            <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName" />
+            {{selectedValue}}-->
+
             <!--<ng-select [items]="iconList" appendTo="body"
-   placeholder="Select Fruits"></ng-select>-->
+  placeholder="Select Fruits"></ng-select>-->
             <!--<div class="dropdown h-10" class="statusDropdownContainer">
   <a class="btn btn-white dropdown-toggle mb-2 statusFilterDropdown h-10 flex-middle" href="#" role="button"
      id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

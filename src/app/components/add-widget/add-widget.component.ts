@@ -19,11 +19,7 @@ export class AddWidgetComponent implements OnInit {
   iconList: string[] = [
     'search', 'home', 'user',// Add more icon names
   ];
-  selectedCity: any;
-  selectedCityIds: string[];
-  selectedCityName = 'Vilnius';
-  selectedCityId: number;
-  selectedUserIds: number[];
+  
   selectedFile!: File;
   selectedValue: string = '';
   imagePath: string = AppConfig.imagePath;
@@ -36,7 +32,6 @@ export class AddWidgetComponent implements OnInit {
   cssname: string = "";
   imageFile: File;
   options: Fonts[] = [];
-  filteredOptions: Fonts[] = [];
   selectedOption: string = '';
   public searchValue: any;
 
@@ -71,8 +66,6 @@ export class AddWidgetComponent implements OnInit {
     //});
       this.fontsService.getAllFonts().subscribe(options => {
         this.options = options;
-        this.filteredOptions = [...options];
-     
       });
       //alert(this.imagePath);
     }
@@ -84,7 +77,8 @@ export class AddWidgetComponent implements OnInit {
     });
   }
  
-  addWidget() {    
+  addWidget() {
+    alert(this.newWidget.fontName);
     const formData = new FormData();
     formData.append('widgetName', this.newWidget.widgetName);
     formData.append('description', this.newWidget.description);
@@ -97,10 +91,6 @@ export class AddWidgetComponent implements OnInit {
     formData.append('startCol', this.newWidget.startCol.toString());
     formData.append('startRow', this.newWidget.startRow.toString());
     formData.append('WidgetIconUrl', this.imageFile);
-    formData.append('dataBindingJsonNode', this.newWidget.dataBindingJsonNode.toString());
-    formData.append('fontName', this.newWidget.fontName.toString());
-    formData.append('startCol', this.newWidget.startCol.toString());
-    formData.append('startRow', this.newWidget.startRow.toString());
     this.widgetService.addWidget(formData).subscribe({
       next: (_widget) => {
         alert("data saved successfully");
@@ -112,32 +102,8 @@ export class AddWidgetComponent implements OnInit {
     });
   }
 
-
-  filterDropdown(e: Event) {
-    console.log("e in filterDropdown -------> ", e);
-    window.scrollTo(window.scrollX, window.scrollY + 1);
-    let searchString = (e.target as HTMLInputElement).value.toLowerCase();
-    if (!searchString) {
-      this.filteredOptions = this.filteredOptions.slice();
-      return;
-    } else {
-      this.filteredOptions = this.filteredOptions.filter(
-        user => user.fontName.toLowerCase().indexOf(searchString) > -1
-      );
-    }
-    window.scrollTo(window.scrollX, window.scrollY - 1);
-    console.log("this.filteredList indropdown -------> ", this.filteredOptions);
-  }
-
   selectValue(name: string) {
     this.selectedValue = name;
-  }
-
-  filterOptions(event: Event): void {
-    const searchTerm = (event.target as HTMLInputElement).value.toLowerCase();
-    this.filteredOptions = this.options.filter(option =>
-      option.fontName.toLowerCase().includes(searchTerm)
-    );
   }
   
   goToNewPage(css :string): void {
