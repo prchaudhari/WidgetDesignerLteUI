@@ -70,9 +70,6 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     private location: Location
   ) {
     this.getState = location.getState(); // Assign value to getState
-    console.log("getstate" + this.getState.pageName);
-    console.log(this.getState[0]);
-    console.log(this.getState[0].widgetName);
   }
 
   ngAfterViewInit(): void {
@@ -92,7 +89,16 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     //  helper: 'clone',
       
     //});
-   
+    // Initialize logic on component initialization
+    this.widgetService.getAllWidget().subscribe({
+      next: (widget) => {
+        this.widget = widget;
+        //console.log(this.widget[0].widgetName);
+      },
+      error: (response) => {
+        //console.log(response);
+      },
+    });
 
     // Sample data for advanced layout
     const advanced = [
@@ -115,42 +121,62 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     //html += '</div></div>';
 
    // advGrid.addWidget(html, { w: 3 ,h:4})
-    advGrid.addWidget({ x: 0, y: 0, minW: 1, content: 'Item d' })
-    //advGrid.on('dragstart', function (event, previousWidget, newWidget) {
-    //  if (event) {
-
-       
-    //    console.log('gridstack dragstart: ', event);
-    //    console.log('gridstack dragstart: ', previousWidget);
+    //advGrid.addWidget({ x: 0, y: 0, minW: 1, content: 'Item d' })
+    /*advGrid.on('dragstart', function (event, previousWidget, newWidget) {
+      if (event) {
 
 
-    //    console.log('gridstack dropped: ', newWidget);
-      
-    //  }
-    //});
-    
-    //advGrid.on("dragstart", function (event, previousWidget, newWidget) {
-    //  // Capture the original content of the dragged item
-    //  console.log('gridstack dropped: ', previousWidget.el?.innerHTML);
-    //});
+        console.log('gridstack dragstart: ', event);
+        //console.log('gridstack dragstart: ', previousWidget);
 
-    advGrid.on("dropped", function (event, previousWidget, newWidget) {
-      // Change the content of the dragged item while dragging
 
-     
-      console.log('gridstack change previousWidget : ', event);
-      console.log('gridstack drag newWidget : ', newWidget);
-     
+        //console.log('gridstack dropped: ', newWidget);
+
+      }
     });
+*/
+    
 
-    //advGrid.on('dropped', this.gridStackDropped.bind(this));
+   //advGrid.on('dropped', this.gridStackDropped.bind(this));
    // advGrid.load(this.items); // and load our content directly (will create DOM)
 
-    //advGrid.on("dragstop", function (event, previousWidget, newWidget) {
+  /*  advGrid.on("dragstop", function (event, previousWidget, newWidget) {
+      // Restore the original content when dragging stops
+      console.log('gridstack dragstop: ', event.target);
+
+
+    });*/
+
+    //advGrid.on("dropped", function (event, previousWidget, newWidget) {
     //  // Restore the original content when dragging stops
-    //  console.log('gridstack dragstop: ');
-      
+    //  console.log('gridstack dragstop: ', event.target);
+
+
     //});
+    advGrid.on("drag", function (event, previousWidget, newWidget) {
+      // Restore the original content when dragging stops
+
+      
+     
+
+
+  
+     
+      var previousContent = $(previousWidget).find('.grid-stack-item-content');
+      console.log(previousContent);
+      // Modify the content of the previous widget while dragging
+      previousContent.text('Dragging...');
+
+    });
+
+  
+
+    // Add event listener for dragging start
+   
+
+    // Add event listener for dragging stop
+ 
+
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
@@ -172,12 +198,34 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
  
 
-  //gridStackDropped(event: Event, previousWidget: GridStackNode, newWidget: GridStackNode): void {
-  //  const dragEvent = event as DragEvent;
-  //  if (dragEvent.dataTransfer) {
-  //    console.log('gridstack dropped: ', dragEvent.dataTransfer.getData('message'));
-  //  }
-  //}
+  gridStackDropped(event: Event, previousWidget: GridStackNode, newWidget: GridStackNode): void {
+    const dragEvent = event as DragEvent;
+    if (dragEvent.dataTransfer) {
+      console.log('gridstack dropped: ', dragEvent.dataTransfer.getData('message'));
+    }
+  }
+
+
+  
+    
+  allowDrop(ev: any) {
+    ev.preventDefault();
+  }
+
+  drag(ev: any) {
+    ev.dataTransfer.setData("text", ev.target.id);
+  }
+
+  drop(ev: any) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+  }
+
+
+
+
+
 
   saveAndUpdatePageWidgetContent() {
     const items = $(".grid-stack .grid-stack-item");
