@@ -38,7 +38,7 @@ export class pagepreviewComponent implements OnInit {
   loadhtml() {
     this.loadCSS();
     const token = localStorage.getItem('pagehtml');
-    alert(token);
+  
     this.renderedTemplate = token == null ? '' : token;
 
   }

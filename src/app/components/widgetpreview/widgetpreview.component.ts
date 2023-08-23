@@ -25,7 +25,7 @@ export class widgetpreviewComponent implements OnInit
     fileRef = document.createElement('link');
     fileRef.setAttribute('rel', 'stylesheet');
     fileRef.setAttribute('type', 'text/css');
-   // alert("drop down: " + this.cssname);
+ 
     fileRef.setAttribute('href', '../../' + this.cssname);
     if (typeof fileRef !== 'undefined') {
       document.getElementsByTagName('head')[0].appendChild(fileRef);
@@ -43,14 +43,9 @@ export class widgetpreviewComponent implements OnInit
   loadhtml() {
     this.loadCSS();
    const token = localStorage.getItem('widgethtml');
-    alert(token);
+ 
     this.renderedTemplate = token == null ? '' : token;
-    //this.Activatedroute.queryParams.subscribe(params => {
-    //  const data = params['css']; // Access the data
-      // Do something with the data
-     // alert(data);
-      //this.renderedTemplate = data;
-   // });
+  
   }
  
     }

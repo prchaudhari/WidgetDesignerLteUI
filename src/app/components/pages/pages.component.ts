@@ -29,7 +29,7 @@ export class PagesComponent {
   }
 
   previewPage() {
-    alert("Preview Page");
+   
   }
 
   public openCloseRow(idReserva: number): void {

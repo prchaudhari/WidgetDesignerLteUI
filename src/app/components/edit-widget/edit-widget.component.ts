@@ -6,6 +6,7 @@ import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
 import { AppConfig } from '../../../config';
 import { Fonts } from '../../models/fonts.model ';
+import { FontsService } from '../../services/fonts.service ';
 
 @Component({
   selector: 'app-edit-widget',
@@ -23,7 +24,10 @@ export class EditWidgetComponent {
   htmltextvalue: string = "";
   WidgetHtml: string = "";
   cssname: string = "";
-   options: Fonts[] = [];
+  options: Fonts[] = [];
+  selectedValue: string = '';
+  selectedOption: string = '';
+  public searchValue: any;
   updateWidgetRequest: Widget = {
       id: 0,
       widgetName: '',
@@ -43,21 +47,21 @@ export class EditWidgetComponent {
   constructor(
     private widgetService: WidgetService,
     private router: Router,
+    private fontsService: FontsService,
     private route: ActivatedRoute
   ) { }
   ngOnInit(): void {
+    this.fontsService.getAllFonts().subscribe(options => {
+      this.options = options;
+    });
     this.route.paramMap.subscribe({
       next: (params) => {
-         /*const id = parseInt('id');*/
         const id = params.get('id');
-        //const idAsInteger = parseInt(id, 10);
         if (id) {
           this.widgetService.getWidget(Number(id)).subscribe({
             next: (widget) => {
               this.updateWidgetRequest = widget;
-              //alert(widget.widgetIconUrl); 
               this.url = this.imagePath + widget.widgetIconUrl;
-             // alert(this.url);
             },
           });
         }
@@ -97,10 +101,13 @@ export class EditWidgetComponent {
       reader.readAsDataURL(e.target.files[0]);
       this.imageFile = e.target.files[0];
       reader.onload = (event: any) => {
-        alert(event.target.result);
         this.url = event.target.result;
       }
     }
+  }
+
+  selectValue(name: string) {
+    this.selectedValue = name;
   }
 
   ShowPreview(cssName: string) {
@@ -110,20 +117,7 @@ export class EditWidgetComponent {
 
     const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ abc: jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
-    //const dataToSend = { key: renderedHtml }; // Data to be sent
-    //const navigationExtras: NavigationExtras = {
-    //  state: {
-    //    data: dataToSend
-    //  }
-    //};
-    // alert("css= " + cssName);
     const url = this.router.createUrlTree(['/widgetpreview', '']);
-    window.open(url.toString(), '_blank'); // Open in a new tab
-    //this.router.navigate(['/widgetpreview', this.cssname]);
-
-    // Insert the rendered HTML into the table container
-    // this.renderedTemplate = renderedHtml;
-    //const template = jsrender.templates(this.updateWidgetRequest.WidgetHtml); // Compile the template
-    //this.renderedTemplate = template.render(jsonObject1); // Render the template with data
+    window.open(url.toString(), '_blank'); 
   }
 }

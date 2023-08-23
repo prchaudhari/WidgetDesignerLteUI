@@ -22,7 +22,7 @@ export class JsRenderTryComponent {
       icon: 'error',
       confirmButtonText: 'Cool'
     })
-    alert("hi");
+    
     // JSON data
     const jsonData = [
       {
@@ -91,7 +91,7 @@ export class JsRenderTryComponent {
     };
    
     const renderedHtml = jsrender.templates(this.WidgetHtml).render({ employees: jsonObject1 });
-    alert(renderedHtml);
+   
     // Insert the rendered HTML into the table container
     this.renderedTemplate = renderedHtml;
 

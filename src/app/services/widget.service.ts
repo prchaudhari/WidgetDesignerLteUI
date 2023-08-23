@@ -16,11 +16,6 @@ export class WidgetService {
     return this.http.get<Widget[]>(this.baseApiUrl + '/api/widgets');
   }
 
-  //addWidget(newWidget: Widget): Observable<Widget> {
-  //  //newWidget.id = '00000000-0000-0000-0000-000000000000';
-  //  alert("Hi");
-  //  return this.http.post<Widget>(this.baseApiUrl + '/api/widgets', newWidget);
-  //}
   addWidget(formData: FormData) {
     return this.http.post(this.baseApiUrl + '/api/widgets', formData);
   }
@@ -39,8 +34,7 @@ export class WidgetService {
   }
 
   getAssetCssFiles(): Observable<string[]> {
-    // Replace with your backend API endpoint that serves the list of files
-    //alert("servcies");
+    
     return this.http.get<string[]>('/api/assets/dynamicThemes');
   }
   getPageWidgets(id:number): Observable<PageWidgetsDetails[]> {

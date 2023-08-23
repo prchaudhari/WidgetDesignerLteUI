@@ -68,7 +68,7 @@
               Widget Html:                              
             </label>
             <div class="col-md-9">
-              <textarea typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="newWidget.widgetHtml">
+              <textarea class="widgetHtml" typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="newWidget.widgetHtml">
               </textarea>
             </div>
           </div>
@@ -95,41 +95,6 @@
                 {{option.fontName}}
               </ng-option>
             </ng-select>
-
-            <!--<select [(ngModel)]="selectedValue">
-              <option *ngFor="let option of options" [value]="option.fontName">{{ option.fontName }}</option>
-            </select>
-            <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName" />
-            {{selectedValue}}-->
-
-            <!--<ng-select [items]="iconList" appendTo="body"
-  placeholder="Select Fruits"></ng-select>-->
-            <!--<div class="dropdown h-10" class="statusDropdownContainer">
-  <a class="btn btn-white dropdown-toggle mb-2 statusFilterDropdown h-10 flex-middle" href="#" role="button"
-     id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="text-truncate">Expert: {{selectedValue ? selectedValue : 'All'}}</span>
-  </a>
-  <div class="dropdown-menu w-10 pt-0" aria-labelledby="dropdownMenuButton">
-    <input type="text" class="w-10 p-2 searchInput" [ngModel]="searchValue" (ngModelChange)="filterDropdown($event)">
-    <a *ngFor="let option of filteredOptions; let i=index" class="dropdown-item pointer text-contain"
-       [ngClass]="{'alternateBackground': i%2 == 0 }" (click)="selectValue(option.fontName)">
-      {{option.fontName}}
-    </a>
-    <div *ngIf="filteredOptions.length <=0" class="text-center text-muted mt-1">No expert found</div>
-  </div>
-  </div>-->
-            <!--<input type="text" placeholder="Search" (input)="filterOptions($event)">
-  <select [(ngModel)]="selectedOption">
-    <option value="" disabled>Select an option</option>
-    <option *ngFor="let option of filteredOptions" [value]="option.fontClass">{{ option.fontName }}</option>
-    </select>-->
-            <!--<div class="col-md-9">
-    <select [(ngModel)]="selectedValue">
-      <option *ngFor="let icon of filteredOptions" [value]="icon.fontName">{{ icon.fontName }}</option>
-    </select>
-    <input type="text" class="form-control" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName" />
-    {{selectedValue}}
-  </div>-->
           </div>
 
             <div class="form-group row required">

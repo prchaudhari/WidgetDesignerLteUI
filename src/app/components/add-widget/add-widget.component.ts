@@ -5,7 +5,6 @@ import { WidgetService } from '../../services/widget.service';
 import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 import * as jsrender from 'jsrender';
-import { FontAwesomeService } from 'src/app/services/font-awesome.service';
 import { AppConfig } from '../../../config';
 import { FontsService } from '../../services/fonts.service ';
 import { Fonts } from '../../models/fonts.model ';
@@ -56,18 +55,13 @@ export class AddWidgetComponent implements OnInit {
     private http: HttpClient,
     private widgetService: WidgetService,
     private fontsService: FontsService,
-    private fontAwesomeService: FontAwesomeService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    //this.fontsService.getAllFonts().subscribe((icons) => {
-    //  this.iconClasses = icons;
-    //});
       this.fontsService.getAllFonts().subscribe(options => {
         this.options = options;
       });
-      //alert(this.imagePath);
     }
 
   appendCss(customData: string) {
@@ -78,7 +72,6 @@ export class AddWidgetComponent implements OnInit {
   }
  
   addWidget() {
-    alert(this.newWidget.fontName);
     const formData = new FormData();
     formData.append('widgetName', this.newWidget.widgetName);
     formData.append('description', this.newWidget.description);
@@ -117,23 +110,10 @@ export class AddWidgetComponent implements OnInit {
     this.newWidget.widgetHtml = "{{for " +tagname+ "}}" + this.newWidget.widgetHtml;
     this.newWidget.widgetHtml = this.newWidget.widgetHtml + "{{/for}}";
     const renderedHtml = jsrender.templates(this.newWidget.widgetHtml).render({ [tagname]:jsonObject1 });
-    //alert(renderedHtml);
     localStorage.setItem('widgethtml', renderedHtml);
-    //const dataToSend = { key: renderedHtml }; // Data to be sent
-    //const navigationExtras: NavigationExtras = {
-    //  state: {
-    //    data: dataToSend
-    //  }
-    //};
-   // alert("css= " + cssName);
     const url = this.router.createUrlTree(['/widgetpreview', '']);
-    window.open(url.toString(), '_blank'); // Open in a new tab
-    //this.router.navigate(['/widgetpreview', this.cssname]);
-  
-    // Insert the rendered HTML into the table container
-   // this.renderedTemplate = renderedHtml;
-    //const template = jsrender.templates(this.newWidget.WidgetHtml); // Compile the template
-    //this.renderedTemplate = template.render(jsonObject1); // Render the template with data
+    window.open(url.toString(), '_blank'); 
+   
   }
     
   onselectFile(e: any) {
@@ -142,19 +122,14 @@ export class AddWidgetComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       this.imageFile = e.target.files[0];
       reader.onload = (event: any) => {
-        alert(event.target.result);
         this.url = event.target.result;
       }
     }
   }
 
   mapping(htmltext: string, jsonval: string, customizeFormData: string): void {
-    alert(this.newWidget.widgetHtml + this.newWidget.dataSourceJson + " desc" + this.newWidget.description);
-    // var htmltext: string="";
     var jsonObject1: any = JSON.parse(jsonval);
-
     var newstr = "";
-    // htmltext = this.newWidget.WidgetHtml;
     newstr = this.newWidget.widgetHtml;
     this.htmltextvalue = newstr;
     if (!(jsonObject1 instanceof Array)) {
@@ -170,15 +145,12 @@ export class AddWidgetComponent implements OnInit {
     else if (jsonObject1.length == 1) {
       console.log(jsonObject1.length);
       var indices = getIndicesOf("@@", htmltext, true);
-      //console.log(indices + " len = " + indices.length);
       var indiceshash = getIndicesOf("##", htmltext, true);
-      // console.log(indiceshash + " len = " + indiceshash.length);
       for (let r = 0; r < indices.length; r++) {
         var str = this.htmltextvalue.slice(indices[r] + 2, indiceshash[r]);
         var rgex = new RegExp('@@' + str + '##', "gi");
         newstr = newstr.replace(rgex, GetJsonAttrValue(jsonObject1[0], str));
-        //  console.log("new= " + ReadValue(jsonObject1, str) + "\n");
-        // console.log(str + " substring = " + str.length + "\n" + "str1 = " + str1 );  // ` jsonObject1[str1[0]][str1[1]]);
+       
       }
       this.htmltextvalue = newstr;
     }
@@ -186,9 +158,6 @@ export class AddWidgetComponent implements OnInit {
       var repeatString = string_between_strings('<repeat>', '</repeat>', htmltext)
       var firstString = htmltext.slice(0, htmltext.indexOf('<repeat>'));
       var lastString = htmltext.slice(htmltext.indexOf('</repeat>') + 9, htmltext.length);
-      // alert("Final = " + repeatString);
-      // var forindices = getIndicesOf("*ngFor=\"let", htmltext, true);
-      //if (forindices.length > 0) {
       let finalhtml = "";
       var hashes = repeatString.slice(repeatString.indexOf('let') + 3).split('of');
       console.log("hashses = " + hashes);
@@ -196,9 +165,7 @@ export class AddWidgetComponent implements OnInit {
         var newstr1 = "";
         newstr = repeatString;
         var indices = getIndicesOf("@@", repeatString, true);
-        //console.log(indices + " len = " + indices.length);
         var indiceshash = getIndicesOf("##", repeatString, true);
-        // console.log(indiceshash + " len = " + indiceshash.length);
         for (let r = 0; r < indices.length; r++) {
           newstr1 = newstr;
           var str = repeatString.slice(indices[r] + 2, indiceshash[r]);
@@ -210,7 +177,7 @@ export class AddWidgetComponent implements OnInit {
         //  }
         this.htmltextvalue = firstString + finalhtml; + lastString;
       }
-    }       //else end
+    }      
 
 
     function string_between_strings(startStr: any, endStr: string, str: string) {
