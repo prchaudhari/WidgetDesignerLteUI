@@ -25,61 +25,52 @@
       </div>
       <div>
 
-        <div class="text-center card text-white grid-stack-item newWidget  add">
-          <div class=" card-body grid-stack-item-content add " *ngFor="let number of [0] ">
+       
+          <div class="text-center card text-white grid-stack-item newWidget  add">
+            <div class=" card-body grid-stack-item-content add " *ngFor="let number of [0] ">
+              <div style="background-color:black">
+                <span>0</span>
+              </div>
 
-            <div style="background-color:black">
-              <span>{{number}}</span>
             </div>
 
           </div>
 
-
-
-        </div>
-        <div class="text-center card text-white grid-stack-item newWidget add">
           
-          <div class="card-body grid-stack-item-content add">
-            
-            <div style="background-color:black">
-              
-              <span> sfsdfd  </span>
-            </div>
-          </div>
-        </div>'
-        <div class="text-center card text-white grid-stack-item newWidget  add">
 
+          <div class="text-center card text-white grid-stack-item newWidget  add"   #d>
+           
 
-          <div class=" card-body grid-stack-item-content add " *ngFor="let number of [1] ">
+            <div class=" card-body grid-stack-item-content add  " *ngFor="let number of [1]">
 
-            <div style="background-color:black">
-              <span>{{number}}</span>
+              <div style="background-color:black">
+                <span>{{number}}</span>
+              </div>
+
             </div>
 
           </div>
-
         </div>
-      </div>
 
-      <div style="width:100%" [innerHTML]="renderedWidgets"></div>
+ 
 
-      <div class="text-center card text-white grid-stack-item newWidget">
-        <div class="card-body grid-stack-item-content ">
-          <div>
-            <!--<ion-icon name="add-circle" style="font-size: 400%"></ion-icon>-->
+        <div class="text-center card text-white grid-stack-item newWidget">
+          <div class="card-body grid-stack-item-content ">
+            <div>
+              <!--<ion-icon name="add-circle" style="font-size: 400%"></ion-icon>-->
+            </div>
+            <div>
+              <span>Widget sample1</span>
+            </div>
+
           </div>
-          <div>
-            <span>Widget sample1</span>
-          </div>
-
         </div>
+
+
+
+
+
       </div>
-
-
-
-
-
-    </div>
     
 
     

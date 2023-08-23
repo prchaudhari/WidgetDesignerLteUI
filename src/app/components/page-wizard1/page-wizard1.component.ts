@@ -1,9 +1,8 @@
 // Import necessary modules and components
 import { Component } from '@angular/core';
-import { Pages } from '../../models/pages.model';
-import { PagesService } from '../../services/pages.service';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Widget } from '../../models/widget.model';
+import { WidgetService } from '../../services/widget.service';
 
 @Component({
   selector: 'app-page-wizard1',
@@ -12,17 +11,31 @@ import { Router } from '@angular/router';
 })
 export class PageWizard1Component {
   // Initialize widget array to hold Pages data
-  widget: Pages[] = [];
+  widget: Widget[] = [];
 
   constructor(
-    private http: HttpClient,
-    private pagesService: PagesService, // Renamed PagesService
-    private router: Router
+    private router: Router,
+    private widgetService: WidgetService
   ) { }
 
   // Function to add a new page and navigate to the addpage route
   addPage(formValue: any): void {
+
+    // Initialize logic on component initialization
+    this.widgetService.getAllWidget().subscribe({
+      next: (widget) => {
+        this.widget = widget;
+        var param = Object.assign(formValue, this.widget);
     // Navigate to the 'pages/addpage' route with formValue as state data
-    this.router.navigate(['pages/addpage'], { state: formValue });
+    this.router.navigate(['pages/addpage'], { state: param  });
+      },
+      error: (response) => {
+        //console.log(response);
+      },
+    });
+
+      
+
+   
   }
 }
