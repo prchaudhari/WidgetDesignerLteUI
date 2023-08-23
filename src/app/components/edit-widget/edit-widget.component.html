@@ -2,15 +2,14 @@
   <div>
     <h4 style="text-align:center">Edit Widget </h4>
   </div>
-  <div class="rounded-3" style=" width: 100%; border: 1px solid black; padding: 8px;">
+  <div class="rounded-3" style=" width: 100%; border: 1px solid grey; padding: 8px;">
     <div class="row">
-      <!--<button type="button" (click)="ShowPreview()" class="btn btn-primary">Preview</button>&nbsp;&nbsp;-->
-      <div style="width:10%;padding-left:10px">
-        <!--<button (click)="goToNewPage('sdfs')">Go to New Page</button>-->
+      <div style="padding-left:10px">
         <button type="button"
                 class="btn btn-primary"
                 (click)="ShowPreview('')">
           Preview
+          <i class="fa-regular fa-eye"></i>
         </button>
       </div>
       <div style="width:30%">
@@ -18,7 +17,7 @@
       <div [innerHTML]="renderedTemplate"></div>
     </div>
   </div>
-  <div class="rounded-3" style="width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
+  <div class="rounded-3" style="width: 100%; border: 1px solid grey; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
     <div class="row">
       <div class="col-8">
         <form #form="ngForm" (ngSubmit)="updateWidget()">
@@ -109,7 +108,7 @@
               <input type="text" class="form-control" id="height" name="height" [(ngModel)]="updateWidgetRequest.height" />
             </div>
           </div>
-          <div>
+          <div style="padding:10px">
             <button type="submit" class="btn btn-primary">Update</button>
           </div>
         </form>
