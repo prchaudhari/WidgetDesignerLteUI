@@ -1,9 +1,9 @@
 <div class="container">
   <div>
-    <h5 style="text-align:center">Page Wizard 1</h5>
+    <h5 style="text-align:center">Edit Page Wizard 1</h5>
   </div>
   
-  <div class="rounded-3" style="width: 100%; border: 1px solid black; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
+  <div class="rounded-3" style="width: 100%; border: 1px solid grey; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
     <div class="row">
       <div class="col-8">
         <form #form="ngForm">
@@ -44,7 +44,7 @@
               Page Html:
             </label>
             <div class="col-md-9">
-              <textarea typeof="text" style="width:100%" rows="10" id="pageHtml" name="pageHtml" [(ngModel)]="updatePageRequest.pageHtml">
+              <textarea class="pageHtml" typeof="text" style="width:100%" rows="10" id="pageHtml" name="pageHtml" [(ngModel)]="updatePageRequest.pageHtml">
               </textarea>
             </div>
           </div>
@@ -58,14 +58,14 @@
             </div>
           </div>
 
-          <div>
+          <div style="padding:10px">
             <button class="btn btn-primary" type="button">
-              <a style="color:white" class="navbar-brand" href="#">Next</a>
+              <a style="color:white" href="#">Next</a>
             </button>
             &nbsp;
 
             <button class="btn btn-primary" type="button">
-              <a style="color:white" class="navbar-brand" href="pages">Cancel</a>
+              <a style="color:white" href="pages">Cancel</a>
             </button>
           </div>
         </form>

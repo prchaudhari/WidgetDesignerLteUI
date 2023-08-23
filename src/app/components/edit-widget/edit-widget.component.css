@@ -26,16 +26,12 @@ p {
   text-align: center;
 }
 
-.ng-select .ng-select-container {
-  background-color: #343a40;
-  color: white;
+ .ng-option {
+  background-color: dimgrey; 
 }
 
-.ng-option {
-  background-color: dimgrey;
-}
 
- .ng-dropdown-panel {
+.ng-dropdown-panel {
   .ng-option {
         background-color:dimgray !important;
         color:white;
