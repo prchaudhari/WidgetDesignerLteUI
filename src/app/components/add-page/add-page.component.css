@@ -62,6 +62,10 @@ section {
   margin: 50px
 }
 
+.text-white{
+    text-align:center;
+}
+
 /* Importing Bootstrap SCSS file. */
 
 

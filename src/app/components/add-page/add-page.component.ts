@@ -32,7 +32,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   modifynode: any = "";
   widgetsItemsArr: any = [];
   pageHtml1: any = "";
-
+  renderedWidgets: string = "";
 
 
   // Configuration options for the GridStack layout
@@ -80,6 +80,11 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    var widgetdata = ' <div class="text-center card text-white grid-stack-item newWidget add"> \
+      <div class="card-body grid-stack-item-content add"  > \
+        <div style="background-color:black" > \
+        <span> wid1  </span> </div> </div> </div>';
+    this.renderedWidgets = widgetdata;
     // Initialize logic on component initialization
     this.widgetService.getAllWidget().subscribe({
       next: (widget) => {
