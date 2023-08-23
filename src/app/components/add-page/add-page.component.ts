@@ -49,7 +49,6 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     float: true,
 
     draggable: {
-
       
       handle: '.grid-stack-item-content'
     },
@@ -71,8 +70,28 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   ) {
     this.getState = location.getState(); // Assign value to getState
     console.log("getstate" + this.getState.pageName);
-    console.log(this.getState[0]);
-    console.log(this.getState[0].widgetName);
+    console.log(this.getState[1]);
+    console.log(this.getState.length);
+    var widgetdata: string="";
+    for (var i = 0; i < this.getState.length; i++) {
+      widgetdata = this.assigndata(this.getState[i],widgetdata);
+    }
+    this.renderedWidgets = widgetdata;
+    console.log( "final = " + widgetdata);
+   
+  }
+
+    assigndata(widgetd: Widget, widgetdata:string) :string {
+
+      console.log(widgetd.widgetName);
+      widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget add"> \
+      <div class="card-body grid-stack-item-content add" > \
+        <div style="background-color:black" > \
+        <span>' + widgetd.widgetName + '</span> </div> </div> </div>'
+   
+   // alert("function " + widgetdata);
+    return widgetdata;
+   
   }
 
   ngAfterViewInit(): void {
@@ -84,7 +103,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-
+    $("#widdiv").html(this.renderedWidgets);
     //const _ddElement = DDElement.init();
     //_ddElement.setupDraggable({
     //  handle: '.newWidget',

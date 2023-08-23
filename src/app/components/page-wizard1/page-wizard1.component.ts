@@ -25,7 +25,9 @@ export class PageWizard1Component {
     this.widgetService.getAllWidget().subscribe({
       next: (widget) => {
         this.widget = widget;
-        var param = Object.assign(formValue, this.widget);
+        var length = { "length" : this.widget.length };
+        var param = Object.assign(formValue, this.widget, length);
+        
     // Navigate to the 'pages/addpage' route with formValue as state data
     this.router.navigate(['pages/addpage'], { state: param  });
       },
