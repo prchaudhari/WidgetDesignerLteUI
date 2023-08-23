@@ -1,5 +1,5 @@
 // Import necessary modules and libraries
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
@@ -10,11 +10,12 @@ import { GridStack, GridStackOptions } from "gridstack";
 
 import { PagesService } from '../../services/pages.service';
 import { Location } from '@angular/common';
-
-import { GridStackWidget } from "gridstack/dist/types";
+import { GridStackWidget, GridStackNode } from "gridstack/dist/types";
+import { DDElement } from "gridstack/dist/dd-element";
 
 // Define the GridMode type
 type GridMode = "edit" | "view";
+
 
 @Component({
   selector: 'app-add-page',
@@ -26,7 +27,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
-
+  
   widgetsItems: any = "";
   pageHtml: any = "";
   modifynode: any = "";
@@ -69,6 +70,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     private location: Location
   ) {
     this.getState = location.getState(); // Assign value to getState
+    console.log("getstate" + this.getState.pageName);
+    console.log(this.getState[0]);
+    console.log(this.getState[0].widgetName);
   }
 
   ngAfterViewInit(): void {
@@ -80,16 +84,15 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    // Initialize logic on component initialization
-    this.widgetService.getAllWidget().subscribe({
-      next: (widget) => {
-        this.widget = widget;
-        //console.log(this.widget[0].widgetName);
-      },
-      error: (response) => {
-        //console.log(response);
-      },
-    });
+
+    //const _ddElement = DDElement.init();
+    //_ddElement.setupDraggable({
+    //  handle: '.newWidget',
+    //  appendTo: 'body',
+    //  helper: 'clone',
+      
+    //});
+   
 
     // Sample data for advanced layout
     const advanced = [
@@ -105,27 +108,56 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       .load(advanced);
 
   //  var grid = $('.grid-stack').data('gridstack');
-    var html = '<div>'
-    html += '<div class="grid-stack-item-content">';
-    html += '<div class="col-md-3"> <label> Sample Textbox </label></div>';
-    html += '<div class="col-md-9"> <input type="text" class="form-control" /> </div>';
-    html += '</div></div>';
-
-    
+    //var html = '<div>'
+    //html += '<div class="grid-stack-item-content">';
+    //html += '<div class="col-md-3"> <label> Sample Textbox </label></div>';
+    //html += '<div class="col-md-9"> <input type="text" class="form-control" /> </div>';
+    //html += '</div></div>';
 
    // advGrid.addWidget(html, { w: 3 ,h:4})
     advGrid.addWidget({ x: 0, y: 0, minW: 1, content: 'Item d' })
-   
+    //advGrid.on('dragstart', function (event, previousWidget, newWidget) {
+    //  if (event) {
+
+       
+    //    console.log('gridstack dragstart: ', event);
+    //    console.log('gridstack dragstart: ', previousWidget);
+
+
+    //    console.log('gridstack dropped: ', newWidget);
+      
+    //  }
+    //});
+    
+    //advGrid.on("dragstart", function (event, previousWidget, newWidget) {
+    //  // Capture the original content of the dragged item
+    //  console.log('gridstack dropped: ', previousWidget.el?.innerHTML);
+    //});
+
+    advGrid.on("dropped", function (event, previousWidget, newWidget) {
+      // Change the content of the dragged item while dragging
+
+     
+      console.log('gridstack change previousWidget : ', event);
+      console.log('gridstack drag newWidget : ', newWidget);
+     
+    });
+
+    //advGrid.on('dropped', this.gridStackDropped.bind(this));
+   // advGrid.load(this.items); // and load our content directly (will create DOM)
+
+    //advGrid.on("dragstop", function (event, previousWidget, newWidget) {
+    //  // Restore the original content when dragging stops
+    //  console.log('gridstack dragstop: ');
+      
+    //});
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
-      
-      
-      
-    
       scroll: false,
       appendTo: 'body',
-      helper: 'clone'
+      helper: 'clone',
+
     });
 
     advGrid.enableMove(true);
@@ -134,11 +166,18 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
   }
 
+
+  
   
 
  
 
-
+  //gridStackDropped(event: Event, previousWidget: GridStackNode, newWidget: GridStackNode): void {
+  //  const dragEvent = event as DragEvent;
+  //  if (dragEvent.dataTransfer) {
+  //    console.log('gridstack dropped: ', dragEvent.dataTransfer.getData('message'));
+  //  }
+  //}
 
   saveAndUpdatePageWidgetContent() {
     const items = $(".grid-stack .grid-stack-item");
