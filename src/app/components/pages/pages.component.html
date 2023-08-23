@@ -1,105 +1,72 @@
 <div class="container">
   <div>
-    <h5 style="float:left">Pages </h5>
+    <h4 style="text-align:center">Pages</h4>
   </div>
 
-  <div style="float:right">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
+  <div class="rounded-3" style=" width: 100%; border: 1px solid grey; padding: 8px;">
+    <div class="row">
+      <div style="padding-left:10px">
         <button class="btn btn-primary" type="button">
-          <a style="color:white" class="navbar-brand" href="pages/add">Add Page + </a>
+          <a style="color:white" href="pages/add">Add Page + </a>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
 
-</div>
-
-<div class="card-body">
-  <div class="table-responsive">
-    <table class="table table-bordered table-success table-striped">
-      <thead class="bg-light">
-        <tr>
-          <td></td>
-          <th>Page Name</th>
-          <th>Description</th>
-          <th>Data Source Json</th>
-          <th  style="width: 200px">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let page  of page">
+  <div class="card-body rounded-3" style=" width: 100%; border: 1px solid grey; padding: 8px">
+    <div class="table-responsive">
+      <table class="table table-bordered table-success table-striped">
+        <thead class="bg-light">
           <tr>
-            <td style="width:40px;">
-              <button  class="border-0 bg-light" (click)="openCloseRow(page.id)">
-                <i *ngIf="rowSelected!=page.id; else close" class="right fas fa-angle-down" aria-hidden="true"></i>
-                <ng-template #close>
-                  <i class="right fas fa-angle-up"></i>
-                </ng-template>
-              </button>
-            </td>
-            <td>{{page.pageName}}</td>
-            <td>{{page.description}}</td>
-            <td>{{page.dataSourceJson}}</td>
-            <td>
-              <a title="Edit" [routerLink]="['/page','edit',page.id]"><i class="fas fa-pencil-alt"></i></a>&nbsp;&nbsp;
-              <a title="Delete" (click)="deletePage(page.id)"><i class="fa-regular fa-trash-can"></i></a>&nbsp;&nbsp;
-              <a title="Preview" (click)="previewPage()"><i class="fa-regular fa-eye"></i></a>
-            </td>
+            <td></td>
+            <th>Page Name</th>
+            <th>Description</th>
+            <th>Data Source Json</th>
+            <th style="width: 200px">Action</th>
           </tr>
-          <tr *ngIf="rowSelected==page.id">
-            <td colspan="6" style="padding-left: 49px;padding-top:0">
-              <table class="table  table-bordered table-success" >
-                <tbody>
-                  
-                  <tr>
-                   
-                    <td style="width:216px;">Page Html:- </td>
-                    <td>{{ page.pageHtml }}</td>
-                  <tr>
-                 
-                    <td>Page CSS Url:- </td>
-                    <td>{{page.pageCSSUrl}}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </td>
-          </tr>
-        </ng-container>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let page  of page">
+            <tr>
+              <td style="width:40px;">
+                <button class="border-0 bg-light" (click)="openCloseRow(page.id)">
+                  <i *ngIf="rowSelected!=page.id; else close" class="right fas fa-angle-down" aria-hidden="true"></i>
+                  <ng-template #close>
+                    <i class="right fas fa-angle-up"></i>
+                  </ng-template>
+                </button>
+              </td>
+              <td>{{page.pageName}}</td>
+              <td>{{page.description}}</td>
+              <td>{{page.dataSourceJson}}</td>
+              <td>
+                <a title="Edit" [routerLink]="['/page','edit',page.id]"><i class="fas fa-pencil-alt"></i></a>&nbsp;&nbsp;
+                <a title="Delete" (click)="deletePage(page.id)"><i class="fa-regular fa-trash-can"></i></a>&nbsp;&nbsp;
+                <a title="Preview" (click)="previewPage()"><i class="fa-regular fa-eye"></i></a>
+              </td>
+            </tr>
+            <tr *ngIf="rowSelected==page.id">
+              <td colspan="6" style="padding-left: 49px;padding-top:0">
+                <table class="table  table-bordered table-success">
+                  <tbody>
+
+                    <tr>
+
+                      <td style="width:216px;">Page Html:- </td>
+                      <td>{{ page.pageHtml }}</td>
+                    <tr>
+
+                      <td>Page CSS Url:- </td>
+                      <td>{{page.pageCSSUrl}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 
-<!--<div class="container">
-  <table class="table table-success table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Page Name</th>
-        <th scope="col">Description</th>
-        <th scope="col">Data Source Json</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody *ngFor="let page of page">
-      <tr>
-        <td>{{page.pageName}}</td>
-        <td>{{page.description}}</td>
-        <td>{{page.dataSourceJson}}</td>
-        <td>
-          <a title="Edit" [routerLink]="['/page','edit',page.id]"><i class="fas fa-pencil-alt"></i></a>&nbsp;&nbsp;
-          <a title="Delete" (click)="deletePage(page.id)"><i class="fa-regular fa-trash-can"></i></a>&nbsp;&nbsp;
-          <a title="Preview" (click)="previewPage()"><i class="fa-regular fa-eye"></i></a>
-        </td>-->
-        <!--<th>{{ product.id }}</th>
-        <th>{{ product.name }}</th>
-        <th>{{ product.type }}</th>
-        <th>{{ product.color }}</th>
-        <th>{{ product.price | currency }}</th>
-        <th><a [routerLink]="['/products','edit',product.id]">Edit</a></th>
-        <th><a [routerLink]="[]" (click)="deleteProduct(product.id)">Delete</a></th>-->
-      <!--</tr>
-    </tbody>
-  </table>
-  <p *ngIf="!page || page.length == 0">No Pages Found!</p>
-</div>-->

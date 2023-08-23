@@ -1,28 +1,19 @@
 <div class="container">
   <div>
-    <h5 style="float:left;padding-top:40px;padding-left:100px">Available Widgets</h5>
+    <h4 style="text-align:center">Available Widgets</h4>
   </div>
 
-
-  <div *ngIf="!(widget && widget.length > 0)" class="spinner-border" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
-
-  <div style="float:right">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
+  <div class="rounded-3" style=" width: 100%; border: 1px solid grey; padding: 8px;">
+    <div class="row">
+      <div style="width:20%;padding-left:10px">
         <button class="btn btn-primary" type="button">
-          <a style="color:white" class="navbar-brand" href="widget/add">Add Widget </a>
+          <a style="color:white" href="widget/add">Add Widget +</a>
         </button>
       </div>
-    </nav>
+    </div>
   </div>
-  <br />
-  <br />
-  <br />
-  <br />
 
-  <section style="border: 2px solid grey; border-radius: 10px;height:500px;padding-top:10px">
+  <section style="border: 1px solid grey; border-radius: 10px; height: 500px; padding-top: 10px">
     <section *ngIf="widget && widget.length > 0">
       <div style="width:60%;float:left">
         <table>
@@ -31,7 +22,7 @@
               <div class="row">
                 <div style="width:150px" *ngFor="let widget of widget;
                      let i = index">
-                  <div (click)="setRow(i)" [ngClass]="{'highlight': selectedIndex === i}" class="info-box" style="border: 2px solid grey; border-radius: 10px; width: 100%" (click)="showWidget(widget.id)">
+                  <div (click)="setRow(i)" [ngClass]="{'highlight': selectedIndex === i}" class="info-box" style="border: 1px solid grey; border-radius: 10px; width: 100%" (click)="showWidget(widget.id)">
                     <table style="width: 100%; text-align: center">
                       <tr>
                         <span style="width: 100%" class="info-box-icon"><i [ngClass]="widget.fontName"></i></span>
@@ -83,7 +74,7 @@
                     <tr style="height:10px">
                     </tr>
                     <tr style="text-align:center">
-                      <div style="border: 1px solid grey; border-radius: 20px;width:400px;padding:40px">
+                      <div style="border: 1px solid grey; border-radius: 20px; width: 400px; padding: 40px">
                         <img style=" height:200px;width:300px" src="{{clickWidget.widgetIconUrl}}" />
                       </div>
                     </tr>
