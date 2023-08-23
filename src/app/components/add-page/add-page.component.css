@@ -1,7 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.main {
+  background-color: #2F3034;
+}
+
+#main1 {
+  padding-top: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
 .grid-container {
   padding: 15px;
-  border: 1px solid white;
+  border: 1px solid grey;
   max-width: 1000px;
 }
 
@@ -58,13 +68,21 @@ section {
   background-color: #6cad84;
 }
 
-.bs-pagedesignbtn {
-  margin: 50px
+.clearfix1{
+     text-align:center;
+  }
+
+.rounded-3 {
+  width: 100%;
+  border: 1px solid grey;
+  padding: 8px;
 }
 
-.text-white{
-    text-align:center;
-}
+
+  .text-white {
+    text-align: center;
+  }
+
 
 /* Importing Bootstrap SCSS file. */
 
