@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+.main {
+  background-color: #2F3034;
+}
+
+#main1 {
+  padding-top: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+.grid-container {
+  padding: 15px;
+  border: 1px solid grey;
+  max-width: 1000px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-stack-item {
+  border: 0;
+}
+
+.grid-stack-item-content {
+  background-color: white;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.card {
+  background: none;
+}
+
+section {
+  padding: 0 15px 0 15px;
+}
+
+.grid-stack-item-removing {
+  opacity: 0.8;
+  filter: blur(5px);
+}
+
+@media all and (max-width: 575px) {
+  #hero {
+    margin-top: 32px;
+  }
+}
+
+.logo {
+  display: inline;
+  margin-right: 15px;
+}
+
+#trash {
+  background-color: #cc6857;
+}
+
+.newWidget > .grid-stack-item-content {
+  background-color: #6cad84;
+}
+
+.clearfix1 {
+  text-align: center;
+}
+
+.rounded-3 {
+  width: 100%;
+  border: 1px solid grey;
+  padding: 8px;
+}
+
+
+.text-white {
+  text-align: center;
+}
+
+
+/* Importing Bootstrap SCSS file. */
+
+

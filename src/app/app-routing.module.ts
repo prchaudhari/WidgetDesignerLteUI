@@ -11,11 +11,12 @@ import { PagesComponent } from './components/pages/pages.component';
 import { EditPageWizard1Component } from './components/edit-page-wizard1/edit-page-wizard1.component';
 import { AddPageComponent } from './components/add-page/add-page.component';
 import { pagepreviewComponent } from './components/pagepreview/pagepreview.component';
+import { EditPageComponent } from './components/edit-page/edit-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent
+    component: WidgetComponent
   },
   {
     path: 'dashboard',
@@ -68,7 +69,11 @@ const routes: Routes = [
   {
     path: 'pagepreview',
     component: pagepreviewComponent
-  }
+  },
+  {
+    path: 'edit/:id',
+    component: EditPageComponent
+  },
 ];
 
 @NgModule({

@@ -19,6 +19,7 @@ import { pagepreviewComponent } from './components/pagepreview/pagepreview.compo
 import { NgSelectModule } from '@ng-select/ng-select';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { EditPageComponent } from './components/edit-page/edit-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { NgModule } from '@angular/core';
     EditPageWizard1Component,
     AddPageComponent,
     pagepreviewComponent,
+    EditPageComponent,
   ],
   imports: [
     BrowserModule,
