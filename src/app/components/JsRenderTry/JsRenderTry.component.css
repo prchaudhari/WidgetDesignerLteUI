@@ -1,0 +1,21 @@
+.squarecontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+  .squarecontainer div {
+    background-color: none;
+    border:solid 1px grey;
+    aspect-ratio: 1;
+  }
+
+.square {
+  width: 1%;
+  padding-top: 10%; /* 1:1 aspect ratio (square) */
+  background-color: none;
+  padding:2px;
+  border: 1px solid gray;
+  text-align: center;
+  cursor: pointer;
+}
