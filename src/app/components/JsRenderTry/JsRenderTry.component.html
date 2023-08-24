@@ -2,7 +2,26 @@
   <div>
     <h5 style="float:left">Widget Designer</h5>
   </div>
-  <div [innerHTML]="tableContainer"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-3 square"
+           *ngFor="let cell of cells; let i = index"
+           (click)="cellClicked(i)">
+        {{ i + 1 }}
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="squarecontainer">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>-->
+  <!--<div [innerHTML]="tableContainer"></div>
   <button type="button"
           class="btn btn-primary"
           (click)="Showtry()">
@@ -37,5 +56,5 @@
         </textarea>
       </div>
     </div>
-  </form>
+  </form>-->
 </div>
