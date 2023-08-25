@@ -104,12 +104,12 @@ export class AddWidgetComponent implements OnInit {
   }
 
   ShowPreview(cssName:string) {
-  
+    var previewWidgetHtml: string = "";
     var jsonObject1: any = JSON.parse(this.newWidget.dataSourceJson);
     var tagname: string = "abc";
-    this.newWidget.widgetHtml = "{{for " +tagname+ "}}" + this.newWidget.widgetHtml;
-    this.newWidget.widgetHtml = this.newWidget.widgetHtml + "{{/for}}";
-    const renderedHtml = jsrender.templates(this.newWidget.widgetHtml).render({ [tagname]:jsonObject1 });
+    previewWidgetHtml = "{{for " +tagname+ "}}" + this.newWidget.widgetHtml;
+    previewWidgetHtml = previewWidgetHtml + "{{/for}}";
+    const renderedHtml = jsrender.templates(previewWidgetHtml).render({ [tagname]:jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
     const url = this.router.createUrlTree(['/widgetpreview', '']);
     window.open(url.toString(), '_blank'); 

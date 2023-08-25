@@ -1,124 +1,94 @@
-{
-      "title": "The A team",
-      "members": [
-        {
-          "name": "Pete",
-          "address": {
-            "city": "Seattle"
-          }
-        },
-        {
-          "name": "Heidi",
-          "address": {
-            "city": "Sidney"
-          }
-        }
-      ]
-    }
-	
-	<b>{{:title}}</b>
+npm install jquery -- save
+npm install jquery -- save 
+npm i --save-dev @types/jquery
+npm install jsrender
+
+npm install ngx-bootstrap --save
+ 
+{{}} - render tag
+{{:Data}} or {{>Data}} - 2 different ways to access data
+{{for}}...{{/for}} - for loop
+{{if condition..}} ....{{//if}}
+{{:~functionName(param1,param2,...)}} - helper function
+
+
+*Please refer these templates when creating a new widget
+*****1*****
+template - <div>name: - {{:name}}<br />
+Balance: - {{:balance}}<br />
+Address: - {{:Address.Line1}}<br />
+{{:Address.Line2.city}}<br />
+{{:Address.Line2.state}}<br />
+<img src="{{:src}}" style="height:100px; width:100px" /></div>
+**********
+*****2*****
+template - 
+<b>{{:title}}</b>
 <ul>
   {{for members}}
       <li>{{:name}} lives in <b>{{:address.city}}</b></li>
   {{/for}}
 </ul>
-************************************************
 
-[
-      {
-        "name": "Amit",
-        "balance": "10000",
-        "Address": {
-          "Line1": "Address Line1",
-          "Line2": {
-            "city": "Mumbai",
-            "state": "Maharashtra"
+json - [{
+      "title": "The A team",
+      "members": [
+        {
+          "name": "xyz",
+          "address": {
+            "city": "pune"
           }
         },
-        "src": "assets/img.jpg"
-      },
-      {
-        "name": "Jay",
-        "balance": "20000",
-        "Address": {
-          "Line1": "Jay Address Line11",
-          "Line2": "Jay Address Line2"
+        {
+          "name": "abc",
+          "address": {
+            "city": "Mumbai"
+          }
         }
-      }
-    ]
+      ]
+    }]
+
+**********
+*****3*****
+template -
+<table class="demo">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>City:</th>
+		</tr>
+	</thead>
+         {{for members}}
+	<tbody>
+		<tr>
+			<td>{{:name}}</td>
+			<td>{{:address.city}}</td>
+		</tr>
+	</tbody>
+       {{/for}}
+</table>
 
 
- <table class="demo">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Balance</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{for abc}}
-            <tr>
-              <td>{{:name}}</td>
-              <td>{{:balance}}</td>
-              <td>{{:Address.Line1}}</td>
-              <td>{{if Address.Line2.city}} {{:Address.Line2.city}} {{/if}}</td>
-              <td>{{if Address.Line2.state}} {{:Address.Line2.state}} {{/if}}</td>
-              <td><img class="imgcss" src={{:src}}></img></td>
-            </tr>
-          {{/for}}
-        </tbody>
-      </table>
-	  
-	  [{"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"},{"name":"Jay","balance":"20000","Address":{"Line1":"Address Line11","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"}];
-	  
-	  <div >
-	   {{for employees}}
-	  <div class="divdemo">name: - {{:name}}<br />
-				Balance: - {{:balance}}<br />
-				Address: - {{:Address.Line1}}<br />
-				{{:Address.Line2.city}}<br />
-				{{:Address.Line2.state}}<br />
-				<img src="{{:src}}" class="imgcss"/></div>
-  {{/for}}</div>
-
-**************Single object**************************
-"header":
-{"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"}
-
-
-	{{for abc}}
-	<div class="divdemo">name: - {{:name}}<br />
-	Balance: - {{:balance}}<br />
-	Address: - {{:Address.Line1}}<br />
-	{{:Address.Line2.city}}<br />
-	{{:Address.Line2.state}}<br />
-	<img class="imgcss" src="{{:src}}" style="height:100px; width:100px" /></div>
-	{{/for}}
-****************************************
-	   const jsonData = [
-      {
-        "name": "Amit",
-        "balance": "10000",
-        "Address": {
-          "Line1": "Address Line1",
-          "Line2": {
-            "city": "Mumbai",
-            "state": "Maharashtra"
+json - [{
+      "title": "The A team",
+      "members": [
+        {
+          "name": "xyz",
+          "address": {
+            "city": "pune"
           }
         },
-        "src": "assets/img.jpg"
-      },
-      {
-        "name": "Jay",
-        "balance": "20000",
-        "Address": {
-          "Line1": "Jay Address Line11",
-          "Line2": "Jay Address Line2"
+        {
+          "name": "abc",
+          "address": {
+            "city": "Mumbai"
+          }
         }
-      }
-    ];
-	
+      ]
+    }]
+
+**********
+*****4*****
+json - [{"src":"assets/img.jpg"}]
+template -  <div><img src="{{:src}}"></img></div>
+**********

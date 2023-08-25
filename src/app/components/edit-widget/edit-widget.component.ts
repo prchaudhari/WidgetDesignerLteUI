@@ -111,11 +111,17 @@ export class EditWidgetComponent {
   }
 
   ShowPreview(cssName: string) {
-
+    var previewWidgetHtml: string = "";
     var jsonObject1: any = JSON.parse(this.updateWidgetRequest.dataSourceJson);
+    var tagname: string = "abc";
+    previewWidgetHtml = "{{for " + tagname + "}}" + this.updateWidgetRequest.widgetHtml;
+    previewWidgetHtml = previewWidgetHtml + "{{/for}}";
+    const renderedHtml = jsrender.templates(previewWidgetHtml).render({ [tagname]: jsonObject1 });
+
+   // var jsonObject1: any = JSON.parse(this.updateWidgetRequest.dataSourceJson);
 
 
-    const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ abc: jsonObject1 });
+   // const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ abc: jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
     const url = this.router.createUrlTree(['/widgetpreview', '']);
     window.open(url.toString(), '_blank'); 
