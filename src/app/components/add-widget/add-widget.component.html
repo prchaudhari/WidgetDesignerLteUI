@@ -19,7 +19,7 @@
   </div>
   <div class="rounded-3" style="width: 100%; border: 1px solid grey; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
     <div class="row">
-      <div class="col-8">
+      <div class="col-10">
         <form #form="ngForm" (ngSubmit)="addWidget()">
 
           <div class="form-group row required mb-3">
@@ -58,6 +58,29 @@
               <textarea type="text" class="form-control" id="dataSourceJson" name="dataSourceJson" #dataSourceJson
                         [(ngModel)]="newWidget.dataSourceJson">
               </textarea>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                Sample Json Data
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div style="background-color:wheat"  class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Sample Json Data</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                     
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Understood</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -68,6 +91,31 @@
             <div class="col-md-9">
               <textarea class="widgetHtml" typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="newWidget.widgetHtml">
               </textarea>
+            </div>
+          </div>
+
+          <div style="float:right">
+            <!-- Button trigger modal -->
+            <button title="Sample Widget Html Data" type="button" class="btn rounded-3" style="border:1px solid grey" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+              <i class="fa-regular fa-file-code"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog">
+                <div style="background-color:gray" class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel1">Sample Widget Html Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    {{show}}
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

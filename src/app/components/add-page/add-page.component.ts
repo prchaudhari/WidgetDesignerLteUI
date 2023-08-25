@@ -256,10 +256,14 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     this.pagesService.addPage(data).subscribe({
       next: (response) => {
         alert("Data updated successfully");
+        this.router.navigate(['pages']);
       },
       error: (error) => {
         console.log(error);
       },
     });
+  }
+  canclePage() {
+     this.router.navigate(['pages']);
   }
 }

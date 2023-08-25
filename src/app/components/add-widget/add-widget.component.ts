@@ -18,7 +18,7 @@ export class AddWidgetComponent implements OnInit {
   iconList: string[] = [
     'search', 'home', 'user',// Add more icon names
   ];
-  
+  show: string = "";
   selectedFile!: File;
   selectedValue: string = '';
   imagePath: string = AppConfig.imagePath;
@@ -56,7 +56,9 @@ export class AddWidgetComponent implements OnInit {
     private widgetService: WidgetService,
     private fontsService: FontsService,
     private router: Router
-  ) { }
+  ) {
+    this.show = "<div><img src={{:src}}></img></div>";
+  }
 
   ngOnInit(): void {
       this.fontsService.getAllFonts().subscribe(options => {
