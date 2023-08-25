@@ -21,3 +21,18 @@
   background-color: antiquewhite;
   color: black;
 }
+
+.adharnumbercss {
+  font-weight: bold;
+  color: black;
+  font-size: 25px;
+}
+
+.profilephoto {
+  border: 3px solid black;
+}
+
+.widgetHtml {
+  background-color: dimgray;
+  width: auto;
+}
