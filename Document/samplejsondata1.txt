@@ -20,6 +20,7 @@ Address: - {{:Address.Line1}}<br />
 {{:Address.Line2.city}}<br />
 {{:Address.Line2.state}}<br />
 <img src="{{:src}}" style="height:100px; width:100px" /></div>
+json -  [{"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"},{"name":"Jay","balance":"20000","Address":{"Line1":"JAy Address Line11","Line2":"Jay Address Line2"}}]
 **********
 *****2*****
 template - 
