@@ -21,3 +21,21 @@
   background-color: gainsboro;
   color: black;
 }
+<<<<<<< HEAD
+=======
+
+.adharnumbercss{
+    font-weight:bold;
+    color:black;
+    font-size:23px;
+}
+
+.profilephoto {
+  border: 3px solid brown;
+}
+
+.widgetHtml {
+  background-color: gray;
+  width: auto;
+}
+>>>>>>> 1aca5852892bb70fe16da3ad7f61f70d15254cef
