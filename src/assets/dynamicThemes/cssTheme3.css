@@ -15,9 +15,9 @@
 }
 
 .divdemo {
-  align-content: float;
-  width: 200px;
-  border: 2px solid black;
-  background-color: burlywood;
+  align-content: normal;
+  width: auto;
+  height: auto;
+  background-color: gainsboro;
   color: black;
 }

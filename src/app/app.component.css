@@ -5,8 +5,16 @@
 ::ng-deep .grid-stack > .grid-stack-item > .grid-stack-item-content {
   background-color: #454d55;
   border-radius: 6px !important;
-  box-shadow: 0 2px 3px #0000000a;
   background: #454d55 !important;
   overflow: hidden;
-  zoom: normal;
+  margin: 0;
+  position: absolute;
+  width: auto;
+  transition: transform .2s;
+}
+
+.zoomed {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.5);
 }

@@ -27,6 +27,7 @@
 .grid-stack-item-content {
   background-color: white;
   text-align: center;
+  resize: both;
 }
 
 h1 {

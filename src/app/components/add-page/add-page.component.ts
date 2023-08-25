@@ -46,9 +46,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   private gridStackOptions: GridStackOptions = {
     disableResize: true,
     disableDrag: true,
-    margin: 1,
-    column: 1,
-    cellHeight:50 ,
+    margin: .001,
+    column: 12,
+    //cellHeight:50 ,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
@@ -115,18 +115,41 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       },
     });
 
-    // Sample data for advanced layout
-    const advanced = [
-      // ...
-     { x: 0, y: 0, w: 0, h: 0,  id: 'undefined' }
-      // ... (other items)
-     
-    ];
+   
 
     // Initialize advanced GridStack layout
     const grid = GridStack.init(this.gridStackOptions
-      , '#advanced-grid')
-      .load(advanced);
+      , '#advanced-grid');
+
+
+    
+
+    grid.on("resize", (event, previousWidget, newWidget) => {
+
+      
+      console.log(previousWidget);
+
+      console.log(newWidget);
+
+
+      const items = $(".grid-stack .grid-stack-item .grid-stack-item-content");
+      items.each(function () {
+        $(this).addClass('zoomed');
+      });
+
+      //const items1 = $(".grid-stack .grid-stack-item .grid-stack-item-content .divdemo");
+      //items1.each(function () {
+      //  $(this).addClass('zoomed');
+      //});
+
+
+      
+     
+
+
+    });
+
+
 
     grid.on("dropped",  (event, previousWidget, newWidget) => {
       // Restore the original content when dragging stops
@@ -134,7 +157,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     //  var serializedData = serializedFull;
      // console.log(serializedFull);
      // console.log(serializedData);
-
+     // grid.enableMove(false);
+     // grid.enableResize(false);
       for (var i = 0; i < this.getState.length; i++) {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
@@ -158,7 +182,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // alert("heloo");
      if (removeEl) grid.removeWidget(removeEl);
      const widgetdata = 
-       { content: renderedHtml, id: newWidget.id + "g", scroll: false, overflow:"hidden" };
+       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "g" };
      grid.addWidget(widgetdata);
 
     
