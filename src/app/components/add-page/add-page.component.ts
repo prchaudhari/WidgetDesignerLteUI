@@ -44,16 +44,16 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
-    disableResize: false,
-    disableDrag: false,
-    margin: 18,
-    column: 4,
-    cellHeight: 108,
+    disableResize: true,
+    disableDrag: true,
+    margin: 1,
+    column: 1,
+    cellHeight:50 ,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
     float: true,
-    
+   
     draggable: {
       
       handle: '.grid-stack-item-content'
@@ -139,13 +139,13 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
           var dataBindingJsonNode = this.getState[i].dataBindingJsonNode;
-          var dataSourceJson = this.getState[i].dataSourceJson;
+         var dataSourceJson = this.getState[i].dataSourceJson;
           break;
         };
       }
      // console.log("full json" + this.getState)
       console.log( this.getState)
-      var jsonObject1: any = JSON.parse(this.getState.dataSourceJson);
+      var jsonObject1: any = JSON.parse(dataSourceJson);
    //   var tagname: string = dataBindingJsonNode;
       var tagname: string = "abc";
       var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
@@ -158,7 +158,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // alert("heloo");
      if (removeEl) grid.removeWidget(removeEl);
      const widgetdata = 
-       {  content: renderedHtml, id: newWidget.id + "g", scroll: false };
+       { content: renderedHtml, id: newWidget.id + "g", scroll: false, overflow:"hidden" };
      grid.addWidget(widgetdata);
 
     
