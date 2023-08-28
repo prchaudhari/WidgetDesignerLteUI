@@ -11,11 +11,6 @@ import { PagesService } from '../../services/pages.service';
 import { Location } from '@angular/common';
 import { GridStackWidget,  } from "gridstack/dist/types";
 import * as jsrender from 'jsrender';
-
-
-
-
-
 // Define the GridMode type
 type GridMode = "edit" | "view";
 
@@ -26,10 +21,6 @@ type GridMode = "edit" | "view";
   styleUrls: ['./add-page.component.css']
 })
 export class AddPageComponent implements OnInit, AfterViewInit {
-
-
-
-
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
