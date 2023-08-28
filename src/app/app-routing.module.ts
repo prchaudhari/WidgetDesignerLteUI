@@ -71,9 +71,9 @@ const routes: Routes = [
     component: pagepreviewComponent
   },
   {
-    path: 'edit/:id',
+    path: 'pages/editpage',
     component: EditPageComponent
-  },
+  }
 ];
 
 @NgModule({

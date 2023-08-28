@@ -6,7 +6,7 @@
   <div class="rounded-3" style="width: 100%; border: 1px solid grey; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
     <div class="row">
       <div class="col-8">
-        <form #form="ngForm">
+        <form #form="ngForm" (ngSubmit)="addPage(form.value)">
 
           <div class="form-group row required mb-3">
             <label class="col-md-3 col-form-label" for="pageName">
@@ -30,8 +30,8 @@
           </div>
 
           <div style="padding:10px">
-            <button class="btn btn-primary" type="button">
-              <a style="color:white" href="edit/id">Next</a>
+            <button style="color:white" class="btn btn-primary" type="submit">
+              Next
             </button>
             &nbsp;
 

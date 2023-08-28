@@ -81,9 +81,9 @@ export class EditPageComponent implements OnInit, AfterViewInit {
 
     //   console.log(widgetd.widgetName);
     widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget"  gs-id="' + widgetd.id + '"> \
-      <div class="card-body grid-stack-item-content add" > \
+      <div class="card-body grid-stack-item-content add""> \
         <div style="background-color:black" > \
-        <span>' + widgetd.widgetName + '</span> </div> </div> </div>'
+        <span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div> </div> </div>'
 
     // alert("function " + widgetdata);
     return widgetdata;

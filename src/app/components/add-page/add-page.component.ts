@@ -79,13 +79,13 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
     assigndata(widgetd: Widget, widgetdata:string) :string {
 
-   //   console.log(widgetd.widgetName);
+      console.log(widgetd.fontName);
       widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget"  gs-id="' + widgetd.id +'"> \
-      <div class="card-body grid-stack-item-content add" > \
+      <div class="card-body grid-stack-item-content add""> \
         <div style="background-color:black" > \
-        <span>' + widgetd.widgetName + '</span> </div> </div> </div>'
-   
-   // alert("function " + widgetdata);
+        <span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div> </div> </div>'
+   //<span style="width: 100%" class="info-box-icon"><i [ngClass]="' + widgetd.fontName+'"></i></span>
+   // alert("function " + widgetdata<i [ngClass]="widget.fontName"></i>
     return widgetdata;
    
   }
@@ -133,12 +133,6 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       //items1.each(function () {
       //  $(this).addClass('zoomed');
       //});
-
-
-      
-     
-
-
     });
 
 
@@ -197,13 +191,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      const widgetdata = 
        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "g" };
      grid.addWidget(widgetdata);
-
-    
+   
 
     });
-
-  
-
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
