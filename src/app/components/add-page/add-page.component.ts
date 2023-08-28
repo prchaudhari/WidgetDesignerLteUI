@@ -40,7 +40,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   widgetsItemsArr: any = [];
   pageHtml1: any = "";
   renderedWidgets: string = "";
-
+  FullJsonDataObject: string = "";
 
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
@@ -71,6 +71,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     private location: Location,
     private router: Router
   ) {
+
     this.getState = location.getState(); // Assign value to getState
     console.log("getstate" + this.getState);
    // console.log("getstate" + this.getState.dataSourceJson);
@@ -81,8 +82,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       widgetdata = this.assigndata(this.getState[i],widgetdata);
     }
     this.renderedWidgets = widgetdata;
-    console.log( "final = " + widgetdata);
-   
+    console.log("final = " + widgetdata);
+    this.FullJsonDataObject = this.FullJsonDataObject;// + "{";
   }
 
     assigndata(widgetd: Widget, widgetdata:string) :string {
@@ -151,7 +152,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
 
 
-    grid.on("dropped",  (event, previousWidget, newWidget) => {
+    grid.on("dropped", (event, previousWidget, newWidget) => {
       // Restore the original content when dragging stops
     //  var serializedFull = grid.save(true, true);
     //  var serializedData = serializedFull;
@@ -163,13 +164,34 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
           var dataBindingJsonNode = this.getState[i].dataBindingJsonNode;
-         var dataSourceJson = this.getState[i].dataSourceJson;
+          var dataSourceJson = this.getState[i].dataSourceJson;
           break;
         };
       }
+
+      /*****************/
+      var isPropertyPresent: boolean = false;
+      if (this.FullJsonDataObject == "") {
+        this.FullJsonDataObject +=  "{"
+      }
+      else {
+        var fulljsonObject: any = JSON.parse(this.FullJsonDataObject + "}");
+        isPropertyPresent = fulljsonObject.hasOwnProperty(dataBindingJsonNode);
+        //alert(isPropertyPresent);
+        if (!isPropertyPresent) {
+          this.FullJsonDataObject += ","
+        }
+      }
+      if (!isPropertyPresent) {
+        this.FullJsonDataObject += '"' + dataBindingJsonNode + '":';
+        this.FullJsonDataObject += dataSourceJson;
+      }
+      /******************/
+
      // console.log("full json" + this.getState)
       console.log( this.getState)
       var jsonObject1: any = JSON.parse(dataSourceJson);
+     
    //   var tagname: string = dataBindingJsonNode;
       var tagname: string = "abc";
       var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
@@ -222,6 +244,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   saveAndUpdatePageWidgetContent() {
+    this.FullJsonDataObject +=  '}';
+
     const items = $(".grid-stack .grid-stack-item");
     const itemsArray = Array.from(items);
 
