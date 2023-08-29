@@ -11,11 +11,6 @@ import { PagesService } from '../../services/pages.service';
 import { Location } from '@angular/common';
 import { GridStackWidget,  } from "gridstack/dist/types";
 import * as jsrender from 'jsrender';
-
-
-
-
-
 // Define the GridMode type
 type GridMode = "edit" | "view";
 
@@ -26,10 +21,6 @@ type GridMode = "edit" | "view";
   styleUrls: ['./add-page.component.css']
 })
 export class AddPageComponent implements OnInit, AfterViewInit {
-
-
-
-
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
@@ -40,7 +31,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   widgetsItemsArr: any = [];
   pageHtml1: any = "";
   renderedWidgets: string = "";
-
+  FullJsonDataObject: string = "";
 
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
@@ -71,6 +62,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     private location: Location,
     private router: Router
   ) {
+
     this.getState = location.getState(); // Assign value to getState
     console.log("getstate" + this.getState);
    // console.log("getstate" + this.getState.dataSourceJson);
@@ -81,19 +73,19 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       widgetdata = this.assigndata(this.getState[i],widgetdata);
     }
     this.renderedWidgets = widgetdata;
-    console.log( "final = " + widgetdata);
-   
+    console.log("final = " + widgetdata);
+    this.FullJsonDataObject = this.FullJsonDataObject;// + "{";
   }
 
     assigndata(widgetd: Widget, widgetdata:string) :string {
 
-   //   console.log(widgetd.widgetName);
+      console.log(widgetd.fontName);
       widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget"  gs-id="' + widgetd.id +'"> \
-      <div class="card-body grid-stack-item-content add" > \
+      <div class="card-body grid-stack-item-content add""> \
         <div style="background-color:black" > \
-        <span>' + widgetd.widgetName + '</span> </div> </div> </div>'
-   
-   // alert("function " + widgetdata);
+        <span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div> </div> </div>'
+   //<span style="width: 100%" class="info-box-icon"><i [ngClass]="' + widgetd.fontName+'"></i></span>
+   // alert("function " + widgetdata<i [ngClass]="widget.fontName"></i>
     return widgetdata;
    
   }
@@ -141,17 +133,11 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       //items1.each(function () {
       //  $(this).addClass('zoomed');
       //});
-
-
-      
-     
-
-
     });
 
 
 
-    grid.on("dropped",  (event, previousWidget, newWidget) => {
+    grid.on("dropped", (event, previousWidget, newWidget) => {
       // Restore the original content when dragging stops
     //  var serializedFull = grid.save(true, true);
     //  var serializedData = serializedFull;
@@ -163,13 +149,34 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
           var dataBindingJsonNode = this.getState[i].dataBindingJsonNode;
-         var dataSourceJson = this.getState[i].dataSourceJson;
+          var dataSourceJson = this.getState[i].dataSourceJson;
           break;
         };
       }
+
+      /*****************/
+      var isPropertyPresent: boolean = false;
+      if (this.FullJsonDataObject == "") {
+        this.FullJsonDataObject +=  "{"
+      }
+      else {
+        var fulljsonObject: any = JSON.parse(this.FullJsonDataObject + "}");
+        isPropertyPresent = fulljsonObject.hasOwnProperty(dataBindingJsonNode);
+        //alert(isPropertyPresent);
+        if (!isPropertyPresent) {
+          this.FullJsonDataObject += ","
+        }
+      }
+      if (!isPropertyPresent) {
+        this.FullJsonDataObject += '"' + dataBindingJsonNode + '":';
+        this.FullJsonDataObject += dataSourceJson;
+      }
+      /******************/
+
      // console.log("full json" + this.getState)
       console.log( this.getState)
       var jsonObject1: any = JSON.parse(dataSourceJson);
+     
    //   var tagname: string = dataBindingJsonNode;
       var tagname: string = "abc";
       var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
@@ -184,13 +191,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      const widgetdata = 
        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "g" };
      grid.addWidget(widgetdata);
-
-    
+   
 
     });
-
-  
-
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
@@ -222,6 +225,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   saveAndUpdatePageWidgetContent() {
+    this.FullJsonDataObject +=  '}';
+
     const items = $(".grid-stack .grid-stack-item");
     const itemsArray = Array.from(items);
 
@@ -256,10 +261,14 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     this.pagesService.addPage(data).subscribe({
       next: (response) => {
         alert("Data updated successfully");
+        this.router.navigate(['pages']);
       },
       error: (error) => {
         console.log(error);
       },
     });
+  }
+  canclePage() {
+     this.router.navigate(['pages']);
   }
 }

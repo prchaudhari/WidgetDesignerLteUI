@@ -18,82 +18,150 @@
     </div>
   </div>
   <div class="rounded-3" style="width: 100%; border: 1px solid grey; padding-top: 8px; padding-left: 5px; padding-right: 5px;">
-    <div class="row">
-      <div class="col-8">
+   
         <form #form="ngForm" (ngSubmit)="addWidget()">
-
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="widgetName">
-              Widget Name:
-            </label>
-            <div class="col-md-9">
-              <input type="text" class="form-control" id="widgetName" name="widgetName" [(ngModel)]="newWidget.widgetName" />
+          <div class="modal-body">
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="widgetName">
+                Widget Name:
+              </label>
+              <div class="col-md-7">
+                <input type="text" class="form-control" id="widgetName" name="widgetName" [(ngModel)]="newWidget.widgetName" />
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="description">
-              Description:
-            </label>
-            <div class="col-md-9">
-              <textarea placeholder="Enter description" type="text" class="form-control" name="description"
-                        id="description"
-                        [(ngModel)]="newWidget.description">
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="description">
+                Description:
+              </label>
+              <div class="col-md-7">
+                <textarea placeholder="Enter description" type="text" class="form-control" name="description"
+                          id="description"
+                          [(ngModel)]="newWidget.description">
                  </textarea>
+              </div>
             </div>
-          </div>
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="dataBindingJsonNode">
-              Data Binding Json Node:
-            </label>
-            <div class="col-md-9">
-              <input type="text" class="form-control" id="dataBindingJsonNode" name="dataBindingJsonNode" [(ngModel)]="newWidget.dataBindingJsonNode" />
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="dataBindingJsonNode">
+                Data Binding Json Node:
+              </label>
+              <div class="col-md-7">
+                <input type="text" class="form-control" id="dataBindingJsonNode" name="dataBindingJsonNode" [(ngModel)]="newWidget.dataBindingJsonNode" />
+              </div>
             </div>
-          </div>
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="dataSourceJson">
-              Data Source Json:
-            </label>
-            <div class="col-md-9">
-              <textarea type="text" class="form-control" id="dataSourceJson" name="dataSourceJson" #dataSourceJson
-                        [(ngModel)]="newWidget.dataSourceJson">
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="dataSourceJson">
+                Data Source Json:
+              </label>
+              <div class="col-md-7">
+                <textarea type="text"  rows="3" class="form-control" id="dataSourceJson" name="dataSourceJson" #dataSourceJson
+                          [(ngModel)]="newWidget.dataSourceJson">
               </textarea>
-            </div>
-          </div>
+                </div>
+              <div style="padding-top:10px" class="col-md-2">
+                <!-- Button trigger modal -->
+                <button style=" border: 1px solid grey" title="Data Source Json" type="button" class="btn rounded-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <img style="height: 25px; width: 25px" src="assets/json.png" />
+                </button>
 
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="widgetHtml">
-              Widget Html:                              
-            </label>
-            <div class="col-md-9">
-              <textarea class="widgetHtml" typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="newWidget.widgetHtml">
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div style="background-color: #454d55; border: 1px solid grey" class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Sample Json Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        {{wJsonData}}
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="widgetHtml">
+                Widget Html:
+              </label>
+              <div class="col-md-7">
+                <textarea class="widgetHtml" typeof="text" style="width:100%" rows="10" id="widgetHtml" name="widgetHtml" [(ngModel)]="newWidget.widgetHtml">
               </textarea>
-            </div>
-          </div>
+              </div>
+              <div style="padding-top:10px" class="col-md-2">
+                <!-- Button trigger modal -->
+                <button title="Sample Widget Html Data" type="button" class="btn rounded-3" style="border:1px solid grey" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                  <i class="fa-regular fa-file-code fa-2xl"></i>
+                </button>&nbsp;
+                <button title="Jsrender Help " type="button" class="btn rounded-3" style="border:1px solid grey" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                  <i class="fa-brands fa-js fa-2xl"></i>
+                  <!--<img style="height:30px;width:30px" src="assets/images.png" />-->
+                </button>
 
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="WidgetIconUrl">
-              Widget Icon:
-            </label>
-            <div class="col-md-9">
-              <img [src]="url" height="100" />
-              <!--<img src="https://localhost:44381//uploads//a26ca398-160f-4a37-b7c6-7e1d6152add3.jpeg" height="100" />-->
-              <input type="file" name="WidgetIconUrl" (change)="onselectFile($event)">
-            </div>
-          </div>
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="fontName">
-              Font Name:
-            </label>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div style="background-color: #454d55; border: 1px solid grey" class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel1">Sample Widget Html Data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        {{wHtmlData}}
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel2" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div style="background-color: #454d55; border: 1px solid grey" class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel2">Jsrender Help </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        {{jsRenderHelp}}
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
 
-            <ng-select class="col-md-9" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName">
-              <ng-option *ngFor="let option of options" [value]="option.fontClass">
-                <span style="width: 15%" class="info-box-icon"><i [ngClass]="option.fontClass"></i></span>
-                &nbsp;&nbsp;
-                {{option.fontName}}
-              </ng-option>
-            </ng-select>
-          </div>
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="WidgetIconUrl">
+                Widget Icon:
+              </label>
+              <div class="col-md-7">
+                <img [src]="url" height="100" />
+                <!--<img src="https://localhost:44381//uploads//a26ca398-160f-4a37-b7c6-7e1d6152add3.jpeg" height="100" />-->
+                <input type="file" name="WidgetIconUrl" (change)="onselectFile($event)">
+              </div>
+            </div>
+            <div class="form-group row required">
+              <label class="col-md-3 col-form-label" for="fontName">
+                Font Name:
+              </label>
+
+              <ng-select class="col-md-7" id="fontName" name="fontName" [(ngModel)]="newWidget.fontName">
+                <ng-option *ngFor="let option of options" [value]="option.fontClass">
+                  <span style="width: 15%" class="info-box-icon"><i [ngClass]="option.fontClass"></i></span>
+                  &nbsp;&nbsp;
+                  {{option.fontName}}
+                </ng-option>
+              </ng-select>
+            </div>
 
             <div class="form-group row required">
               <label class="col-md-3 col-form-label" for="width">
@@ -113,9 +181,7 @@
 
               <button type="submit" class="btn btn-primary">Save</button>
             </div>
+          </div>
 </form>
-      </div>
-    </div>
-
   </div>
 </div>

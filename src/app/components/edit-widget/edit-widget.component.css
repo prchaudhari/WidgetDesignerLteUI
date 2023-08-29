@@ -26,6 +26,11 @@ p {
   text-align: center;
 }
 
+.ng-select .ng-select-container {
+  background-color: #343a40;
+  color: white;
+}
+
  .ng-option {
   background-color: dimgrey; 
 }
@@ -33,7 +38,7 @@ p {
 
 .ng-dropdown-panel {
   .ng-option {
-        background-color:dimgray !important;
+        background-color:black !important;
         color:white;
     &.ng-option-marked {
       background-color:aliceblue !important;

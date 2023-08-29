@@ -14,6 +14,9 @@ import { FontsService } from '../../services/fonts.service ';
   styleUrls: ['./edit-widget.component.css']
 })
 export class EditWidgetComponent {
+  wJsonData: string = "";
+  wHtmlData: string = "";
+  jsRenderHelp: string = "";
   selectedFile!: File;
   imagePath: string = AppConfig.imagePath;  
   url: string = "";// "assets/img.jpg";
@@ -49,7 +52,15 @@ export class EditWidgetComponent {
     private router: Router,
     private fontsService: FontsService,
     private route: ActivatedRoute
-  ) { }
+  ) {
+    this.wJsonData = '[{"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"},{"name":"Jay","balance":"20000","Address":{"Line1":"JAy Address Line11","Line2":"Jay Address Line2"}}]';
+    this.wHtmlData = '<div>Name: - {{:name}}<br />DOB: - {{:dob}}<br />Gender:-{{:gender}}<br/>Address: - {{:Address.Line1}}<br/>{{:Address.Line2.city}}<br />{{:Address.Line2.state}}<br /></div>';
+    this.jsRenderHelp = '{{}} - render tag \
+{{:Data}} or {{>Data}} - 2 different ways to access data \
+{{for}}...{{/for}} - for loop \
+{{if condition..}} ....{{//if}} \
+{{:~functionName(param1,param2,...)}} - helper function'; 
+  }
   ngOnInit(): void {
     this.fontsService.getAllFonts().subscribe(options => {
       this.options = options;

@@ -13,3 +13,8 @@
 .spinner-border{
     align-content:center;
 }
+
+.image {
+  max-width: 100%;
+  height: auto;
+}

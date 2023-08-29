@@ -1,4 +1,4 @@
-
+// Import necessary modules and libraries
 import { AfterViewInit, Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
@@ -7,19 +7,20 @@ import { Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
 import { GridStack, GridStackOptions } from "gridstack";
-
 import { PagesService } from '../../services/pages.service';
 import { Location } from '@angular/common';
-import { GridStackWidget, GridStackNode } from "gridstack/dist/types";
-import { DDElement } from "gridstack/dist/dd-element";
-
+import { GridStackWidget, } from "gridstack/dist/types";
+import * as jsrender from 'jsrender';
+// Define the GridMode type
 type GridMode = "edit" | "view";
+
+
 @Component({
   selector: 'app-edit-page',
   templateUrl: './edit-page.component.html',
   styleUrls: ['./edit-page.component.css']
 })
-export class EditPageComponent {
+export class EditPageComponent implements OnInit, AfterViewInit {
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
@@ -30,15 +31,15 @@ export class EditPageComponent {
   widgetsItemsArr: any = [];
   pageHtml1: any = "";
   renderedWidgets: string = "";
-
+  FullJsonDataObject: string = "";
 
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
-    disableResize: false,
-    disableDrag: false,
-    margin: 18,
-    column: 4,
-    cellHeight: 108,
+    disableResize: true,
+    disableDrag: true,
+    margin: .001,
+    column: 12,
+    //cellHeight:50 ,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
@@ -47,11 +48,7 @@ export class EditPageComponent {
     draggable: {
 
       handle: '.grid-stack-item-content'
-    },
-    children: [ // or call load()/addWidget() with same data
-      { x: 1, y: 0, content: 'Item 2' },
-      { x: 0, y: 1, content: 'Item 3' },
-    ]
+    }
   };
 
   mode: GridMode = "edit";
@@ -62,28 +59,31 @@ export class EditPageComponent {
   constructor(
     private pagesService: PagesService,
     private widgetService: WidgetService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {
+
     this.getState = location.getState(); // Assign value to getState
-    console.log("getstate" + this.getState.pageName);
-    console.log(this.getState[1]);
-    console.log(this.getState.length);
+    console.log("getstate" + this.getState);
+    // console.log("getstate" + this.getState.dataSourceJson);
+    //  console.log(this.getState[1]);
+    //  console.log(this.getState.length);
     var widgetdata: string = "";
     for (var i = 0; i < this.getState.length; i++) {
       widgetdata = this.assigndata(this.getState[i], widgetdata);
     }
     this.renderedWidgets = widgetdata;
     console.log("final = " + widgetdata);
-
+    this.FullJsonDataObject = this.FullJsonDataObject;// + "{";
   }
 
   assigndata(widgetd: Widget, widgetdata: string): string {
 
-    console.log(widgetd.widgetName);
-    widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget add"> \
-      <div class="card-body grid-stack-item-content add" > \
+    //   console.log(widgetd.widgetName);
+    widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget"  gs-id="' + widgetd.id + '"> \
+      <div class="card-body grid-stack-item-content add""> \
         <div style="background-color:black" > \
-        <span>' + widgetd.widgetName + '</span> </div> </div> </div>'
+        <span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div> </div> </div>'
 
     // alert("function " + widgetdata);
     return widgetdata;
@@ -91,38 +91,104 @@ export class EditPageComponent {
   }
 
   ngAfterViewInit(): void {
-    // Initialize GridStack after the view has been initialized
-    this.grid = GridStack.init(this.gridStackOptions);
-    this.grid.enableMove(true);
-    this.grid.enableResize(true);
-
   }
 
   ngOnInit(): void {
     $("#widdiv").html(this.renderedWidgets);
 
-    // Sample data for advanced layout
-    const advanced = [
-      // ...
-      { x: 0, y: 0, w: 4, h: 2, content: '1' },
-      // ... (other items)
-      { x: 10, y: 4, w: 2, h: 2, content: '11' }
-    ];
+    // Initialize logic on component initialization
+    this.widgetService.getAllWidget().subscribe({
+      next: (widget) => {
+        this.widget = widget;
+        //console.log(this.widget[0].widgetName);
+      },
+      error: (response) => {
+        //console.log(response);
+      },
+    });
 
     // Initialize advanced GridStack layout
-    const advGrid = GridStack.init(this.gridStackOptions
-      , '#advanced-grid')
-      .load(advanced);
+    const grid = GridStack.init(this.gridStackOptions
+      , '#advanced-grid');
+    grid.on("resize", (event, previousWidget, newWidget) => {
 
-    advGrid.addWidget({ x: 0, y: 0, minW: 1, content: 'Item d' })
 
-    advGrid.on("dropped", function (event, previousWidget, newWidget) {
-      // Change the content of the dragged item while dragging
+      console.log(previousWidget);
 
-      console.log('gridstack change previousWidget : ', event);
-      console.log('gridstack drag newWidget : ', newWidget);
+      console.log(newWidget);
+
+
+      const items = $(".grid-stack .grid-stack-item .grid-stack-item-content");
+      items.each(function () {
+        $(this).addClass('zoomed');
+      });
+
+      //const items1 = $(".grid-stack .grid-stack-item .grid-stack-item-content .divdemo");
+      //items1.each(function () {
+      //  $(this).addClass('zoomed');
+      //});
+    });
+    grid.on("dropped", (event, previousWidget, newWidget) => {
+      // Restore the original content when dragging stops
+      //  var serializedFull = grid.save(true, true);
+      //  var serializedData = serializedFull;
+      // console.log(serializedFull);
+      // console.log(serializedData);
+      // grid.enableMove(false);
+      // grid.enableResize(false);
+      for (var i = 0; i < this.getState.length; i++) {
+        if (this.getState[i].id == newWidget.id) {
+          var widgetHtml = this.getState[i].widgetHtml;
+          var dataBindingJsonNode = this.getState[i].dataBindingJsonNode;
+          var dataSourceJson = this.getState[i].dataSourceJson;
+          break;
+        };
+      }
+
+      /*****************/
+      var isPropertyPresent: boolean = false;
+      if (this.FullJsonDataObject == "") {
+        this.FullJsonDataObject += "{"
+      }
+      else {
+        var fulljsonObject: any = JSON.parse(this.FullJsonDataObject + "}");
+        isPropertyPresent = fulljsonObject.hasOwnProperty(dataBindingJsonNode);
+        //alert(isPropertyPresent);
+        if (!isPropertyPresent) {
+          this.FullJsonDataObject += ","
+        }
+      }
+      if (!isPropertyPresent) {
+        this.FullJsonDataObject += '"' + dataBindingJsonNode + '":';
+        this.FullJsonDataObject += dataSourceJson;
+      }
+      /******************/
+
+      // console.log("full json" + this.getState)
+      console.log(this.getState)
+      var jsonObject1: any = JSON.parse(dataSourceJson);
+
+      //   var tagname: string = dataBindingJsonNode;
+      var tagname: string = "abc";
+      var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
+      widgetHtmlAppend += "{{/for}}";
+      const renderedHtml = jsrender.templates(widgetHtmlAppend).render({ [tagname]: jsonObject1 });
+
+      // console.log( this.getState[0]);
+      const removeEl = grid.engine.nodes.find((n) => n.id == newWidget.id)?.el;
+      //  console.log(removeEl);
+      // alert("heloo");
+      if (removeEl) grid.removeWidget(removeEl);
+      const widgetdata =
+        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "g" };
+      grid.addWidget(widgetdata);
+
+
 
     });
+
+
+
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
@@ -131,11 +197,31 @@ export class EditPageComponent {
       helper: 'clone',
 
     });
-    advGrid.enableMove(true);
-    advGrid.enableResize(true);
+
+    grid.enableMove(true);
+    grid.enableResize(true);
+
+
+  }
+
+  previewPage() {
+
+    const items = $(".grid-stack .grid-stack-item");
+    const itemsArray = Array.from(items);
+    // Process each widget item
+    itemsArray.forEach(node => {
+      //  this.pageHtml += node.innerHTML;
+      this.pageHtml += node.outerHTML;
+    });
+    localStorage.setItem('pagehtml', this.pageHtml);
+    const url = this.router.createUrlTree(['/pagepreview', '']);
+    window.open(url.toString(), '_blank');
+
   }
 
   saveAndUpdatePageWidgetContent() {
+    this.FullJsonDataObject += '}';
+
     const items = $(".grid-stack .grid-stack-item");
     const itemsArray = Array.from(items);
 
@@ -170,10 +256,14 @@ export class EditPageComponent {
     this.pagesService.addPage(data).subscribe({
       next: (response) => {
         alert("Data updated successfully");
+        this.router.navigate(['pages']);
       },
       error: (error) => {
         console.log(error);
       },
     });
+  }
+  canclePage() {
+    this.router.navigate(['pages']);
   }
 }

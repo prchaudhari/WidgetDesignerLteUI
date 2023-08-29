@@ -42,12 +42,12 @@
 
     <section *ngIf="widget && widget.length > 0">
       <div style="width:40%;float:right">
-        <table>
+        <table style="width:100%;">
           <tr>
-            <td style="">
-              <div style="width: auto; padding:10px">
+            <td >
+              <div style="width: auto; padding: 10px;">
                 <div>
-                  <table style="width: auto; text-align: left;padding-left:10px">
+                  <table style="width: 100%; text-align: left; padding-left: 10px ;">
                     <tr>
                       <div _ngcontent-ath-c5="">
 
@@ -64,18 +64,26 @@
                       </div>
                       <div _ngcontent-ath-c5="">
                         <label _ngcontent-ath-c5="" class="mb-0">
-                          Description :
+                          Description &nbsp;&nbsp;&nbsp;:
                         </label>
-                        <span _ngcontent-ath-c5="" class="ml-3" style="width:50px">
+                        <span _ngcontent-ath-c5="" class="ml-1" style="width:50px">
                           {{ clickWidget.description }}
+                        </span>
+                      </div>
+                      <div _ngcontent-ath-c5="">
+                        <label _ngcontent-ath-c5="" class="mb-0">
+                          Data Binding Json Node &nbsp;&nbsp;&nbsp;:
+                        </label>
+                        <span _ngcontent-ath-c5="" class="ml-1" style="width:50px">
+                          {{ clickWidget.dataBindingJsonNode }}
                         </span>
                       </div>
                     </tr>
                     <tr style="height:10px">
                     </tr>
                     <tr style="text-align:center">
-                      <div style="border: 1px solid grey; border-radius: 20px; width: 400px; padding: 40px">
-                        <img style=" height:200px;width:300px" src="{{clickWidget.widgetIconUrl}}" />
+                      <div style="border: 1px solid grey; border-radius: 20px; padding: 40px; display: flex; justify-content: center;">
+                        <img class="image" src="{{clickWidget.widgetIconUrl}}" />
                       </div>
                     </tr>
                   </table>
