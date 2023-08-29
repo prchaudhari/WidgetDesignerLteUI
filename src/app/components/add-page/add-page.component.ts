@@ -128,6 +128,11 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       items.each(function () {
         $(this).addClass('zoomed');
       });
+     
+      const widgetdata =
+        { x: previousWidget.x, y: previousWidget.y, id: previousWidget.id + "g" };
+      grid.addWidget(widgetdata);
+
 
       //const items1 = $(".grid-stack .grid-stack-item .grid-stack-item-content .divdemo");
       //items1.each(function () {
@@ -156,6 +161,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
       /*****************/
       var isPropertyPresent: boolean = false;
+      
       if (this.FullJsonDataObject == "") {
         this.FullJsonDataObject +=  "{"
       }
@@ -172,7 +178,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         this.FullJsonDataObject += dataSourceJson;
       }
       /******************/
-
+      console.log("asdas----" + this.FullJsonDataObject);
      // console.log("full json" + this.getState)
       console.log( this.getState)
       var jsonObject1: any = JSON.parse(dataSourceJson);

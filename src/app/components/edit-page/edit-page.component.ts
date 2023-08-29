@@ -163,7 +163,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
         this.FullJsonDataObject += dataSourceJson;
       }
       /******************/
-
+      console.log("asdas----" + this.FullJsonDataObject);
       // console.log("full json" + this.getState)
       console.log(this.getState)
       var jsonObject1: any = JSON.parse(dataSourceJson);

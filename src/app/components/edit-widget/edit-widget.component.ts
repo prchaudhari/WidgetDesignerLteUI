@@ -18,7 +18,7 @@ export class EditWidgetComponent {
   wHtmlData: string = "";
   jsRenderHelp: string = "";
   selectedFile!: File;
-  imagePath: string = AppConfig.imagePath;  
+  imagePath: string = AppConfig.imagePath;
   url: string = "";// "assets/img.jpg";
   imageFile: File;
   @ViewChild('renderTarget') renderTarget?: ElementRef;
@@ -32,20 +32,20 @@ export class EditWidgetComponent {
   selectedOption: string = '';
   public searchValue: any;
   updateWidgetRequest: Widget = {
-      id: 0,
-      widgetName: '',
-      description: '',
-      dataSourceJson: '',
+    id: 0,
+    widgetName: '',
+    description: '',
+    dataSourceJson: '',
     widgetHtml: '',
-      widgetCSS: '',
-      widgetCSSUrl: '',
+    widgetCSS: '',
+    widgetCSSUrl: '',
     widgetIconUrl: '',
-      width: 0,
-      height: 0,
-      dataBindingJsonNode: '',
-      fontName: '',
-      startCol: 0,
-      startRow: 0
+    width: 0,
+    height: 0,
+    dataBindingJsonNode: '',
+    fontName: '',
+    startCol: 0,
+    startRow: 0
   };
   constructor(
     private widgetService: WidgetService,
@@ -55,11 +55,12 @@ export class EditWidgetComponent {
   ) {
     this.wJsonData = '[{"name":"Amit","balance":"10000","Address":{"Line1":"Address Line1","Line2":{"city":"Mumbai","state":"Maharashtra"}},"src":"assets/img.jpg"},{"name":"Jay","balance":"20000","Address":{"Line1":"JAy Address Line11","Line2":"Jay Address Line2"}}]';
     this.wHtmlData = '<div>Name: - {{:name}}<br />DOB: - {{:dob}}<br />Gender:-{{:gender}}<br/>Address: - {{:Address.Line1}}<br/>{{:Address.Line2.city}}<br />{{:Address.Line2.state}}<br /></div>';
-    this.jsRenderHelp = '{{}} - render tag \
-{{:Data}} or {{>Data}} - 2 different ways to access data \
-{{for}}...{{/for}} - for loop \
-{{if condition..}} ....{{//if}} \
-{{:~functionName(param1,param2,...)}} - helper function'; 
+    this.jsRenderHelp = '{{}} - render tag <br />\
+{{:Data}} or {{>Data}} - 2 different ways to access data  <br />\
+{{for}}...{{/for}} - for loop  <br /> \
+{{if condition..}} ....{{//if}} <br />\
+{{:~functionName(param1,param2,...)}} - helper function';
+
   }
   ngOnInit(): void {
     this.fontsService.getAllFonts().subscribe(options => {
@@ -92,7 +93,7 @@ export class EditWidgetComponent {
     formData.append('startCol', this.updateWidgetRequest.startCol.toString());
     formData.append('startRow', this.updateWidgetRequest.startRow.toString());
     formData.append('WidgetIconUrl', this.imageFile);
-   
+
     this.widgetService
       .updateWidget(this.updateWidgetRequest.id, formData)
       .subscribe({
@@ -129,12 +130,12 @@ export class EditWidgetComponent {
     previewWidgetHtml = previewWidgetHtml + "{{/for}}";
     const renderedHtml = jsrender.templates(previewWidgetHtml).render({ [tagname]: jsonObject1 });
 
-   // var jsonObject1: any = JSON.parse(this.updateWidgetRequest.dataSourceJson);
+    // var jsonObject1: any = JSON.parse(this.updateWidgetRequest.dataSourceJson);
 
 
-   // const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ abc: jsonObject1 });
+    // const renderedHtml = jsrender.templates(this.updateWidgetRequest.widgetHtml).render({ abc: jsonObject1 });
     localStorage.setItem('widgethtml', renderedHtml);
     const url = this.router.createUrlTree(['/widgetpreview', '']);
-    window.open(url.toString(), '_blank'); 
+    window.open(url.toString(), '_blank');
   }
 }
