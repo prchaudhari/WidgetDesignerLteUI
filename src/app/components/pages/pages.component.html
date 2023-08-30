@@ -42,7 +42,7 @@
               <td>
                 <a title="Edit" [routerLink]="['/page','edit',page.id]"><i class="fas fa-pencil-alt"></i></a>&nbsp;&nbsp;
                 <a title="Delete" (click)="deletePage(page.id)"><i class="fa-regular fa-trash-can"></i></a>&nbsp;&nbsp;
-                <a title="Preview" (click)="previewPage()"><i class="fa-regular fa-eye"></i></a>
+                <a title="Preview" (click)="previewPage(page.pageHtml)"><i class="fa-regular fa-eye"></i></a>
               </td>
             </tr>
             <tr *ngIf="rowSelected==page.id">

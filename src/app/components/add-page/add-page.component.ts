@@ -35,8 +35,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
-    disableResize: true,
-    disableDrag: true,
+    disableResize: false,
+    disableDrag: false,
     margin: .001,
     column: 12,
   //  cellHeight: 50,
@@ -64,7 +64,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   ) {
 
     this.getState = location.getState(); // Assign value to getState
-    console.log("getstate" + this.getState);
+   // console.log("getstate" + this.getState);
    // console.log("getstate" + this.getState.dataSourceJson);
   //  console.log(this.getState[1]);
   //  console.log(this.getState.length);
@@ -73,13 +73,13 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       widgetdata = this.assigndata(this.getState[i],widgetdata);
     }
     this.renderedWidgets = widgetdata;
-    console.log("final = " + widgetdata);
+  //  console.log("final = " + widgetdata);
     this.FullJsonDataObject = this.FullJsonDataObject;// + "{";
   }
 
     assigndata(widgetd: Widget, widgetdata:string) :string {
 
-      console.log(widgetd.fontName);
+    //  console.log(widgetd.fontName);
       widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget"  gs-id="' + widgetd.id +'"> \
       <div class="card-body grid-stack-item-content add""> \
         <div style="background-color:black" > \
@@ -173,9 +173,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         this.FullJsonDataObject += dataSourceJson;
       }
       /******************/
-      console.log("asdas----" + this.FullJsonDataObject);
+    //  console.log("asdas----" + this.FullJsonDataObject);
      // console.log("full json" + this.getState)
-      console.log( this.getState)
+   //   console.log( this.getState)
       var jsonObject1: any = JSON.parse(dataSourceJson);
      
    //   var tagname: string = dataBindingJsonNode;
@@ -190,7 +190,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // alert("heloo");
      if (removeEl) grid.removeWidget(removeEl);
      const widgetdata = 
-       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id+"g"  };
+       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id+"0"  };
      grid.addWidget(widgetdata);
    
 
@@ -252,14 +252,19 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       this.pageHtml += node.outerHTML;
       let obj = {
       };
-       obj = {
+
+      let id: any = node.getAttribute("gs-id");
+      id = id.substring(0, id.length - 1);
+     
+     
+      obj = {
         "id": 0,
         "pageId": 0,
-        "widgetId": node.getAttribute("gs-id"),
-        "width": node.getAttribute("gs-w") ?? null,
-        "height": node.getAttribute("gs-h") ?? null,
-        "startCol": node.getAttribute("gs-y") ?? null,
-        "startRow": node.getAttribute("gs-x") ?? null
+        "widgetId": id as string ?? "",
+        "width": (node.getAttribute("gs-w") as number | string) ?? 0,
+        "height": (node.getAttribute("gs-h") as number | string) ?? 0,
+        "startCol": node.getAttribute("gs-y") ??"",
+        "startRow": node.getAttribute("gs-x") ?? ""
       };
       widgetsItemsArr.push(obj);
     });
@@ -269,12 +274,13 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       id: '0',
       pageName: this.getState.pageName,
       description: this.getState.description ?? "",
-      dataSourceJson: this.getState.dataSourceJson.toString()??"",
+      dataSourceJson: "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: this.getState.pageCSSUrl ?? "",
       widgets: widgetsItemsArr
     }
 
+    console.log(data);
     // Call the addPage method from pagesService to save the data
     this.pagesService.addPage(data).subscribe({
       next: (response) => {
@@ -282,6 +288,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         this.router.navigate(['pages']);
       },
       error: (error) => {
+        alert("Data updation Failed");
         console.log(error);
       },
     });
