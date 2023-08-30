@@ -72,8 +72,8 @@
                     <h5 class="modal-title" id="staticBackdropLabel">Sample Json Data</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
-                    {{wJsonData}}
+                  <div class="modal-body"  [innerHTML]="wJsonData">
+                  
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -127,8 +127,8 @@
                     <h5 class="modal-title" id="staticBackdropLabel2">Jsrender Help </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
-                  <div class="modal-body">
-                    {{jsRenderHelp}}
+                  <div class="modal-body" [innerHTML]="jsRenderHelp">
+                   
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
