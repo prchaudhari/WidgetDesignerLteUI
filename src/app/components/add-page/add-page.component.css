@@ -6,11 +6,9 @@
 #main1 {
   padding-top: 10px;
   border: 1px solid grey;
-  border-radius: 10px;
 }
 
 .grid-container {
-  padding: 15px;
   border: 1px solid grey;
   max-width: 1000px;
 }
@@ -27,7 +25,6 @@
 .grid-stack-item-content {
   background-color: white;
   text-align: center;
-  resize: both;
 }
 
 h1 {

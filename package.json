@@ -27,6 +27,7 @@
     "@types/gridstack": "^0.5.2",
     "admin-lte": "3.2",
     "bootstrap": "^5.2.3",
+    "circular-json": "^0.5.9",
     "g": "^2.0.1",
     "gridstack": "^8.4.0",
     "jquery": "^3.7.0",

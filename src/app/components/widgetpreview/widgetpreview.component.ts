@@ -43,7 +43,6 @@ export class widgetpreviewComponent implements OnInit
   loadhtml() {
     this.loadCSS();
    const token = localStorage.getItem('widgethtml');
- 
     this.renderedTemplate = token == null ? '' : token;
   
   }

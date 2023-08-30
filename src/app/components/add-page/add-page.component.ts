@@ -26,9 +26,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   getState: any = ""; // Initialize getState
   
   widgetsItems: any = "";
-  pageHtml: any = "";
+  pageHtml: any= "";
   modifynode: any = "";
-  widgetsItemsArr: any = [];
+
   pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
@@ -39,7 +39,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     disableDrag: true,
     margin: .001,
     column: 12,
-    //cellHeight:50 ,
+  //  cellHeight: 50,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
@@ -119,15 +119,15 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     grid.on("resize", (event, previousWidget, newWidget) => {
 
       
-      console.log(previousWidget);
+      //console.log(previousWidget);
 
-      console.log(newWidget);
+      //console.log(newWidget);
 
 
-      const items = $(".grid-stack .grid-stack-item .grid-stack-item-content");
-      items.each(function () {
-        $(this).addClass('zoomed');
-      });
+      //const items = $(".grid-stack .grid-stack-item .grid-stack-item-content");
+      //items.each(function () {
+      //  $(this).addClass('zoomed');
+      //});
 
       //const items1 = $(".grid-stack .grid-stack-item .grid-stack-item-content .divdemo");
       //items1.each(function () {
@@ -189,7 +189,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // alert("heloo");
      if (removeEl) grid.removeWidget(removeEl);
      const widgetdata = 
-       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "g" };
+       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id+"g"  };
      grid.addWidget(widgetdata);
    
 
@@ -210,40 +210,57 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   previewPage() {
-
     const items = $(".grid-stack .grid-stack-item");
-    const itemsArray = Array.from(items);
+   // console.log(items);
+    let itemsArray = [];
+    let widgetsItemsArr: any = [];
+    itemsArray=Array.from(items);
     // Process each widget item
     itemsArray.forEach(node => {
-    //  this.pageHtml += node.innerHTML;
-      this.pageHtml += node.outerHTML;
+      let obj = {
+    };
+      obj = {
+        x: node.getAttribute("gs-x"),
+        y: node.getAttribute("gs-y"),
+        w: node.getAttribute("gs-w"),
+        h: node.getAttribute("gs-h"),
+        content: node.innerHTML,
+        id: node.getAttribute("gs-id"),
+      };
+      widgetsItemsArr.push(obj);
     });
-    localStorage.setItem('pagehtml', this.pageHtml);
+  // console.log(widgetsItemsArr);
+    let widgetsItemsStr = "";
+    widgetsItemsStr = JSON.stringify(widgetsItemsArr)
+   // let objstr = "";
+   //objstr = JSON.parse(widgetsItemsStr);
+   //console.log(objstr);
+   //console.log(widgetsItemsStr);
+   localStorage.setItem('pagehtml', widgetsItemsStr);
     const url = this.router.createUrlTree(['/pagepreview', '']);
     window.open(url.toString(), '_blank'); 
-
   }
 
   saveAndUpdatePageWidgetContent() {
-    this.FullJsonDataObject +=  '}';
-
     const items = $(".grid-stack .grid-stack-item");
-    const itemsArray = Array.from(items);
-
+    let itemsArray = [];
+    let widgetsItemsArr: any = [];
+    itemsArray = Array.from(items);
     // Process each widget item
     itemsArray.forEach(node => {
       this.pageHtml += node.outerHTML;
-
-      const obj = {
+      let obj = {
+      };
+       obj = {
         "id": 0,
         "pageId": 0,
-        "widgetId": 3,
-        "width": node.getAttribute("gs-w") ?? "0",
-        "height": node.getAttribute("gs-h") ?? "0",
-        "startCol": node.getAttribute("gs-y") ?? "0",
-        "startRow": node.getAttribute("gs-x") ?? "0"
+        "widgetId": node.getAttribute("gs-id"),
+        "width": node.getAttribute("gs-w") ?? null,
+        "height": node.getAttribute("gs-h") ?? null,
+        "startCol": node.getAttribute("gs-y") ?? null,
+        "startRow": node.getAttribute("gs-x") ?? null
       };
-      this.widgetsItemsArr.push(obj);
+      widgetsItemsArr.push(obj);
     });
 
     // Create data object to save
@@ -254,7 +271,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       dataSourceJson: this.getState.dataSourceJson.toString()??"",
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: this.getState.pageCSSUrl ?? "",
-      widgets: this.widgetsItemsArr
+      widgets: widgetsItemsArr
     }
 
     // Call the addPage method from pagesService to save the data

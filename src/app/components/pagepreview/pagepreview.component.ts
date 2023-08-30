@@ -1,47 +1,85 @@
-import { Component, EventEmitter, Injector, OnInit, Output } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { finalize } from 'rxjs/operators';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component,  OnInit,  } from '@angular/core';
+import { GridStack, GridStackOptions } from "gridstack";
+import { GridStackElement, GridStackWidget, } from "gridstack/dist/types";
 
 @Component({
   templateUrl: './pagepreview.component.html',
   styleUrls: ['./pagepreview.component.css']
 })
-export class pagepreviewComponent implements OnInit {
-  @Output() onCloseClick = new EventEmitter<number>();
-  renderedTemplate = '';
-  receivedData: any;
-  cssname: string = "assets/dynamicThemes/cssTheme1.css";
-  constructor(public bsModalRef: BsModalRef,
-  ) {
 
+export class pagepreviewComponent implements OnInit {
+  // Configuration options for the GridStack layout
+  private gridStackOptions: GridStackOptions = {
+    disableResize: true,
+    disableDrag: true,
+    margin: .001,
+    column: 12,
+    //cellHeight:50 ,
+    float: true,
+  };
+  
+  constructor() {
   }
-  loadCSS() {
-    let fileRef;
-    fileRef = document.createElement('link');
-    fileRef.setAttribute('rel', 'stylesheet');
-    fileRef.setAttribute('type', 'text/css');
-    fileRef.setAttribute('href', '../../' + this.cssname);
-    if (typeof fileRef !== 'undefined') {
-      document.getElementsByTagName('head')[0].appendChild(fileRef);
+  //renderedTemplate = '';
+  //receivedData: any;
+  //cssname: string = "assets/dynamicThemes/cssTheme1.css";
+  ngAfterViewInit(): void {
+  }
+
+  ngOnInit(): void {
+ // Initialize advanced GridStack layout
+      const grid = GridStack.init(this.gridStackOptions
+        , '#advanced-grid-preview')
+let pageHtml = localStorage.getItem('pagehtml');
+    //console.log(pageHtml);
+    if (pageHtml !== null) {
+      let obj = [];
+      obj = JSON.parse(pageHtml);
+      obj.forEach((widgetData: GridStackWidget | GridStackElement | undefined) => {
+        grid.addWidget(widgetData);
+      });
+    //  console.log(obj);
+    //  const itemsArray = Array.from(pageHtml);
+    //  console.log(itemsArray);
+      // Now you can work with the itemsArray
+    } else {
+      // Handle the case where 'pagehtml' in localStorage is null
+      alert("Empty object found.")
     }
   }
-  changeCSS() {
-    this.loadhtml();
-  }
+  //canclePage() {
+  //  this.router.navigate(['pages']);
+  //}
+  //loadCSS() {
+  //  let fileRef;
+  //  fileRef = document.createElement('link');
+  //  fileRef.setAttribute('rel', 'stylesheet');
+  //  fileRef.setAttribute('type', 'text/css');
+  //  fileRef.setAttribute('href', '../../' + this.cssname);
+  //  if (typeof fileRef !== 'undefined') {
+  //    document.getElementsByTagName('head')[0].appendChild(fileRef);
+  //  }
+  //}
+  //changeCSS() {
+  //  this.loadhtml();
+  //}
 
-  ngOnInit() {
-    this.loadhtml();
+ // loadhtml() {
+    // this.loadCSS();
+   
+   // console.log(token);
 
-  }
-
-  loadhtml() {
-    this.loadCSS();
-    const token = localStorage.getItem('pagehtml');
-  
-    this.renderedTemplate = token == null ? '' : token;
-
-  }
-
+   // this.renderedTemplate = token == null ? '' : token;
 }
+
+  
+
+
+
+    
+
+
+
+
+
 
