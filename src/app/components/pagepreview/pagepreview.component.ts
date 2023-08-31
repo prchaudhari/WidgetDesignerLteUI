@@ -17,20 +17,20 @@ export class pagepreviewComponent implements OnInit {
     //cellHeight:50 ,
     float: true,
   };
-  
+
   constructor() {
   }
-  //renderedTemplate = '';
-  //receivedData: any;
-  //cssname: string = "assets/dynamicThemes/cssTheme1.css";
+  renderedTemplate = '';
+  receivedData: any;
+  cssname: string = "assets/dynamicThemes/cssTheme1.css";
   ngAfterViewInit(): void {
   }
 
   ngOnInit(): void {
- // Initialize advanced GridStack layout
-      const grid = GridStack.init(this.gridStackOptions
-        , '#advanced-grid-preview')
-let pageHtml = localStorage.getItem('pagehtml');
+    // Initialize advanced GridStack layout
+    const grid = GridStack.init(this.gridStackOptions
+      , '#advanced-grid-preview')
+    let pageHtml = localStorage.getItem('pagehtml');
     //console.log(pageHtml);
     if (pageHtml !== null) {
       let obj = [];
@@ -38,38 +38,35 @@ let pageHtml = localStorage.getItem('pagehtml');
       obj.forEach((widgetData: GridStackWidget | GridStackElement | undefined) => {
         grid.addWidget(widgetData);
       });
-    //  console.log(obj);
-    //  const itemsArray = Array.from(pageHtml);
-    //  console.log(itemsArray);
+      //  console.log(obj);
+      //  const itemsArray = Array.from(pageHtml);
+      //  console.log(itemsArray);
       // Now you can work with the itemsArray
     } else {
       // Handle the case where 'pagehtml' in localStorage is null
-      alert("Empty object found.")
+      alert("No data found.")
     }
   }
   //canclePage() {
   //  this.router.navigate(['pages']);
   //}
-  //loadCSS() {
-  //  let fileRef;
-  //  fileRef = document.createElement('link');
-  //  fileRef.setAttribute('rel', 'stylesheet');
-  //  fileRef.setAttribute('type', 'text/css');
-  //  fileRef.setAttribute('href', '../../' + this.cssname);
-  //  if (typeof fileRef !== 'undefined') {
-  //    document.getElementsByTagName('head')[0].appendChild(fileRef);
-  //  }
-  //}
-  //changeCSS() {
-  //  this.loadhtml();
-  //}
+  loadCSS() {
+    let fileRef;
+    fileRef = document.createElement('link');
+    fileRef.setAttribute('rel', 'stylesheet');
+    fileRef.setAttribute('type', 'text/css');
+    fileRef.setAttribute('href', '../../' + this.cssname);
+    if (typeof fileRef !== 'undefined') {
+      document.getElementsByTagName('head')[0].appendChild(fileRef);
+    }
+  }
+  changeCSS() {
+    this.loadhtml();
+  }
 
- // loadhtml() {
-    // this.loadCSS();
-   
-   // console.log(token);
-
-   // this.renderedTemplate = token == null ? '' : token;
+   loadhtml() {
+   this.loadCSS();
+}
 }
 
   

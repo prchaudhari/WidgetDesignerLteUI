@@ -271,10 +271,10 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
     // Create data object to save
     const data = {
-      id: '0',
+      id: 0,
       pageName: this.getState.pageName,
       description: this.getState.description ?? "",
-      dataSourceJson: "",//we have doubt here
+      dataSourceJson: this.FullJsonDataObject,//we have doubt here
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: this.getState.pageCSSUrl ?? "",
       widgets: widgetsItemsArr

@@ -9,7 +9,7 @@ import { WidgetService } from '../../services/widget.service';
 import { GridStack, GridStackOptions } from "gridstack";
 import { PagesService } from '../../services/pages.service';
 import { Location } from '@angular/common';
-import { GridStackWidget, } from "gridstack/dist/types";
+import { GridStackWidget, GridStackElement } from "gridstack/dist/types";
 import * as jsrender from 'jsrender';
 // Define the GridMode type
 type GridMode = "edit" | "view";
@@ -28,18 +28,18 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   widgetsItems: any = "";
   pageHtml: any = "";
   modifynode: any = "";
-  widgetsItemsArr: any = [];
+
   pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
 
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
-    disableResize: true,
-    disableDrag: true,
+    disableResize: false,
+    disableDrag: false,
     margin: .001,
     column: 12,
-    //cellHeight:50 ,
+    //  cellHeight: 50,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
@@ -64,7 +64,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   ) {
 
     this.getState = location.getState(); // Assign value to getState
-    console.log("getstate" + this.getState);
+    // console.log("getstate" + this.getState);
     // console.log("getstate" + this.getState.dataSourceJson);
     //  console.log(this.getState[1]);
     //  console.log(this.getState.length);
@@ -73,19 +73,19 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       widgetdata = this.assigndata(this.getState[i], widgetdata);
     }
     this.renderedWidgets = widgetdata;
-    console.log("final = " + widgetdata);
+    //  console.log("final = " + widgetdata);
     this.FullJsonDataObject = this.FullJsonDataObject;// + "{";
   }
 
   assigndata(widgetd: Widget, widgetdata: string): string {
 
-    //   console.log(widgetd.widgetName);
+    //  console.log(widgetd.fontName);
     widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget"  gs-id="' + widgetd.id + '"> \
       <div class="card-body grid-stack-item-content add""> \
         <div style="background-color:black" > \
         <span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div> </div> </div>'
-
-    // alert("function " + widgetdata);
+    //<span style="width: 100%" class="info-box-icon"><i [ngClass]="' + widgetd.fontName+'"></i></span>
+    // alert("function " + widgetdata<i [ngClass]="widget.fontName"></i>
     return widgetdata;
 
   }
@@ -107,27 +107,53 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       },
     });
 
+
+
     // Initialize advanced GridStack layout
     const grid = GridStack.init(this.gridStackOptions
-      , '#advanced-grid');
+      , '#edit-advanced-grid');
+    
+    let pageHtml = localStorage.getItem('editpagehtml');
+    //console.log(pageHtml);
+    if (pageHtml !== null) {
+      let obj = [];
+      obj = JSON.parse(pageHtml);
+      obj.forEach((widgetData: GridStackWidget | GridStackElement | undefined) => {
+        grid.addWidget(widgetData);
+      });
+      //  console.log(obj);
+      //  const itemsArray = Array.from(pageHtml);
+      //  console.log(itemsArray);
+      // Now you can work with the itemsArray
+    } else {
+      // Handle the case where 'pagehtml' in localStorage is null
+      alert("No data found.")
+    }
+  
+
+
+
     grid.on("resize", (event, previousWidget, newWidget) => {
 
 
-      console.log(previousWidget);
+      //console.log(previousWidget);
 
-      console.log(newWidget);
+      //console.log(newWidget);
 
 
-      const items = $(".grid-stack .grid-stack-item .grid-stack-item-content");
-      items.each(function () {
-        $(this).addClass('zoomed');
-      });
+      //const items = $(".grid-stack .grid-stack-item .grid-stack-item-content");
+      //items.each(function () {
+      //  $(this).addClass('zoomed');
+      //});
 
       //const items1 = $(".grid-stack .grid-stack-item .grid-stack-item-content .divdemo");
       //items1.each(function () {
       //  $(this).addClass('zoomed');
       //});
     });
+
+
+
     grid.on("dropped", (event, previousWidget, newWidget) => {
       // Restore the original content when dragging stops
       //  var serializedFull = grid.save(true, true);
@@ -147,6 +173,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
 
       /*****************/
       var isPropertyPresent: boolean = false;
+
       if (this.FullJsonDataObject == "") {
         this.FullJsonDataObject += "{"
       }
@@ -163,9 +190,9 @@ export class EditPageComponent implements OnInit, AfterViewInit {
         this.FullJsonDataObject += dataSourceJson;
       }
       /******************/
-      console.log("asdas----" + this.FullJsonDataObject);
+      //  console.log("asdas----" + this.FullJsonDataObject);
       // console.log("full json" + this.getState)
-      console.log(this.getState)
+      //   console.log( this.getState)
       var jsonObject1: any = JSON.parse(dataSourceJson);
 
       //   var tagname: string = dataBindingJsonNode;
@@ -180,15 +207,11 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
       const widgetdata =
-        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "g" };
+        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "0" };
       grid.addWidget(widgetdata);
 
 
-
     });
-
-
-
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
@@ -205,60 +228,85 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   }
 
   previewPage() {
-
     const items = $(".grid-stack .grid-stack-item");
-    const itemsArray = Array.from(items);
+    // console.log(items);
+    let itemsArray = [];
+    let widgetsItemsArr: any = [];
+    itemsArray = Array.from(items);
     // Process each widget item
     itemsArray.forEach(node => {
-      //  this.pageHtml += node.innerHTML;
-      this.pageHtml += node.outerHTML;
+      let obj = {
+      };
+      obj = {
+        x: node.getAttribute("gs-x"),
+        y: node.getAttribute("gs-y"),
+        w: node.getAttribute("gs-w"),
+        h: node.getAttribute("gs-h"),
+        content: node.innerHTML,
+        id: node.getAttribute("gs-id"),
+      };
+      widgetsItemsArr.push(obj);
     });
-    localStorage.setItem('pagehtml', this.pageHtml);
+    // console.log(widgetsItemsArr);
+    let widgetsItemsStr = "";
+    widgetsItemsStr = JSON.stringify(widgetsItemsArr)
+    // let objstr = "";
+    //objstr = JSON.parse(widgetsItemsStr);
+    //console.log(objstr);
+    //console.log(widgetsItemsStr);
+    localStorage.setItem('pagehtml', widgetsItemsStr);
     const url = this.router.createUrlTree(['/pagepreview', '']);
     window.open(url.toString(), '_blank');
-
   }
 
   saveAndUpdatePageWidgetContent() {
-    this.FullJsonDataObject += '}';
-
     const items = $(".grid-stack .grid-stack-item");
-    const itemsArray = Array.from(items);
-
+    let itemsArray = [];
+    let widgetsItemsArr: any = [];
+    itemsArray = Array.from(items);
     // Process each widget item
     itemsArray.forEach(node => {
       this.pageHtml += node.outerHTML;
-
-      const obj = {
-        "id": 0,
-        "pageId": 0,
-        "widgetId": 3,
-        "width": node.getAttribute("gs-w") ?? "0",
-        "height": node.getAttribute("gs-h") ?? "0",
-        "startCol": node.getAttribute("gs-y") ?? "0",
-        "startRow": node.getAttribute("gs-x") ?? "0"
+      let obj = {
       };
-      this.widgetsItemsArr.push(obj);
+
+      let id: any = node.getAttribute("gs-id");
+      id = id.substring(0, id.length - 1);
+
+
+      obj = {
+        "widgetId": id as string ?? "",
+        "width": (node.getAttribute("gs-w") as number | string) ?? 0,
+        "height": (node.getAttribute("gs-h") as number | string) ?? 0,
+        "startCol": node.getAttribute("gs-y") ?? "",
+        "startRow": node.getAttribute("gs-x") ?? ""
+      };
+      widgetsItemsArr.push(obj);
     });
 
     // Create data object to save
     const data = {
-      id: '0',
+
       pageName: this.getState.pageName,
       description: this.getState.description ?? "",
-      dataSourceJson: this.getState.dataSourceJson.toString() ?? "",
+      dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: this.getState.pageCSSUrl ?? "",
-      widgets: this.widgetsItemsArr
+      Widgets: widgetsItemsArr
     }
 
+    console.log(data);
+    
     // Call the addPage method from pagesService to save the data
-    this.pagesService.addPage(data).subscribe({
+  
+
+    this.pagesService.updatePage(Number(localStorage.getItem('editPageId')), data).subscribe({
       next: (response) => {
         alert("Data updated successfully");
         this.router.navigate(['pages']);
       },
       error: (error) => {
+        alert("Data updation Failed");
         console.log(error);
       },
     });

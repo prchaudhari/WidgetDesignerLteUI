@@ -34,6 +34,7 @@ export class PagesService {
     return this.http.put<PageModel>(this.baseApiUrl + '/api/pages/' + id, updatepagerequest);
   }
 
+
   deletePage(id: number): Observable<Pages> {
     return this.http.delete<Pages>(this.baseApiUrl + '/api/pages/' + id);
   } 
