@@ -38,7 +38,7 @@ export class WidgetService {
     return this.http.get<string[]>('/api/assets/dynamicThemes');
   }
   getPageWidgets(id:number): Observable<PageWidgetsDetails[]> {
-    return this.http.get<PageWidgetsDetails[]>(this.baseApiUrl + '/api/widgets/pagewidgets/' + id);
+    return this.http.get<PageWidgetsDetails[]>(this.baseApiUrl + '/api/Widgets/api/PageWidgets?pageid=' + id);
   }
 
 }

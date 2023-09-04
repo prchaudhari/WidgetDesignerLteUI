@@ -35,6 +35,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
+  editPageId : number ;
 
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
@@ -78,6 +79,8 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     this.renderedWidgets = widgetdata;
     //  console.log("final = " + widgetdata);
     this.FullJsonDataObject = this.FullJsonDataObject;// + "{";
+
+    this.editPageId = Number(localStorage.getItem('editPageId'));
   }
 
   assigndata(widgetd: Widget, widgetdata: string): string {
@@ -115,24 +118,80 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     // Initialize advanced GridStack layout
     const grid = GridStack.init(this.gridStackOptions
       , '#edit-advanced-grid');
+
+    this.widgetService.getPageWidgets(this.editPageId).subscribe({
+      next: (response) => {
+      //  console.log(response);
+        if (response !== null) {
+          //console.log(response);
+          response.forEach((widgetData: any) => {
+
+         
+            this.widgetService.getWidget(widgetData.widgetId).subscribe({
+              next: (widgetDataResponse) => {
+
+
+                /*****************/
+                var isPropertyPresent: boolean = false;
+
+                if (this.FullJsonDataObject == "") {
+                  this.FullJsonDataObject += "{"
+                }
+                else {
+                  var fulljsonObject: any = JSON.parse(this.FullJsonDataObject + "}");
+                  isPropertyPresent = fulljsonObject.hasOwnProperty(widgetDataResponse.dataBindingJsonNode);
+                  //alert(isPropertyPresent);
+                  if (!isPropertyPresent) {
+                    this.FullJsonDataObject += ","
+                  }
+                }
+                if (!isPropertyPresent) {
+                  this.FullJsonDataObject += '"' + widgetDataResponse.dataBindingJsonNode + '":';
+                  this.FullJsonDataObject += widgetDataResponse.dataSourceJson;
+                }
+      /******************/
+      //  console.log("asdas----" + this.FullJsonDataObject);
+      // console.log("full json" + this.getState)
+      //   console.log( this.getState)
+
+                var jsonObject1: any = JSON.parse(widgetDataResponse.dataSourceJson);
+                let widgetHtml = widgetDataResponse.widgetHtml;
+
+                //   var tagname: string = dataBindingJsonNode;
+                var tagname: string = "abc";
+                var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
+                widgetHtmlAppend += "{{/for}}";
+                let renderedHtml = jsrender.templates(widgetHtmlAppend).render({ [tagname]: jsonObject1 });
+                
+         
+               
+
+                let newWidget = { x: widgetData.startRow, y: widgetData.startCol, content: renderedHtml, id: widgetData.widgetId + "0" };
+
+                grid.addWidget(newWidget);
+
+              },
+              error: (error) => {
+            
+                console.log(error);
+              },
+            });
+
+
+          
+          });
+        } else {
+          // Handle the case where '(response' in localStorage is null
+          alert("No data found.")
+        }
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
     
-    let pageHtml = localStorage.getItem('editpagehtml');
-    //console.log(pageHtml);
-    if (pageHtml !== null) {
-      let obj = [];
-      obj = JSON.parse(pageHtml);
-      obj.forEach((widgetData: GridStackWidget | GridStackElement | undefined) => {
-        grid.addWidget(widgetData);
-      });
-      //  console.log(obj);
-      //  const itemsArray = Array.from(pageHtml);
-      //  console.log(itemsArray);
-      // Now you can work with the itemsArray
-    } else {
-      // Handle the case where 'pagehtml' in localStorage is null
-      alert("No data found.")
-    }
-  
+    
+    
 
 
 
@@ -265,14 +324,6 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   saveAndUpdatePageWidgetContent() {
     const items = $(".grid-stack .grid-stack-item");
     let itemsArray = [];
-    //let widgetsItemsArr: any = [];
-    //itemsArray = Array.from(items);
-    //// Process each widget item
-    //itemsArray.forEach(node => {
-    //  this.pageHtml += node.outerHTML;
-    //  let obj = {
-    //  };
-
     
       /*********************************/
       let widgetsItemsArr: PageWidgetsDetails[] = [];
@@ -293,25 +344,16 @@ export class EditPageComponent implements OnInit, AfterViewInit {
           startRow: 0
         };
         nWidget.widgetId = id;
-        nWidget.startCol = Number(node.getAttribute("gs-y") ?? "");
-        nWidget.startRow = Number(node.getAttribute("gs-x") ?? "");
+        nWidget.id = 0;
+        nWidget.pageId = this.editPageId;
+        nWidget.startCol = Number(node.getAttribute("gs-y"));
+        nWidget.startRow = Number(node.getAttribute("gs-x"));
         nWidget.width = Number(node.getAttribute("gs-w") );
         nWidget.height = Number(node.getAttribute("gs-h"));
-
-      
         widgetsItemsArr.push(nWidget);
         /****************************/
 
-      //obj = {
-      //  "widgetId": id as string ?? "",
-      //  "width": (node.getAttribute("gs-w") as number | string) ?? 0,
-      //  "height": (node.getAttribute("gs-h") as number | string) ?? 0,
-      //  "startCol": node.getAttribute("gs-y") ?? "",
-      //  "startRow": node.getAttribute("gs-x") ?? ""
-      //};
-      //widgetsItemsArr.push(obj);
     });
-
     // Create data object to save
     let savedpage: PageModel = {
       pageName: this.getState.pageName,
@@ -320,23 +362,9 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: this.getState.pageCSSUrl ?? "",
       Widgets: widgetsItemsArr
-    }
-    //const data = {
-
-    //  pageName: this.getState.pageName,
-    //  description: this.getState.description ?? "",
-    //  dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
-    //  pageHtml: this.pageHtml ?? "",
-    //  pageCSSUrl: this.getState.pageCSSUrl ?? "",
-    //  Widgets: widgetsItemsArr
-    //}
-
-    console.log(savedpage);
-    
+    }   
     // Call the addPage method from pagesService to save the data
-  
-
-    this.pagesService.updatePage(Number(localStorage.getItem('editPageId')), savedpage).subscribe({
+    this.pagesService.updatePage(this.editPageId, savedpage).subscribe({
       next: (response) => {
         alert("Data updated successfully");
         this.router.navigate(['pages']);

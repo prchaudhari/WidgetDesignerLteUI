@@ -11,6 +11,8 @@ import { PagesService } from '../../services/pages.service';
 import { Location } from '@angular/common';
 import { GridStackWidget,  } from "gridstack/dist/types";
 import * as jsrender from 'jsrender';
+import { PageModel } from '../../models/pagesmodel.model';
+import { PageWidgetsDetails } from '../../models/pagewidgetsdetails.model';
 // Define the GridMode type
 type GridMode = "edit" | "view";
 
@@ -243,46 +245,49 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   saveAndUpdatePageWidgetContent() {
+
     const items = $(".grid-stack .grid-stack-item");
     let itemsArray = [];
-    let widgetsItemsArr: any = [];
+    /*********************************/
+    let widgetsItemsArr: PageWidgetsDetails[] = [];
     itemsArray = Array.from(items);
     // Process each widget item
     itemsArray.forEach(node => {
       this.pageHtml += node.outerHTML;
-      let obj = {
-      };
-
       let id: any = node.getAttribute("gs-id");
       id = id.substring(0, id.length - 1);
-     
-     
-      obj = {
-        "id": 0,
-        "pageId": 0,
-        "widgetId": id as string ?? "",
-        "width": (node.getAttribute("gs-w") as number | string) ?? 0,
-        "height": (node.getAttribute("gs-h") as number | string) ?? 0,
-        "startCol": node.getAttribute("gs-y") ??"",
-        "startRow": node.getAttribute("gs-x") ?? ""
+
+      let nWidget: PageWidgetsDetails = {
+        id: 0,
+        pageId: 0,
+        widgetId: 0,
+        width: 0,
+        height: 0,
+        startCol: 0,
+        startRow: 0
       };
-      widgetsItemsArr.push(obj);
+      nWidget.widgetId = id;
+      nWidget.startCol = Number(node.getAttribute("gs-y"));
+      nWidget.startRow = Number(node.getAttribute("gs-x"));
+      nWidget.width = Number(node.getAttribute("gs-w"));
+      nWidget.height = Number(node.getAttribute("gs-h"));
+
+
+      widgetsItemsArr.push(nWidget);
+      /****************************/
     });
 
     // Create data object to save
-    const data = {
-      id: 0,
+    let savedpage: PageModel = {
       pageName: this.getState.pageName,
       description: this.getState.description ?? "",
-      dataSourceJson: this.FullJsonDataObject,//we have doubt here
+      dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: this.getState.pageCSSUrl ?? "",
-      widgets: widgetsItemsArr
+      Widgets: widgetsItemsArr
     }
-
-    console.log(data);
     // Call the addPage method from pagesService to save the data
-    this.pagesService.addPage(data).subscribe({
+    this.pagesService.addPage(savedpage).subscribe({
       next: (response) => {
         alert("Data updated successfully");
         this.router.navigate(['pages']);
