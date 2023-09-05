@@ -1,6 +1,7 @@
-import { Component,  OnInit,  } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GridStack, GridStackOptions } from "gridstack";
 import { GridStackElement, GridStackWidget, } from "gridstack/dist/types";
+import { AppConfig } from '../../../config';
 
 @Component({
   templateUrl: './pagepreview.component.html',
@@ -18,15 +19,28 @@ export class pagepreviewComponent implements OnInit {
     float: true,
   };
 
+  @Output() onCloseClick = new EventEmitter<number>();
+  cssFiles: string[] = [];
+  cssname: string|null = "";
+  cssNameWithPath: string = "";
+
+
   constructor() {
-  }
-  renderedTemplate = '';
-  receivedData: any;
-  cssname: string = "assets/dynamicThemes/cssTheme1.css";
-  ngAfterViewInit(): void {
+
   }
 
+
+  //constructor() {
+  //}
+  //renderedTemplate = '';
+  //receivedData: any;
+  //cssname: string = "assets/dynamicThemes/cssTheme1.css";
+  //ngAfterViewInit(): void {
+  //}
+
   ngOnInit(): void {
+    this.cssFiles = AppConfig.cssFiles;
+    if (localStorage.getItem('fileRefCssName')) { this.cssname = localStorage.getItem('fileRefCssName') };
     // Initialize advanced GridStack layout
     const grid = GridStack.init(this.gridStackOptions
       , '#advanced-grid-preview')
@@ -46,19 +60,28 @@ export class pagepreviewComponent implements OnInit {
       // Handle the case where 'pagehtml' in localStorage is null
       alert("No data found.")
     }
+    this.loadhtml();
   }
   //canclePage() {
   //  this.router.navigate(['pages']);
   //}
   loadCSS() {
+
+    
     let fileRef;
     fileRef = document.createElement('link');
     fileRef.setAttribute('rel', 'stylesheet');
     fileRef.setAttribute('type', 'text/css');
-    fileRef.setAttribute('href', '../../' + this.cssname);
+    this.cssNameWithPath = "assets/dynamicThemes/" + this.cssname + ".css";
+    fileRef.setAttribute('href', '../../' + this.cssNameWithPath);
     if (typeof fileRef !== 'undefined') {
       document.getElementsByTagName('head')[0].appendChild(fileRef);
     }
+    // Assuming this.cssname is a variable that can be either a string or null
+    let cssName = this.cssname || ""; // Use an empty string as the default if this.cssname is null
+    localStorage.setItem('fileRefCssName', cssName);
+    
+
   }
   changeCSS() {
     this.loadhtml();

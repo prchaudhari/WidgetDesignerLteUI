@@ -59,6 +59,8 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   items: GridStackWidget[] = [];
   time: Date;
   grid: GridStack;
+  cssname: string = "cssTheme1";
+    cssNameWithPath: string;
 
   constructor(
     private pagesService: PagesService,
@@ -119,76 +121,96 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     const grid = GridStack.init(this.gridStackOptions
       , '#edit-advanced-grid');
 
-    this.widgetService.getPageWidgets(this.editPageId).subscribe({
-      next: (response) => {
-      //  console.log(response);
-        if (response !== null) {
-          //console.log(response);
-          response.forEach((widgetData: any) => {
-
-         
-            this.widgetService.getWidget(widgetData.widgetId).subscribe({
-              next: (widgetDataResponse) => {
-
-
-                /*****************/
-                var isPropertyPresent: boolean = false;
-
-                if (this.FullJsonDataObject == "") {
-                  this.FullJsonDataObject += "{"
-                }
-                else {
-                  var fulljsonObject: any = JSON.parse(this.FullJsonDataObject + "}");
-                  isPropertyPresent = fulljsonObject.hasOwnProperty(widgetDataResponse.dataBindingJsonNode);
-                  //alert(isPropertyPresent);
-                  if (!isPropertyPresent) {
-                    this.FullJsonDataObject += ","
-                  }
-                }
-                if (!isPropertyPresent) {
-                  this.FullJsonDataObject += '"' + widgetDataResponse.dataBindingJsonNode + '":';
-                  this.FullJsonDataObject += widgetDataResponse.dataSourceJson;
-                }
-      /******************/
-      //  console.log("asdas----" + this.FullJsonDataObject);
-      // console.log("full json" + this.getState)
-      //   console.log( this.getState)
-
-                var jsonObject1: any = JSON.parse(widgetDataResponse.dataSourceJson);
-                let widgetHtml = widgetDataResponse.widgetHtml;
-
-                //   var tagname: string = dataBindingJsonNode;
-                var tagname: string = "abc";
-                var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
-                widgetHtmlAppend += "{{/for}}";
-                let renderedHtml = jsrender.templates(widgetHtmlAppend).render({ [tagname]: jsonObject1 });
-                
-         
-               
-
-                let newWidget = { x: widgetData.startRow, y: widgetData.startCol, content: renderedHtml, id: widgetData.widgetId + "0" };
-
-                grid.addWidget(newWidget);
-
-              },
-              error: (error) => {
-            
-                console.log(error);
-              },
-            });
+    this.pagesService.getPage(this.editPageId).subscribe({
+      next: (page) => {
+        console.log(page.pageCSSUrl);
+        this.widgetService.getPageWidgets(this.editPageId).subscribe({
+          next: (response) => {
+            //  console.log(response);
+            if (response !== null) {
+              //console.log(response);
+              response.forEach((widgetData: any) => {
 
 
-          
-          });
-        } else {
-          // Handle the case where '(response' in localStorage is null
-          alert("No data found.")
-        }
-      },
-      error: (error) => {
-        console.log(error);
+                this.widgetService.getWidget(widgetData.widgetId).subscribe({
+                  next: (widgetDataResponse) => {
+
+
+                    /*****************/
+                    var isPropertyPresent: boolean = false;
+
+                    if (this.FullJsonDataObject == "") {
+                      this.FullJsonDataObject += "{"
+                    }
+                    else {
+                      var fulljsonObject: any = JSON.parse(this.FullJsonDataObject + "}");
+                      isPropertyPresent = fulljsonObject.hasOwnProperty(widgetDataResponse.dataBindingJsonNode);
+                      //alert(isPropertyPresent);
+                      if (!isPropertyPresent) {
+                        this.FullJsonDataObject += ","
+                      }
+                    }
+                    if (!isPropertyPresent) {
+                      this.FullJsonDataObject += '"' + widgetDataResponse.dataBindingJsonNode + '":';
+                      this.FullJsonDataObject += widgetDataResponse.dataSourceJson;
+                    }
+                    /******************/
+                    //  console.log("asdas----" + this.FullJsonDataObject);
+                    // console.log("full json" + this.getState)
+                    //   console.log( this.getState)
+
+                    var jsonObject1: any = JSON.parse(widgetDataResponse.dataSourceJson);
+                    let widgetHtml = widgetDataResponse.widgetHtml;
+
+                    //   var tagname: string = dataBindingJsonNode;
+                    var tagname: string = "abc";
+                    var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
+                    widgetHtmlAppend += "{{/for}}";
+                    let renderedHtml = jsrender.templates(widgetHtmlAppend).render({ [tagname]: jsonObject1 });
+
+
+
+
+                    let newWidget = { x: widgetData.startRow, y: widgetData.startCol, w: widgetData.width, h: widgetData.height, content: renderedHtml, id: widgetData.widgetId + "0" };
+
+                    grid.addWidget(newWidget);
+                    if (page.pageCSSUrl) {
+                      this.cssname = page.pageCSSUrl;
+                    }
+                    let fileRef;
+                    fileRef = document.createElement('link');
+                    fileRef.setAttribute('rel', 'stylesheet');
+                    fileRef.setAttribute('type', 'text/css');
+                    this.cssNameWithPath = "assets/dynamicThemes/" + this.cssname + ".css";
+                    fileRef.setAttribute('href', '../../' + this.cssNameWithPath);
+                    if (typeof fileRef !== 'undefined') {
+                      document.getElementsByTagName('head')[0].appendChild(fileRef);
+                    }
+                    localStorage.setItem('fileRefCssName', this.cssname);
+                  },
+                  error: (error) => {
+
+                    console.log(error);
+                  },
+                });
+
+
+
+              });
+            } else {
+              // Handle the case where '(response' in localStorage is null
+              alert("No data found.")
+            }
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        });
+        
       },
     });
+
+    
     
     
     
@@ -269,7 +291,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
       const widgetdata =
-        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "0" };
+        { x: newWidget.x, y: newWidget.y,w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id + "0" };
       grid.addWidget(widgetdata);
 
 
@@ -286,6 +308,11 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     grid.enableMove(true);
     grid.enableResize(true);
 
+
+  }
+
+  loadCSS() {
+    
 
   }
 
@@ -353,14 +380,18 @@ export class EditPageComponent implements OnInit, AfterViewInit {
         widgetsItemsArr.push(nWidget);
         /****************************/
 
-    });
+      });
+    let fileRefCssName = (localStorage.getItem('fileRefCssName') != "" ? localStorage.getItem('fileRefCssName') : this.getState.pageCSSUrl);
+
+    console.log("pagecssurl", this.getState.pageCSSUrl);
+    console.log("fileRefCssName", fileRefCssName);
     // Create data object to save
     let savedpage: PageModel = {
       pageName: this.getState.pageName,
       description: this.getState.description ?? "",
       dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
-      pageCSSUrl: this.getState.pageCSSUrl ?? "",
+      pageCSSUrl: fileRefCssName ?? "",
       Widgets: widgetsItemsArr
     }   
     // Call the addPage method from pagesService to save the data

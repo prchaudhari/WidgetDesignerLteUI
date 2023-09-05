@@ -1,5 +1,5 @@
 // Import necessary modules and libraries
-import { AfterViewInit, Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit,} from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
@@ -34,7 +34,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
-
+  cssname: string = "cssTheme1";
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
     disableResize: false,
@@ -57,6 +57,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   items: GridStackWidget[] = [];
   time: Date;
   grid: GridStack;
+    cssNameWithPath: string;
 
   constructor(
     private pagesService: PagesService,
@@ -96,8 +97,18 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    let fileRef;
+    fileRef = document.createElement('link');
+    fileRef.setAttribute('rel', 'stylesheet');
+    fileRef.setAttribute('type', 'text/css');
+    this.cssNameWithPath = "assets/dynamicThemes/" + this.cssname + ".css";
+    fileRef.setAttribute('href', '../../' + this.cssNameWithPath);
+    if (typeof fileRef !== 'undefined') {
+      document.getElementsByTagName('head')[0].appendChild(fileRef);
+    }
+    localStorage.setItem('fileRefCssName', this.cssname);
+  
     $("#widdiv").html(this.renderedWidgets);
-
     // Initialize logic on component initialization
     this.widgetService.getAllWidget().subscribe({
       next: (widget) => {
@@ -192,7 +203,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // alert("heloo");
      if (removeEl) grid.removeWidget(removeEl);
      const widgetdata = 
-       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id+"0"  };
+       { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
      grid.addWidget(widgetdata);
    
 
@@ -277,13 +288,19 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       /****************************/
     });
 
+    let fileRefCssName = (localStorage.getItem('fileRefCssName') != "" ? localStorage.getItem('fileRefCssName') : this.getState.pageCSSUrl);
+
+    console.log("pagecssurl",this.getState.pageCSSUrl);
+
+
+    console.log("fileRefCssName", fileRefCssName);
     // Create data object to save
     let savedpage: PageModel = {
       pageName: this.getState.pageName,
       description: this.getState.description ?? "",
       dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
-      pageCSSUrl: this.getState.pageCSSUrl ?? "",
+      pageCSSUrl: fileRefCssName ?? "",
       Widgets: widgetsItemsArr
     }
     // Call the addPage method from pagesService to save the data
