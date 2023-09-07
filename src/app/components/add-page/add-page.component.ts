@@ -39,14 +39,13 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   private gridStackOptions: GridStackOptions = {
     disableResize: false,
     disableDrag: false,
-    margin: .001,
-    column: 12,
+    margin: 0.001,
+    column: 100,
   //  cellHeight: 50,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
     float: true,
-   
     draggable: {
       
       handle: '.grid-stack-item-content'

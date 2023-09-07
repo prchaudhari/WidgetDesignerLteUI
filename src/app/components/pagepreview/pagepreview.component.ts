@@ -14,7 +14,7 @@ export class pagepreviewComponent implements OnInit {
     disableResize: true,
     disableDrag: true,
     margin: .001,
-    column: 12,
+    column: 100,
     //cellHeight:50 ,
     float: true,
   };

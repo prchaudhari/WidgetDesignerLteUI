@@ -20,6 +20,7 @@
 
 .grid-stack-item {
   border: 0;
+  overflow: hidden;
 }
 
 .grid-stack-item-content {
