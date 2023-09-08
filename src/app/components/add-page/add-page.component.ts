@@ -39,7 +39,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   private gridStackOptions: GridStackOptions = {
     disableResize: false,
     disableDrag: false,
-    margin: 0.001,
+    margin: 0,
     column: 100,
   //  cellHeight: 50,
     acceptWidgets: true,
@@ -203,7 +203,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      if (removeEl) grid.removeWidget(removeEl);
      const widgetdata = 
       // { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
-        { x: newWidget.x, y: 0, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
+       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id+"0"  };
      grid.addWidget(widgetdata);
    
 
