@@ -202,7 +202,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // alert("heloo");
      if (removeEl) grid.removeWidget(removeEl);
      const widgetdata = 
-       { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
+      // { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
+        { x: newWidget.x, y: 0, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
      grid.addWidget(widgetdata);
    
 
