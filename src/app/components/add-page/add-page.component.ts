@@ -34,6 +34,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
+  t: string = "";
   cssname: string = "cssTheme1";
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
@@ -184,6 +185,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         this.FullJsonDataObject += '"' + dataBindingJsonNode + '":';
         this.FullJsonDataObject += dataSourceJson;
       }
+      this.t = JSON.parse(this.FullJsonDataObject + "\n}");
+     // this.FullJsonDataObject = this.t;
       /******************/
     //  console.log("asdas----" + this.FullJsonDataObject);
      // console.log("full json" + this.getState)
