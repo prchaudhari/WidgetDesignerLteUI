@@ -43,7 +43,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     disableResize: false,
     disableDrag: false,
     margin: .001,
-    column: 12,
+    column: 100,
     //  cellHeight: 50,
     acceptWidgets: true,
     removable: '#trash',
@@ -173,7 +173,8 @@ export class EditPageComponent implements OnInit, AfterViewInit {
 
 
 
-                    let newWidget = { x: widgetData.startRow, y: widgetData.startCol, w: widgetData.width, h: widgetData.height, content: renderedHtml, id: widgetData.widgetId + "0" };
+                    //let newWidget = { x: widgetData.startRow, y: widgetData.startCol, w: widgetData.width, h: widgetData.height, content: renderedHtml, id: widgetData.widgetId + "0" };
+                    let newWidget = { x: widgetData.startRow, y: widgetData.startCol,  content: renderedHtml, id: widgetData.widgetId + "0" };
 
                     grid.addWidget(newWidget);
                     if (page.pageCSSUrl) {
