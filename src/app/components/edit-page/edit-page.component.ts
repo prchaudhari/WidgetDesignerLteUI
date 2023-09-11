@@ -35,6 +35,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
+  displayJson: string = "";
   editPageId : number ;
 
   // Configuration options for the GridStack layout
@@ -154,6 +155,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
                       this.FullJsonDataObject += '"' + widgetDataResponse.dataBindingJsonNode + '":';
                       this.FullJsonDataObject += widgetDataResponse.dataSourceJson;
                     }
+                    this.displayJson = JSON.parse(this.FullJsonDataObject + "\n}");
                     /******************/
                     //  console.log("asdas----" + this.FullJsonDataObject);
                     // console.log("full json" + this.getState)
