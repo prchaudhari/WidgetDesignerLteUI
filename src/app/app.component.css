@@ -201,802 +201,3201 @@
   width: auto
 }
 
-
   ::ng-deep .gs-100 > .grid-stack-item[gs-x='1'] {
-    left: 1%
+    left: 0.25%
   }
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='2'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='2'] {
-    left: 1.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='3'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='3'] {
-    left: 2.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='4'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='4'] {
-    left: 3.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='5'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='5'] {
-    left: 4.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='6'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='6'] {
-    left: 5.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='7'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='7'] {
-    left: 6.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='8'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='8'] {
-    left: 7.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='9'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='9'] {
-    left: 8.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='10'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='10'] {
-    left: 9.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='11'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='11'] {
-    left: 10.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='12'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='12'] {
-    left: 11.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='13'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='13'] {
-    left: 12.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='14'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='14'] {
-    left: 13.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='15'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='15'] {
-    left: 14.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='16'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='16'] {
-    left: 15.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='17'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='17'] {
-    left: 16.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='18'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='18'] {
-    left: 17.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='19'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='19'] {
-    left: 18.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='20'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='20'] {
-    left: 19.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='21'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='21'] {
-    left: 20.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='22'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='22'] {
-    left: 21.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='23'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='23'] {
-    left: 22.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='24'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='24'] {
-    left: 23.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='25'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='25'] {
-    left: 24.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='26'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='26'] {
-    left: 25.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='27'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='27'] {
-    left: 26.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='28'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='28'] {
-    left: 27.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='29'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='29'] {
-    left: 28.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='30'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='30'] {
-    left: 29.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='31'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='31'] {
-    left: 30.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='32'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='32'] {
-    left: 31.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='33'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='33'] {
-    left: 32.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='34'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='34'] {
-    left: 33.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='35'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='35'] {
-    left: 34.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='36'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='36'] {
-    left: 35.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='37'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='37'] {
-    left: 36.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='38'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='38'] {
-    left: 37.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='39'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='39'] {
-    left: 38.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='40'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='40'] {
-    left: 39.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='41'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='41'] {
-    left: 40.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='42'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='42'] {
-    left: 41.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='43'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='43'] {
-    left: 42.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='44'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='44'] {
-    left: 43.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='45'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='45'] {
-    left: 44.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='46'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='46'] {
-    left: 45.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='47'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='47'] {
-    left: 46.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='48'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='2'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='48'] {
-    left: 47.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='49'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='49'] {
-    left: 48.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='50'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='50'] {
-    left: 49.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='51'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='51'] {
-    left: 50.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='52'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='52'] {
-    left: 51.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='53'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='53'] {
-    left: 52.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='54'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='54'] {
-    left: 53.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='55'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='55'] {
-    left: 54.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='56'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='56'] {
-    left: 55.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='57'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='57'] {
-    left: 56.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='58'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='58'] {
-    left: 57.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='59'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='59'] {
-    left: 58.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='60'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='60'] {
-    left: 59.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='61'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='61'] {
-    left: 60.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='62'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='62'] {
-    left: 61.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='63'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='63'] {
-    left: 62.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='64'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='64'] {
-    left: 63.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='65'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='65'] {
-    left: 64.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='66'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='66'] {
-    left: 65.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='67'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='67'] {
-    left: 66.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='68'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='68'] {
-    left: 67.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='69'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='69'] {
-    left: 68.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='70'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='70'] {
-    left: 69.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='71'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='71'] {
-    left: 70.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='2'] {
+  left: 0.5%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='72'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='72'] {
-    left: 71.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='73'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='73'] {
-    left: 72.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='74'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='74'] {
-    left: 73.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='75'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='75'] {
-    left: 74.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='76'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='76'] {
-    left: 75.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='77'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='77'] {
-    left: 76.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='78'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='78'] {
-    left: 77.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='79'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='79'] {
-    left: 78.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='80'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='80'] {
-    left: 79.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='81'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='81'] {
-    left: 80.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='82'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='82'] {
-    left: 81.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='83'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='83'] {
-    left: 82.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='84'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='84'] {
-    left: 83.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='85'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='85'] {
-    left: 84.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='86'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='86'] {
-    left: 85.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='87'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='87'] {
-    left: 86.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='88'] {
-    width: auto
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='88'] {
-    left: 87.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='89'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='3'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='89'] {
-    left: 88.5%
-  }
-
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='90'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='3'] {
+  left: 0.75%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='90'] {
-    left: 89.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='4'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='91'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='4'] {
+  left: 1%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='91'] {
-    left: 90.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='5'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='92'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='5'] {
+  left: 1.25%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='92'] {
-    left: 91.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='6'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='93'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='6'] {
+  left: 1.5%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='93'] {
-    left: 92.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='7'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='94'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='7'] {
+  left: 1.75%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='94'] {
-    left: 93.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='8'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='95'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='8'] {
+  left: 2%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='95'] {
-    left: 94.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='9'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='96'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='9'] {
+  left: 2.25%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='96'] {
-    left: 95.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='10'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='97'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='10'] {
+  left: 2.5%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='97'] {
-    left: 96.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='11'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='98'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='11'] {
+  left: 2.75%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='98'] {
-    left: 97.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='12'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='99'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='12'] {
+  left: 3%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='99'] {
-    left: 98.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='13'] {
+  width: auto
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-w='100'] {
-    width: auto
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-x='13'] {
+  left: 3.25%
+}
 
-  ::ng-deep .gs-100 > .grid-stack-item[gs-x='100'] {
-    left: 99.5%
-  }
+::ng-deep .gs-400 > .grid-stack-item[gs-w='14'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='14'] {
+  left: 3.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='15'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='15'] {
+  left: 3.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='16'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='16'] {
+  left: 4%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='17'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='17'] {
+  left: 4.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='18'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='18'] {
+  left: 4.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='19'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='19'] {
+  left: 4.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='20'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='20'] {
+  left: 5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='21'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='21'] {
+  left: 5.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='22'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='22'] {
+  left: 5.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='23'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='23'] {
+  left: 5.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='24'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='24'] {
+  left: 6%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='25'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='25'] {
+  left: 6.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='26'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='26'] {
+  left: 6.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='27'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='27'] {
+  left: 6.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='28'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='28'] {
+  left: 7%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='29'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='29'] {
+  left: 7.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='30'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='30'] {
+  left: 7.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='31'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='31'] {
+  left: 7.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='32'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='32'] {
+  left: 8%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='33'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='33'] {
+  left: 8.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='34'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='34'] {
+  left: 8.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='35'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='35'] {
+  left: 8.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='36'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='36'] {
+  left: 9%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='37'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='37'] {
+  left: 9.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='38'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='38'] {
+  left: 9.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='39'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='39'] {
+  left: 9.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='40'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='40'] {
+  left: 10%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='41'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='41'] {
+  left: 10.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='42'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='42'] {
+  left: 10.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='43'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='43'] {
+  left: 10.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='44'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='44'] {
+  left: 11%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='45'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='45'] {
+  left: 11.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='46'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='46'] {
+  left: 11.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='47'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='47'] {
+  left: 11.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='48'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='48'] {
+  left: 12%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='49'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='49'] {
+  left: 12.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='50'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='50'] {
+  left: 12.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='51'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='51'] {
+  left: 12.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='52'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='52'] {
+  left: 13%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='53'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='53'] {
+  left: 13.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='54'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='54'] {
+  left: 13.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='55'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='55'] {
+  left: 13.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='56'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='56'] {
+  left: 14%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='57'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='57'] {
+  left: 14.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='58'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='58'] {
+  left: 14.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='59'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='59'] {
+  left: 14.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='60'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='60'] {
+  left: 15%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='61'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='61'] {
+  left: 15.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='62'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='62'] {
+  left: 15.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='63'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='63'] {
+  left: 15.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='64'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='64'] {
+  left: 16%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='65'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='65'] {
+  left: 16.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='66'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='66'] {
+  left: 16.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='67'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='67'] {
+  left: 16.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='68'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='68'] {
+  left: 17%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='69'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='69'] {
+  left: 17.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='70'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='70'] {
+  left: 17.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='71'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='71'] {
+  left: 17.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='72'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='72'] {
+  left: 18%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='73'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='73'] {
+  left: 18.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='74'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='74'] {
+  left: 18.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='75'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='75'] {
+  left: 18.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='76'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='76'] {
+  left: 19%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='77'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='77'] {
+  left: 19.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='78'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='78'] {
+  left: 19.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='79'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='79'] {
+  left: 19.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='80'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='80'] {
+  left: 20%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='81'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='81'] {
+  left: 20.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='82'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='82'] {
+  left: 20.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='83'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='83'] {
+  left: 20.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='84'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='84'] {
+  left: 21%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='85'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='85'] {
+  left: 21.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='86'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='86'] {
+  left: 21.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='87'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='87'] {
+  left: 21.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='88'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='88'] {
+  left: 22%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='89'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='89'] {
+  left: 22.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='90'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='90'] {
+  left: 22.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='91'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='91'] {
+  left: 22.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='92'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='92'] {
+  left: 23%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='93'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='93'] {
+  left: 23.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='94'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='94'] {
+  left: 23.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='95'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='95'] {
+  left: 23.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='96'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='96'] {
+  left: 24%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='97'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='97'] {
+  left: 24.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='98'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='98'] {
+  left: 24.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='99'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='99'] {
+  left: 24.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='100'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='100'] {
+  left: 25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='101'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='101'] {
+  left: 25.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='102'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='102'] {
+  left: 25.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='103'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='103'] {
+  left: 25.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='104'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='104'] {
+  left: 26%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='105'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='105'] {
+  left: 26.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='106'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='106'] {
+  left: 26.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='107'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='107'] {
+  left: 26.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='108'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='108'] {
+  left: 27%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='109'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='109'] {
+  left: 27.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='110'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='110'] {
+  left: 27.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='111'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='111'] {
+  left: 27.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='112'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='112'] {
+  left: 28%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='113'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='113'] {
+  left: 28.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='114'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='114'] {
+  left: 28.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='115'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='115'] {
+  left: 28.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='116'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='116'] {
+  left: 29%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='117'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='117'] {
+  left: 29.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='118'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='118'] {
+  left: 29.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='119'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='119'] {
+  left: 29.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='120'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='120'] {
+  left: 30%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='121'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='121'] {
+  left: 30.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='122'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='122'] {
+  left: 30.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='123'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='123'] {
+  left: 30.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='124'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='124'] {
+  left: 31%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='125'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='125'] {
+  left: 31.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='126'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='126'] {
+  left: 31.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='127'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='127'] {
+  left: 31.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='128'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='128'] {
+  left: 32%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='129'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='129'] {
+  left: 32.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='130'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='130'] {
+  left: 32.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='131'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='131'] {
+  left: 32.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='132'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='132'] {
+  left: 33%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='133'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='133'] {
+  left: 33.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='134'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='134'] {
+  left: 33.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='135'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='135'] {
+  left: 33.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='136'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='136'] {
+  left: 34%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='137'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='137'] {
+  left: 34.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='138'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='138'] {
+  left: 34.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='139'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='139'] {
+  left: 34.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='140'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='140'] {
+  left: 35%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='141'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='141'] {
+  left: 35.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='142'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='142'] {
+  left: 35.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='143'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='143'] {
+  left: 35.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='144'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='144'] {
+  left: 36%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='145'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='145'] {
+  left: 36.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='146'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='146'] {
+  left: 36.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='147'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='147'] {
+  left: 36.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='148'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='148'] {
+  left: 37%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='149'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='149'] {
+  left: 37.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='150'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='150'] {
+  left: 37.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='151'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='151'] {
+  left: 37.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='152'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='152'] {
+  left: 38%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='153'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='153'] {
+  left: 38.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='154'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='154'] {
+  left: 38.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='155'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='155'] {
+  left: 38.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='156'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='156'] {
+  left: 39%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='157'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='157'] {
+  left: 39.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='158'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='158'] {
+  left: 39.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='159'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='159'] {
+  left: 39.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='160'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='160'] {
+  left: 40%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='161'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='161'] {
+  left: 40.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='162'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='162'] {
+  left: 40.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='163'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='163'] {
+  left: 40.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='164'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='164'] {
+  left: 41%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='165'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='165'] {
+  left: 41.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='166'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='166'] {
+  left: 41.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='167'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='167'] {
+  left: 41.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='168'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='168'] {
+  left: 42%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='169'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='169'] {
+  left: 42.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='170'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='170'] {
+  left: 42.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='171'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='171'] {
+  left: 42.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='172'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='172'] {
+  left: 43%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='173'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='173'] {
+  left: 43.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='174'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='174'] {
+  left: 43.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='175'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='175'] {
+  left: 43.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='176'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='176'] {
+  left: 44%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='177'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='177'] {
+  left: 44.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='178'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='178'] {
+  left: 44.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='179'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='179'] {
+  left: 44.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='180'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='180'] {
+  left: 45%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='181'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='181'] {
+  left: 45.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='182'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='182'] {
+  left: 45.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='183'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='183'] {
+  left: 45.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='184'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='184'] {
+  left: 46%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='185'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='185'] {
+  left: 46.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='186'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='186'] {
+  left: 46.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='187'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='187'] {
+  left: 46.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='188'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='188'] {
+  left: 47%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='189'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='189'] {
+  left: 47.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='190'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='190'] {
+  left: 47.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='191'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='191'] {
+  left: 47.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='192'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='192'] {
+  left: 48%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='193'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='193'] {
+  left: 48.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='194'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='194'] {
+  left: 48.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='195'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='195'] {
+  left: 48.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='196'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='196'] {
+  left: 49%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='197'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='197'] {
+  left: 49.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='198'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='198'] {
+  left: 49.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='199'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='199'] {
+  left: 49.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='200'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='200'] {
+  left: 50%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='201'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='201'] {
+  left: 50.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='202'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='202'] {
+  left: 50.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='203'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='203'] {
+  left: 50.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='204'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='204'] {
+  left: 51%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='205'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='205'] {
+  left: 51.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='206'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='206'] {
+  left: 51.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='207'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='207'] {
+  left: 51.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='208'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='208'] {
+  left: 52%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='209'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='209'] {
+  left: 52.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='210'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='210'] {
+  left: 52.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='211'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='211'] {
+  left: 52.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='212'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='212'] {
+  left: 53%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='213'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='213'] {
+  left: 53.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='214'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='214'] {
+  left: 53.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='215'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='215'] {
+  left: 53.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='216'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='216'] {
+  left: 54%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='217'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='217'] {
+  left: 54.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='218'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='218'] {
+  left: 54.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='219'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='219'] {
+  left: 54.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='220'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='220'] {
+  left: 55%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='221'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='221'] {
+  left: 55.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='222'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='222'] {
+  left: 55.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='223'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='223'] {
+  left: 55.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='224'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='224'] {
+  left: 56%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='225'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='225'] {
+  left: 56.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='226'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='226'] {
+  left: 56.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='227'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='227'] {
+  left: 56.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='228'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='228'] {
+  left: 57%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='229'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='229'] {
+  left: 57.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='230'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='230'] {
+  left: 57.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='231'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='231'] {
+  left: 57.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='232'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='232'] {
+  left: 58%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='233'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='233'] {
+  left: 58.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='234'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='234'] {
+  left: 58.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='235'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='235'] {
+  left: 58.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='236'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='236'] {
+  left: 59%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='237'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='237'] {
+  left: 59.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='238'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='238'] {
+  left: 59.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='239'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='239'] {
+  left: 59.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='240'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='240'] {
+  left: 60%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='241'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='241'] {
+  left: 60.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='242'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='242'] {
+  left: 60.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='243'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='243'] {
+  left: 60.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='244'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='244'] {
+  left: 61%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='245'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='245'] {
+  left: 61.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='246'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='246'] {
+  left: 61.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='247'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='247'] {
+  left: 61.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='248'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='248'] {
+  left: 62%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='249'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='249'] {
+  left: 62.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='250'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='250'] {
+  left: 62.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='251'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='251'] {
+  left: 62.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='252'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='252'] {
+  left: 63%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='253'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='253'] {
+  left: 63.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='254'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='254'] {
+  left: 63.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='255'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='255'] {
+  left: 63.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='256'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='256'] {
+  left: 64%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='257'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='257'] {
+  left: 64.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='258'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='258'] {
+  left: 64.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='259'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='259'] {
+  left: 64.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='260'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='260'] {
+  left: 65%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='261'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='261'] {
+  left: 65.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='262'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='262'] {
+  left: 65.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='263'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='263'] {
+  left: 65.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='264'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='264'] {
+  left: 66%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='265'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='265'] {
+  left: 66.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='266'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='266'] {
+  left: 66.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='267'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='267'] {
+  left: 66.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='268'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='268'] {
+  left: 67%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='269'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='269'] {
+  left: 67.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='270'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='270'] {
+  left: 67.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='271'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='271'] {
+  left: 67.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='272'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='272'] {
+  left: 68%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='273'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='273'] {
+  left: 68.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='274'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='274'] {
+  left: 68.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='275'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='275'] {
+  left: 68.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='276'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='276'] {
+  left: 69%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='277'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='277'] {
+  left: 69.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='278'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='278'] {
+  left: 69.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='279'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='279'] {
+  left: 69.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='280'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='280'] {
+  left: 70%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='281'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='281'] {
+  left: 70.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='282'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='282'] {
+  left: 70.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='283'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='283'] {
+  left: 70.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='284'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='284'] {
+  left: 71%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='285'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='285'] {
+  left: 71.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='286'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='286'] {
+  left: 71.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='287'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='287'] {
+  left: 71.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='288'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='288'] {
+  left: 72%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='289'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='289'] {
+  left: 72.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='290'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='290'] {
+  left: 72.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='291'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='291'] {
+  left: 72.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='292'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='292'] {
+  left: 73%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='293'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='293'] {
+  left: 73.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='294'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='294'] {
+  left: 73.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='295'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='295'] {
+  left: 73.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='296'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='296'] {
+  left: 74%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='297'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='297'] {
+  left: 74.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='298'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='298'] {
+  left: 74.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='299'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='299'] {
+  left: 74.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='300'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='300'] {
+  left: 75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='301'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='301'] {
+  left: 75.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='302'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='302'] {
+  left: 75.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='303'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='303'] {
+  left: 75.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='304'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='304'] {
+  left: 76%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='305'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='305'] {
+  left: 76.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='306'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='306'] {
+  left: 76.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='307'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='307'] {
+  left: 76.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='308'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='308'] {
+  left: 77%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='309'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='309'] {
+  left: 77.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='310'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='310'] {
+  left: 77.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='311'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='311'] {
+  left: 77.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='312'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='312'] {
+  left: 78%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='313'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='313'] {
+  left: 78.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='314'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='314'] {
+  left: 78.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='315'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='315'] {
+  left: 78.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='316'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='316'] {
+  left: 79%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='317'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='317'] {
+  left: 79.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='318'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='318'] {
+  left: 79.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='319'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='319'] {
+  left: 79.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='320'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='320'] {
+  left: 80%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='321'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='321'] {
+  left: 80.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='322'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='322'] {
+  left: 80.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='323'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='323'] {
+  left: 80.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='324'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='324'] {
+  left: 81%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='325'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='325'] {
+  left: 81.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='326'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='326'] {
+  left: 81.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='327'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='327'] {
+  left: 81.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='328'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='328'] {
+  left: 82%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='329'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='329'] {
+  left: 82.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='330'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='330'] {
+  left: 82.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='331'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='331'] {
+  left: 82.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='332'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='332'] {
+  left: 83%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='333'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='333'] {
+  left: 83.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='334'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='334'] {
+  left: 83.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='335'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='335'] {
+  left: 83.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='336'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='336'] {
+  left: 84%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='337'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='337'] {
+  left: 84.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='338'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='338'] {
+  left: 84.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='339'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='339'] {
+  left: 84.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='340'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='340'] {
+  left: 85%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='341'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='341'] {
+  left: 85.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='342'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='342'] {
+  left: 85.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='343'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='343'] {
+  left: 85.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='344'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='344'] {
+  left: 86%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='345'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='345'] {
+  left: 86.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='346'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='346'] {
+  left: 86.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='347'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='347'] {
+  left: 86.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='348'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='348'] {
+  left: 87%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='349'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='349'] {
+  left: 87.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='350'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='350'] {
+  left: 87.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='351'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='351'] {
+  left: 87.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='352'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='352'] {
+  left: 88%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='353'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='353'] {
+  left: 88.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='354'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='354'] {
+  left: 88.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='355'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='355'] {
+  left: 88.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='356'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='356'] {
+  left: 89%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='357'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='357'] {
+  left: 89.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='358'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='358'] {
+  left: 89.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='359'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='359'] {
+  left: 89.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='360'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='360'] {
+  left: 90%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='361'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='361'] {
+  left: 90.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='362'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='362'] {
+  left: 90.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='363'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='363'] {
+  left: 90.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='364'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='364'] {
+  left: 91%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='365'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='365'] {
+  left: 91.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='366'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='366'] {
+  left: 91.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='367'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='367'] {
+  left: 91.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='368'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='368'] {
+  left: 92%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='369'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='369'] {
+  left: 92.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='370'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='370'] {
+  left: 92.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='371'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='371'] {
+  left: 92.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='372'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='372'] {
+  left: 93%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='373'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='373'] {
+  left: 93.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='374'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='374'] {
+  left: 93.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='375'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='375'] {
+  left: 93.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='376'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='376'] {
+  left: 94%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='377'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='377'] {
+  left: 94.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='378'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='378'] {
+  left: 94.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='379'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='379'] {
+  left: 94.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='380'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='380'] {
+  left: 95%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='381'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='381'] {
+  left: 95.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='382'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='382'] {
+  left: 95.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='383'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='383'] {
+  left: 95.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='384'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='384'] {
+  left: 96%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='385'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='385'] {
+  left: 96.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='386'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='386'] {
+  left: 96.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='387'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='387'] {
+  left: 96.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='388'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='388'] {
+  left: 97%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='389'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='389'] {
+  left: 97.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='390'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='390'] {
+  left: 97.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='391'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='391'] {
+  left: 97.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='392'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='392'] {
+  left: 98%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='393'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='393'] {
+  left: 98.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='394'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='394'] {
+  left: 98.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='395'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='395'] {
+  left: 98.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='396'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='396'] {
+  left: 99%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='397'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='397'] {
+  left: 99.25%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='398'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='398'] {
+  left: 99.5%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='399'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='399'] {
+  left: 99.75%
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-w='400'] {
+  width: auto
+}
+
+::ng-deep .gs-400 > .grid-stack-item[gs-x='400'] {
+  left: 100%
+}
 
 ::ng-deep .gs-1 > .grid-stack-item {
   width: 100%

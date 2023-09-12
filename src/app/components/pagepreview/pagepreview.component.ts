@@ -13,8 +13,8 @@ export class pagepreviewComponent implements OnInit {
   private gridStackOptions: GridStackOptions = {
     disableResize: true,
     disableDrag: true,
-    margin: .001,
-    column: 100,
+    margin: 0,
+    column: 400,
     //cellHeight:50 ,
     float: true,
   };

@@ -41,7 +41,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     disableResize: false,
     disableDrag: false,
     margin: 0,
-    column: 100,
+    column: 400,
   //  cellHeight: 50,
     acceptWidgets: true,
     removable: '#trash',

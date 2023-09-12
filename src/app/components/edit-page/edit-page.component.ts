@@ -42,8 +42,8 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   private gridStackOptions: GridStackOptions = {
     disableResize: false,
     disableDrag: false,
-    margin: .001,
-    column: 100,
+    margin: 0,
+    column: 400,
     //  cellHeight: 50,
     acceptWidgets: true,
     removable: '#trash',
