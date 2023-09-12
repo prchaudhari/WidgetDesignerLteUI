@@ -130,7 +130,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     
 
     grid.on("resize", (event, previousWidget, newWidget) => {
-
+      console.log("event= ", event);
       
       //console.log(previousWidget);
 
@@ -148,8 +148,6 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       //});
     });
 
-
-
     grid.on("dropped", (event, previousWidget, newWidget) => {
       // Restore the original content when dragging stops
     //  var serializedFull = grid.save(true, true);
@@ -157,7 +155,10 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // console.log(serializedFull);
      // console.log(serializedData);
      // grid.enableMove(false);
-     // grid.enableResize(false);
+      // grid.enableResize(false);
+      //console.log("event= ", newWidget.el);
+   
+    
       for (var i = 0; i < this.getState.length; i++) {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
@@ -283,8 +284,12 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       nWidget.widgetId = id;
       nWidget.startCol = Number(node.getAttribute("gs-y"));
       nWidget.startRow = Number(node.getAttribute("gs-x"));
-      nWidget.width = Number(node.getAttribute("gs-w"));
-      nWidget.height = Number(node.getAttribute("gs-h"));
+      console.log("width", node.offsetWidth);
+      console.log("height", node.scrollHeight);
+      nWidget.width = parseInt((node.offsetWidth / 2.52).toString());
+      nWidget.height = parseInt((node.scrollHeight / 2.52).toString());
+      //nWidget.width = Number(node.getAttribute("gs-w"));
+      //nWidget.height = Number(node.getAttribute("gs-h"));
 
 
       widgetsItemsArr.push(nWidget);
@@ -319,6 +324,10 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     });
   }
   canclePage() {
-     this.router.navigate(['pages']);
+    const element = $(".grid-stack-item-content");
+    console.log(element);
+    console.log("width: ", element[6].clientWidth, "height:", element[6].clientHeight);
+    console.log("width: ", element[7].clientWidth, "height:", element[7].clientHeight);
+    //this.router.navigate(['pages']);
   }
 }
