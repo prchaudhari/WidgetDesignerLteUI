@@ -293,8 +293,8 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       //  console.log(removeEl);
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
-      const widgetdata =
-        { x: newWidget.x, y: newWidget.y,w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id + "0" };
+    //  const widgetdata ={ x: newWidget.x, y: newWidget.y,w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id + "0" };
+         const widgetdata ={ x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "0" };
       grid.addWidget(widgetdata);
 
 
@@ -378,8 +378,8 @@ export class EditPageComponent implements OnInit, AfterViewInit {
         nWidget.pageId = this.editPageId;
         nWidget.startCol = Number(node.getAttribute("gs-y"));
         nWidget.startRow = Number(node.getAttribute("gs-x"));
-        nWidget.width = Number(node.getAttribute("gs-w") );
-        nWidget.height = Number(node.getAttribute("gs-h"));
+        nWidget.width = parseInt((node.offsetWidth / 2.52).toString());
+        nWidget.height = parseInt((node.scrollHeight / 2.52).toString());
         widgetsItemsArr.push(nWidget);
         /****************************/
 

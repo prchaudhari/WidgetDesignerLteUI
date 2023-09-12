@@ -130,7 +130,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     
 
     grid.on("resize", (event, previousWidget, newWidget) => {
-      console.log("event= ", event);
+     // console.log("event= ", event);
       
       //console.log(previousWidget);
 
@@ -284,8 +284,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       nWidget.widgetId = id;
       nWidget.startCol = Number(node.getAttribute("gs-y"));
       nWidget.startRow = Number(node.getAttribute("gs-x"));
-      console.log("width", node.offsetWidth);
-      console.log("height", node.scrollHeight);
+    //  console.log("width", node.offsetWidth);
+    //  console.log("height", node.scrollHeight);
       nWidget.width = parseInt((node.offsetWidth / 2.52).toString());
       nWidget.height = parseInt((node.scrollHeight / 2.52).toString());
       //nWidget.width = Number(node.getAttribute("gs-w"));
@@ -298,10 +298,10 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
     let fileRefCssName = (localStorage.getItem('fileRefCssName') != "" ? localStorage.getItem('fileRefCssName') : this.getState.pageCSSUrl);
 
-    console.log("pagecssurl",this.getState.pageCSSUrl);
+   // console.log("pagecssurl",this.getState.pageCSSUrl);
 
 
-    console.log("fileRefCssName", fileRefCssName);
+   // console.log("fileRefCssName", fileRefCssName);
     // Create data object to save
     let savedpage: PageModel = {
       pageName: this.getState.pageName,
@@ -324,10 +324,6 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     });
   }
   canclePage() {
-    const element = $(".grid-stack-item-content");
-    console.log(element);
-    console.log("width: ", element[6].clientWidth, "height:", element[6].clientHeight);
-    console.log("width: ", element[7].clientWidth, "height:", element[7].clientHeight);
-    //this.router.navigate(['pages']);
+    this.router.navigate(['pages']);
   }
 }
