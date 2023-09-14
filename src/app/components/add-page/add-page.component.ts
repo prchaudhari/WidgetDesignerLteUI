@@ -52,7 +52,6 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       handle: '.grid-stack-item-content'
     }
   };
-
   mode: GridMode = "edit";
   items: GridStackWidget[] = [];
   time: Date;
