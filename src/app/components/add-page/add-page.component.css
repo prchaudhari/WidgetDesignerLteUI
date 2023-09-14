@@ -10,7 +10,7 @@
 
 .grid-container {
   border: 1px solid grey;
-  max-width: 1000px;
+  max-width: 2000px;
 }
 
 .center {
@@ -66,7 +66,15 @@ section {
 .newWidget > .grid-stack-item-content {
   background-color: #6cad84;
 }
-
+  .overflowtext {
+    color: blue;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    width: 10px;
+    background-color:aqua;
+  }
 .clearfix1{
      text-align:center;
   }
@@ -74,15 +82,21 @@ section {
 .rounded-3 {
   width: 100%;
   border: 1px solid grey;
-  padding: 8px;
+  padding: 3px;
 }
 
 
   .text-white {
     text-align: center;
   }
-
-
+.anyClass {
+  height: 600px;
+  overflow-y: scroll;
+}
+.anyClassx {
+  width:900px;
+  overflow-x: scroll;
+}
 /* Importing Bootstrap SCSS file. */
 
 

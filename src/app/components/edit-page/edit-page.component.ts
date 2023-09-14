@@ -89,10 +89,10 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   assigndata(widgetd: Widget, widgetdata: string): string {
 
     //  console.log(widgetd.fontName);
-    widgetdata = widgetdata + '<div class="text-center card text-white grid-stack-item newWidget"  gs-id="' + widgetd.id + '"> \
-      <div class="card-body grid-stack-item-content add""> \
-        <div style="background-color:black" > \
-        <span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div> </div> </div>'
+    widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + widgetd.id + '"> \
+      <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
+        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + widgetd.widgetName + '"><i class="' + widgetd.fontName + '"> </i> ' + widgetd.widgetName + '</div> </div> </div>  ';
+
     //<span style="width: 100%" class="info-box-icon"><i [ngClass]="' + widgetd.fontName+'"></i></span>
     // alert("function " + widgetdata<i [ngClass]="widget.fontName"></i>
     return widgetdata;
