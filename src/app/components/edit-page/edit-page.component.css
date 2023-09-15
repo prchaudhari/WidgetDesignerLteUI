@@ -4,13 +4,13 @@
 }
 
 #main1 {
-  padding-top: 10px;
+ /* padding-top: 10px;*/
   border: 1px solid grey;
 }
 
 .grid-container {
   border: 1px solid grey;
-  max-width: 2000px;
+  max-width: 1228px;
 }
 
 .center {
@@ -97,7 +97,11 @@ section {
   width: 900px;
   overflow-x: scroll;
 }
-
+.btn1 {
+  background-color: rgba(52,58,64,255);
+  color: white;
+  border: 1px solid #80bdff;
+}
 /* Importing Bootstrap SCSS file. */
 
 

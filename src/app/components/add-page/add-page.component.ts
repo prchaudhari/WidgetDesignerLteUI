@@ -1,15 +1,14 @@
 // Import necessary modules and libraries
-import { AfterViewInit, Component, OnInit,} from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
 import { Router } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
-import { GridStack, GridStackOptions} from "gridstack";
+import { GridStack, GridStackOptions } from "gridstack";
 import { PagesService } from '../../services/pages.service';
 import { Location } from '@angular/common';
-import { GridStackWidget,  } from "gridstack/dist/types";
 import * as jsrender from 'jsrender';
 import { PageModel } from '../../models/pagesmodel.model';
 import { PageWidgetsDetails } from '../../models/pagewidgetsdetails.model';
@@ -22,16 +21,15 @@ type GridMode = "edit" | "view";
   templateUrl: './add-page.component.html',
   styleUrls: ['./add-page.component.css']
 })
-export class AddPageComponent implements OnInit, AfterViewInit {
+export class AddPageComponent implements OnInit {
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
-  
+
   widgetsItems: any = "";
-  pageHtml: any= "";
+  pageHtml: any = "";
   modifynode: any = "";
 
-  pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
   displayJson: string = "";
@@ -42,22 +40,22 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     disableDrag: false,
     margin: 0,
     column: 400,
-  //  cellHeight: 50,
+    //  cellHeight: 50,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
     float: true,
     draggable: {
-      
       handle: '.grid-stack-item-content'
     }
   };
   mode: GridMode = "edit";
-  items: GridStackWidget[] = [];
   time: Date;
   grid: GridStack;
-    cssNameWithPath: string;
-
+  cssNameWithPath: string;
+  searchTerm: string = '';
+  allWidgets: Widget[] = [];
+  filteredWidgets: Widget[] = [];
   constructor(
     private pagesService: PagesService,
     private widgetService: WidgetService,
@@ -66,36 +64,89 @@ export class AddPageComponent implements OnInit, AfterViewInit {
   ) {
 
     this.getState = location.getState(); // Assign value to getState
-   // console.log("getstate" + this.getState);
-   // console.log("getstate" + this.getState.dataSourceJson);
-  //  console.log(this.getState[1]);
-  //  console.log(this.getState.length);
-    var widgetdata: string="";
+    // console.log("getstate" + this.getState.dataSourceJson);
+    //console.log(this.getState[1]);
+    //console.log(this.getState.length);
+    this.allWidgets = [];
+    var widgetdata: string = "";
     for (var i = 0; i < this.getState.length; i++) {
-      widgetdata = this.assigndata(this.getState[i],widgetdata);
+      widgetdata = this.assigndata(this.getState[i], widgetdata);
     }
     this.renderedWidgets = widgetdata;
-  //  console.log("final = " + widgetdata);
     this.FullJsonDataObject = this.FullJsonDataObject;// + "{";
   }
 
-    assigndata(widgetd: Widget, widgetdata:string) :string {
-
+  assigndata(widgetd: Widget, widgetdata: string): string {
+    this.allWidgets.push(widgetd);
     //  console.log(widgetd.fontName);
-      widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + widgetd.id + '"> \
+    widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + widgetd.id + '"> \
       <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
-        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + widgetd.widgetName + '"><i class="' + widgetd.fontName + '"> </i> ' + widgetd.widgetName + '</div> </div> </div>  ';            
-       
-        //<div style="background-color:black" > \
-        //<span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div>\
-       
-   //<span style="width: 100%" class="info-box-icon"><i [ngClass]="' + widgetd.fontName+'"></i></span>
-   // alert("function " + widgetdata<i [ngClass]="widget.fontName"></i>
+        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + widgetd.widgetName + '"><i class="' + widgetd.fontName + '"> </i> ' + widgetd.widgetName + '</div> </div> </div>  ';
+
+    //<div style="background-color:black" > \
+    //<span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div>\
+
     return widgetdata;
-   
+
   }
 
-  ngAfterViewInit(): void {
+  onInputChange() {
+    var widgetdata: string = "";
+    if (this.searchTerm) {
+      this.filteredWidgets = this.allWidgets.filter(widget => {
+        return widget.widgetName.toLowerCase().includes(this.searchTerm.toLowerCase());
+      });
+    } else {
+      // If searchTerm is empty or undefined, show all widgets
+      this.filteredWidgets = this.allWidgets;
+    }
+
+    for (var i = 0; i < this.filteredWidgets.length; i++) {
+      widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + this.filteredWidgets[i].id + '"> \
+      <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
+        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + this.filteredWidgets[i].widgetName + '"><i class="' + this.filteredWidgets[i].fontName + '"> </i> ' + this.filteredWidgets[i].widgetName + '</div> </div> </div>  ';
+    }
+    console.log(widgetdata);
+    this.renderedWidgets = widgetdata;
+    $("#widdiv").html(this.renderedWidgets);
+    // Initialize advanced GridStack layout
+    const grid = GridStack.init(this.gridStackOptions
+      , '#advanced-grid');
+
+    // Setup drag-and-drop for new widgets
+    GridStack.setupDragIn('.newWidget', {
+      scroll: false,
+      appendTo: 'body',
+      helper: 'clone',
+    });
+    grid.enableMove(true);
+    grid.enableResize(true);
+  }
+
+  clearSearch() {
+    this.searchTerm = '';
+    var widgetdata: string = "";
+    for (var i = 0; i < this.allWidgets.length; i++) {
+      widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + this.allWidgets[i].id + '"> \
+      <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
+        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + this.allWidgets[i].widgetName + '"><i class="' + this.allWidgets[i].fontName + '"> </i> ' + this.allWidgets[i].widgetName + '</div> </div> </div>  ';
+    }
+    console.log(widgetdata);
+    this.renderedWidgets = widgetdata;
+    $("#widdiv").html(this.renderedWidgets);
+    // Initialize advanced GridStack layout
+    const grid = GridStack.init(this.gridStackOptions
+      , '#advanced-grid');
+
+    // Setup drag-and-drop for new widgets
+    GridStack.setupDragIn('.newWidget', {
+      scroll: false,
+      appendTo: 'body',
+      helper: 'clone',
+    });
+
+    grid.enableMove(true);
+    grid.enableResize(true);
   }
 
   ngOnInit(): void {
@@ -109,35 +160,24 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       document.getElementsByTagName('head')[0].appendChild(fileRef);
     }
     localStorage.setItem('fileRefCssName', this.cssname);
-  
+
     $("#widdiv").html(this.renderedWidgets);
     // Initialize logic on component initialization
-    this.widgetService.getAllWidget().subscribe({
-      next: (widget) => {
-        this.widget = widget;
-        //console.log(this.widget[0].widgetName);
-      },
-      error: (response) => {
-        //console.log(response);
-      },
-    });
-
-   
+    //this.widgetService.getAllWidget().subscribe({
+    //  next: (widget) => {
+    //    this.widget = widget;
+    //    //console.log(this.widget[0].widgetName);
+    //  },
+    //  error: (response) => {
+    //    //console.log(response);
+    //  },
+    //});
 
     // Initialize advanced GridStack layout
     const grid = GridStack.init(this.gridStackOptions
       , '#advanced-grid');
 
-
-    
-
     grid.on("resize", (event, previousWidget, newWidget) => {
-     // console.log("event= ", event);
-      
-      //console.log(previousWidget);
-
-      //console.log(newWidget);
-
 
       //const items = $(".grid-stack .grid-stack-item .grid-stack-item-content");
       //items.each(function () {
@@ -152,15 +192,15 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
     grid.on("dropped", (event, previousWidget, newWidget) => {
       // Restore the original content when dragging stops
-    //  var serializedFull = grid.save(true, true);
-    //  var serializedData = serializedFull;
-     // console.log(serializedFull);
-     // console.log(serializedData);
-     // grid.enableMove(false);
+      //  var serializedFull = grid.save(true, true);
+      //  var serializedData = serializedFull;
+      // console.log(serializedFull);
+      // console.log(serializedData);
+      // grid.enableMove(false);
       // grid.enableResize(false);
       //console.log("event= ", newWidget.el);
-   
-    
+
+
       for (var i = 0; i < this.getState.length; i++) {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
@@ -172,9 +212,9 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
       /*****************/
       var isPropertyPresent: boolean = false;
-      
+
       if (this.FullJsonDataObject == "") {
-        this.FullJsonDataObject +=  "{"
+        this.FullJsonDataObject += "{"
       }
       else {
         var fulljsonObject: any = JSON.parse(this.FullJsonDataObject + "}");
@@ -189,29 +229,29 @@ export class AddPageComponent implements OnInit, AfterViewInit {
         this.FullJsonDataObject += dataSourceJson;
       }
       this.displayJson = JSON.parse(this.FullJsonDataObject + "\n}");
-     // this.FullJsonDataObject = this.t;
+      // this.FullJsonDataObject = this.t;
       /******************/
-    //  console.log("asdas----" + this.FullJsonDataObject);
-     // console.log("full json" + this.getState)
-   //   console.log( this.getState)
+      //  console.log("asdas----" + this.FullJsonDataObject);
+      // console.log("full json" + this.getState)
+      //   console.log( this.getState)
       var jsonObject1: any = JSON.parse(dataSourceJson);
-     
-   //   var tagname: string = dataBindingJsonNode;
+
+      //   var tagname: string = dataBindingJsonNode;
       var tagname: string = "abc";
       var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
-       widgetHtmlAppend +=  "{{/for}}";
+      widgetHtmlAppend += "{{/for}}";
       const renderedHtml = jsrender.templates(widgetHtmlAppend).render({ [tagname]: jsonObject1 });
-     
-     // console.log( this.getState[0]);
-     const removeEl = grid.engine.nodes.find((n) => n.id == newWidget.id)?.el;
-   //  console.log(removeEl);
-     // alert("heloo");
-     if (removeEl) grid.removeWidget(removeEl);
-     const widgetdata = 
-      // { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
-       { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id+"0"  };
-     grid.addWidget(widgetdata);
-   
+
+      // console.log( this.getState[0]);
+      const removeEl = grid.engine.nodes.find((n) => n.id == newWidget.id)?.el;
+      //  console.log(removeEl);
+      // alert("heloo");
+      if (removeEl) grid.removeWidget(removeEl);
+      const widgetdata =
+        // { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
+        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "0" };
+      grid.addWidget(widgetdata);
+
 
     });
 
@@ -220,25 +260,22 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       scroll: false,
       appendTo: 'body',
       helper: 'clone',
-
     });
 
-   grid.enableMove(true);
-   grid.enableResize(true);
-
-
+    grid.enableMove(true);
+    grid.enableResize(true);
   }
 
   previewPage() {
     const items = $(".grid-stack .grid-stack-item");
-   // console.log(items);
+    // console.log(items);
     let itemsArray = [];
     let widgetsItemsArr: any = [];
-    itemsArray=Array.from(items);
+    itemsArray = Array.from(items);
     // Process each widget item
     itemsArray.forEach(node => {
       let obj = {
-    };
+      };
       obj = {
         x: node.getAttribute("gs-x"),
         y: node.getAttribute("gs-y"),
@@ -249,16 +286,13 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       };
       widgetsItemsArr.push(obj);
     });
-  // console.log(widgetsItemsArr);
+    // console.log(widgetsItemsArr);
     let widgetsItemsStr = "";
     widgetsItemsStr = JSON.stringify(widgetsItemsArr)
-   // let objstr = "";
-   //objstr = JSON.parse(widgetsItemsStr);
-   //console.log(objstr);
-   //console.log(widgetsItemsStr);
-   localStorage.setItem('pagehtml', widgetsItemsStr);
+   
+    localStorage.setItem('pagehtml', widgetsItemsStr);
     const url = this.router.createUrlTree(['/pagepreview', '']);
-    window.open(url.toString(), '_blank'); 
+    window.open(url.toString(), '_blank');
   }
 
   saveAndUpdatePageWidgetContent() {
@@ -286,8 +320,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       nWidget.widgetId = id;
       nWidget.startCol = Number(node.getAttribute("gs-y"));
       nWidget.startRow = Number(node.getAttribute("gs-x"));
-    //  console.log("width", node.offsetWidth);
-    //  console.log("height", node.scrollHeight);
+      //  console.log("width", node.offsetWidth);
+      //  console.log("height", node.scrollHeight);
       nWidget.width = parseInt((node.offsetWidth / 2.52).toString());
       nWidget.height = parseInt((node.scrollHeight / 2.52).toString());
       //nWidget.width = Number(node.getAttribute("gs-w"));
@@ -300,10 +334,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
     let fileRefCssName = (localStorage.getItem('fileRefCssName') != "" ? localStorage.getItem('fileRefCssName') : this.getState.pageCSSUrl);
 
-   // console.log("pagecssurl",this.getState.pageCSSUrl);
-
-
-   // console.log("fileRefCssName", fileRefCssName);
+    // console.log("pagecssurl",this.getState.pageCSSUrl);
+    // console.log("fileRefCssName", fileRefCssName);
     // Create data object to save
     let savedpage: PageModel = {
       pageName: this.getState.pageName,
@@ -325,6 +357,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
       },
     });
   }
+
   canclePage() {
     this.router.navigate(['pages']);
   }
