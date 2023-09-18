@@ -439,7 +439,9 @@ export class EditPageComponent implements OnInit {
       dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: fileRefCssName ?? "",
-      Widgets: widgetsItemsArr
+      Widgets: widgetsItemsArr,
+      pageWidth: 0,
+      pageHeight: 0
     }   
     // Call the addPage method from pagesService to save the data
     this.pagesService.updatePage(this.editPageId, savedpage).subscribe({

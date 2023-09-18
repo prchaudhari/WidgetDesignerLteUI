@@ -334,8 +334,10 @@ export class AddPageComponent implements OnInit {
 
     let fileRefCssName = (localStorage.getItem('fileRefCssName') != "" ? localStorage.getItem('fileRefCssName') : this.getState.pageCSSUrl);
 
-    // console.log("pagecssurl",this.getState.pageCSSUrl);
-    // console.log("fileRefCssName", fileRefCssName);
+   // console.log("pagecssurl",this.getState.pageCSSUrl);
+
+
+   // console.log("fileRefCssName", fileRefCssName);
     // Create data object to save
     let savedpage: PageModel = {
       pageName: this.getState.pageName,
@@ -343,7 +345,9 @@ export class AddPageComponent implements OnInit {
       dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: fileRefCssName ?? "",
-      Widgets: widgetsItemsArr
+      Widgets: widgetsItemsArr,
+      pageWidth: this.getState.pageWidth,
+      pageHeight: this.getState.pageHeight
     }
     // Call the addPage method from pagesService to save the data
     this.pagesService.addPage(savedpage).subscribe({

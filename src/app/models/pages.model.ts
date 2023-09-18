@@ -5,4 +5,6 @@ export interface Pages {
   dataSourceJson: string;
   pageHtml: string;
   pageCSSUrl: string;
+  pageWidth: number;
+  pageHeight: number;
 }

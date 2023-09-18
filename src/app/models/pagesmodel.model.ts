@@ -7,5 +7,7 @@ export interface PageModel {
   dataSourceJson: string;
   pageHtml: string;
   pageCSSUrl: string;
+  pageWidth: number;
+  pageHeight: number;
   Widgets: PageWidgetsDetails[];
 }
