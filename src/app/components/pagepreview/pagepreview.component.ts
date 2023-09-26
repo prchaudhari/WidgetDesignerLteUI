@@ -85,12 +85,12 @@ export class pagepreviewComponent implements OnInit {
     this.anyClassx = {
       'width': pagewt,
       'height': pageht,
-      'background-color': 'aqua'
+      'background-color': 'white'
     };
     this.anyClassgrid = {
       'width': '1260px', /* Width of the visible portion */
       'overflow-x': 'auto', /* Enable horizontal scrolling */
-      'background-color': 'aqua'
+      'background-color': 'white'
     };
   }
 

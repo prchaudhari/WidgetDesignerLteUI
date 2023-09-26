@@ -3,7 +3,7 @@ import { Component, OnInit, } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
 import { GridStack, GridStackOptions } from "gridstack";
