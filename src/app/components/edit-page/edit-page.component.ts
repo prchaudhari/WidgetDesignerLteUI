@@ -1,5 +1,5 @@
 // Import necessary modules and libraries
-import { AfterViewInit, Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import {  Component, OnInit, ViewChild } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
@@ -23,7 +23,7 @@ type GridMode = "edit" | "view";
   templateUrl: './edit-page.component.html',
   styleUrls: ['./edit-page.component.css']
 })
-export class EditPageComponent implements OnInit, AfterViewInit {
+export class EditPageComponent implements OnInit {
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
@@ -31,8 +31,6 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   widgetsItems: any = "";
   pageHtml: any = "";
   modifynode: any = "";
-
-  pageHtml1: any = "";
   renderedWidgets: string = "";
   FullJsonDataObject: string = "";
   displayJson: string = "";
@@ -51,17 +49,18 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     float: true,
 
     draggable: {
-
       handle: '.grid-stack-item-content'
     }
   };
 
   mode: GridMode = "edit";
-  items: GridStackWidget[] = [];
   time: Date;
   grid: GridStack;
   cssname: string = "cssTheme1";
-    cssNameWithPath: string;
+  cssNameWithPath: string;
+  searchTerm: string = '';
+  allWidgets: Widget[] = [];
+  filteredWidgets: Widget[] = [];
 
   constructor(
     private pagesService: PagesService,
@@ -75,6 +74,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     // console.log("getstate" + this.getState.dataSourceJson);
     //  console.log(this.getState[1]);
     //  console.log(this.getState.length);
+    this.allWidgets = [];
     var widgetdata: string = "";
     for (var i = 0; i < this.getState.length; i++) {
       widgetdata = this.assigndata(this.getState[i], widgetdata);
@@ -87,7 +87,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
   }
 
   assigndata(widgetd: Widget, widgetdata: string): string {
-
+    this.allWidgets.push(widgetd);
     //  console.log(widgetd.fontName);
     widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + widgetd.id + '"> \
       <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
@@ -97,9 +97,6 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     // alert("function " + widgetdata<i [ngClass]="widget.fontName"></i>
     return widgetdata;
 
-  }
-
-  ngAfterViewInit(): void {
   }
 
   ngOnInit(): void {
@@ -115,8 +112,6 @@ export class EditPageComponent implements OnInit, AfterViewInit {
         //console.log(response);
       },
     });
-
-
 
     // Initialize advanced GridStack layout
     const grid = GridStack.init(this.gridStackOptions
@@ -213,12 +208,6 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       },
     });
 
-    
-    
-    
-    
-
-
 
     grid.on("resize", (event, previousWidget, newWidget) => {
 
@@ -314,8 +303,66 @@ export class EditPageComponent implements OnInit, AfterViewInit {
 
   }
 
-  loadCSS() {
-    
+  onInputChange() {
+    var widgetdata: string = "";
+    if (this.searchTerm) {
+      this.filteredWidgets = this.allWidgets.filter(widget => {
+        return widget.widgetName.toLowerCase().includes(this.searchTerm.toLowerCase());
+      });
+    } else {
+      // If searchTerm is empty or undefined, show all widgets
+      this.filteredWidgets = this.allWidgets;
+    }
+
+    for (var i = 0; i < this.filteredWidgets.length; i++) {
+      widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + this.filteredWidgets[i].id + '"> \
+      <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
+        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + this.filteredWidgets[i].widgetName + '"><i class="' + this.filteredWidgets[i].fontName + '"> </i> ' + this.filteredWidgets[i].widgetName + '</div> </div> </div>  ';
+    }
+    console.log(widgetdata);
+    this.renderedWidgets = widgetdata;
+    $("#widdiv").html(this.renderedWidgets);
+    // Initialize advanced GridStack layout
+    const grid = GridStack.init(this.gridStackOptions
+      , '#advanced-grid');
+
+    // Setup drag-and-drop for new widgets
+    GridStack.setupDragIn('.newWidget', {
+      scroll: false,
+      appendTo: 'body',
+      helper: 'clone',
+    });
+    grid.enableMove(true);
+    grid.enableResize(true);
+  }
+
+  clearSearch() {
+    this.searchTerm = '';
+    var widgetdata: string = "";
+    for (var i = 0; i < this.allWidgets.length; i++) {
+      widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + this.allWidgets[i].id + '"> \
+      <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
+        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + this.allWidgets[i].widgetName + '"><i class="' + this.allWidgets[i].fontName + '"> </i> ' + this.allWidgets[i].widgetName + '</div> </div> </div>  ';
+    }
+    console.log(widgetdata);
+    this.renderedWidgets = widgetdata;
+    $("#widdiv").html(this.renderedWidgets);
+    // Initialize advanced GridStack layout
+    const grid = GridStack.init(this.gridStackOptions
+      , '#advanced-grid');
+
+    // Setup drag-and-drop for new widgets
+    GridStack.setupDragIn('.newWidget', {
+      scroll: false,
+      appendTo: 'body',
+      helper: 'clone',
+    });
+
+    grid.enableMove(true);
+    grid.enableResize(true);
+  }
+
+  loadCSS() {   
 
   }
 
@@ -342,10 +389,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
     // console.log(widgetsItemsArr);
     let widgetsItemsStr = "";
     widgetsItemsStr = JSON.stringify(widgetsItemsArr)
-    // let objstr = "";
-    //objstr = JSON.parse(widgetsItemsStr);
-    //console.log(objstr);
-    //console.log(widgetsItemsStr);
+ 
     localStorage.setItem('pagehtml', widgetsItemsStr);
     const url = this.router.createUrlTree(['/pagepreview', '']);
     window.open(url.toString(), '_blank');
@@ -395,7 +439,9 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
       pageCSSUrl: fileRefCssName ?? "",
-      Widgets: widgetsItemsArr
+      Widgets: widgetsItemsArr,
+      pageWidth: 0,
+      pageHeight: 0
     }   
     // Call the addPage method from pagesService to save the data
     this.pagesService.updatePage(this.editPageId, savedpage).subscribe({
@@ -409,6 +455,7 @@ export class EditPageComponent implements OnInit, AfterViewInit {
       },
     });
   }
+
   canclePage() {
     this.router.navigate(['pages']);
   }

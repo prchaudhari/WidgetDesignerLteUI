@@ -19,7 +19,9 @@ export class EditPageWizard1Component implements OnInit {
     description: '',
     dataSourceJson: '',
     pageHtml: '',
-    pageCSSUrl: ''
+    pageCSSUrl: '',
+    pageWidth: 0,
+    pageHeight:0
   };
   widget: Widget[] = [];
   constructor(

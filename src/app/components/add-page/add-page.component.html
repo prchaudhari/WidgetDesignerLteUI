@@ -46,7 +46,7 @@
   </div>
   <div class="row" id="main1">
     <div class="d-none d-md-block anyClass" style="width: 15%;padding:5px; border: 1px solid grey; ">
-      <div id="trash" style="margin:5px; width: 90%" class="text-center text-white">
+      <div id="trash" style="margin-bottom:5px; width: 95%" class="text-center text-white">
         <div>
           <!--<ion-icon name="trash" style="font-size: 400%"></ion-icon>-->
         </div>
@@ -54,13 +54,32 @@
           <span>Drop here to remove widget!</span>
         </div>
       </div>
+      <div id="search" style="width: 100%; margin-bottom: 5px; " >      
+        <div style="width: 95%;">
+          <div class="input-group">
+            <input type="text"
+                   class="form-control"
+                   placeholder="Search Widget..."
+                   [(ngModel)]="searchTerm"
+                   (input)="onInputChange()" />
+            <div class="input-group-append">
+              <button class="btn1"                     
+                      type="button"
+                      *ngIf="searchTerm"
+                      (click)="clearSearch()">
+                <i class="fas fa-times" ></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div style=" width: 95%;">
         <div id="widdiv" name="widdiv"></div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-10 anyClassx" style="padding: 0px;width:1200px" >
-      <div class="grid-container main">
-        <div class="grid-stack" id="advanced-grid" style="height: 600px;"></div>
+    <div class="col-sm-12 col-md-10 anyClassx" style="padding:0px;" >
+      <div class="grid-container main" >
+        <div class="grid-stack" id="advanced-grid" style="height: 600px; "></div>
       </div>
     </div>
   </div>

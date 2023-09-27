@@ -7,38 +7,52 @@
     <div class="row">
       <div class="col-8">
       
-          <form #form="ngForm" (ngSubmit)="addPage(form.value)">
+        <form #form="ngForm" (ngSubmit)="addPage(form.value)">
 
-            <div class="form-group row required mb-3">
-              <label class="col-md-3 col-form-label" for="">
-                Page Name:
-              </label>
-              <div class="col-md-9">
-                <input type="text" class="form-control" id="pageName" name="pageName" ngModel/>
-              </div>
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="">
+              Page Name:
+            </label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" id="pageName" name="pageName" ngModel />
             </div>
+          </div>
 
-            <div class="form-group row required mb-3">
-              <label class="col-md-3 col-form-label" for="description">
-                Description:
-              </label>
-              <div class="col-md-9">
-                <textarea placeholder="Enter description" type="text" class="form-control" name="description"
-                          id="description" ngModel>
+          <div class="form-group row required mb-3">
+            <label class="col-md-3 col-form-label" for="description">
+              Description:
+            </label>
+            <div class="col-md-9">
+              <textarea placeholder="Enter description" type="text" class="form-control" name="description"
+                        id="description" ngModel>
                  </textarea>
-              </div>
             </div>
-            <div style="padding:10px">
-              <button style="color:white" class="btn btn-primary" type="submit">
-               Next
-              </button>
-              &nbsp;
+          </div>
+          <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="pageWidth">
+              Page Width:
+            </label>
+            <div class="col-md-4">
+              <input type="text" class="form-control" id="pageWidth" name="pageWidth" ngModel/>
+            </div>
+            <label class="col-md-2 col-form-label" for="pageHeight">
+              Page Height:
+            </label>
+            <div class="col-md-3">
+              <input type="text" class="form-control" id="pageHeight" name="pageHeight" ngModel/>
+            </div>
+          </div>
+          <div style="padding:10px">
+            <button style="color:white" class="btn btn-primary" type="submit">
+              Next
+            </button>
+            &nbsp;
 
-              <button class=" btn btn-primary" type="button">
-                <a style="color:white" href="pages">Cancel</a>
-              </button>
-            </div>
-          </form>
+            <button class=" btn btn-primary" type="button">
+              <a style="color:white" href="pages">Cancel</a>
+            </button>
+          </div>
+        </form>
 </div>
     </div>
   </div>
