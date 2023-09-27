@@ -42,15 +42,17 @@ export class AddPageComponent implements OnInit, AfterViewInit {
     disableDrag: false,
     margin: 0,
     column: 400,
-  //  cellHeight: 50,
+  // cellHeight: 400,
     acceptWidgets: true,
     removable: '#trash',
     animate: true,
     float: true,
+    disableOneColumnMode: true, // will manually do 1 column
     draggable: {
       
       handle: '.grid-stack-item-content'
-    }
+    },
+    resizable: { handles: 'all' } // do all sides for testing
   };
   mode: GridMode = "edit";
   items: GridStackWidget[] = [];
@@ -158,7 +160,8 @@ export class AddPageComponent implements OnInit, AfterViewInit {
      // console.log(serializedData);
      // grid.enableMove(false);
       // grid.enableResize(false);
-      //console.log("event= ", newWidget.el);
+      console.log("newWidget= ", newWidget.el);
+      console.log("newWidget= ", newWidget.el);
    
     
       for (var i = 0; i < this.getState.length; i++) {
@@ -225,6 +228,7 @@ export class AddPageComponent implements OnInit, AfterViewInit {
 
    grid.enableMove(true);
    grid.enableResize(true);
+
 
 
   }
