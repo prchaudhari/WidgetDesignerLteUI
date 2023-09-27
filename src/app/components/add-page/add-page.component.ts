@@ -66,6 +66,7 @@ export class AddPageComponent implements OnInit {
   ) {
 
     this.getState = location.getState(); // Assign value to getState
+    console.log(this.getState);
     // console.log("getstate" + this.getState.dataSourceJson);
     //console.log(this.getState[1]);
     //console.log(this.getState.length);
@@ -206,11 +207,16 @@ export class AddPageComponent implements OnInit {
       for (var i = 0; i < this.getState.length; i++) {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
+          var widgetHeight = this.getState[i].height;
+          var widgetWidth = this.getState[i].width;
           var dataBindingJsonNode = this.getState[i].dataBindingJsonNode;
           var dataSourceJson = this.getState[i].dataSourceJson;
           break;
         };
       }
+
+      console.log(widgetWidth);
+      console.log(widgetHeight);
 
       /*****************/
       var isPropertyPresent: boolean = false;
@@ -249,11 +255,11 @@ export class AddPageComponent implements OnInit {
       //  console.log(removeEl);
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
+ 
       const widgetdata =
         // { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
-        { x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "0" };
+        { x: newWidget.x, y: newWidget.y, h: parseInt((widgetHeight * 2.52).toString()) , content: renderedHtml, id: newWidget.id + "0" };
       grid.addWidget(widgetdata);
-
 
     });
 
