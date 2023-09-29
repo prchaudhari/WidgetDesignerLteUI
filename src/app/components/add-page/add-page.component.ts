@@ -66,7 +66,7 @@ export class AddPageComponent implements OnInit {
   ) {
 
     this.getState = location.getState(); // Assign value to getState
-    console.log(this.getState);
+   // console.log(this.getState);
     // console.log("getstate" + this.getState.dataSourceJson);
     //console.log(this.getState[1]);
     //console.log(this.getState.length);
@@ -215,9 +215,6 @@ export class AddPageComponent implements OnInit {
         };
       }
 
-      console.log(widgetWidth);
-      console.log(widgetHeight);
-
       /*****************/
       var isPropertyPresent: boolean = false;
 
@@ -249,17 +246,22 @@ export class AddPageComponent implements OnInit {
       var widgetHtmlAppend = "{{for " + tagname + "}}" + widgetHtml;
       widgetHtmlAppend += "{{/for}}";
       const renderedHtml = jsrender.templates(widgetHtmlAppend).render({ [tagname]: jsonObject1 });
-
+    //  const renderedHtml = "<div (mouseup)=detectRightMouseClick($event,10) ><img src=assets/sampleHeader.jpg></img></div>";
       // console.log( this.getState[0]);
       const removeEl = grid.engine.nodes.find((n) => n.id == newWidget.id)?.el;
       //  console.log(removeEl);
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
- 
+
+      console.log(renderedHtml);
+
+
       const widgetdata =
         // { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
-        { x: newWidget.x, y: newWidget.y, h: parseInt((widgetHeight * 2.52).toString()) , content: renderedHtml, id: newWidget.id + "0" };
+        { x: newWidget.x, y: newWidget.y, h: parseInt((widgetHeight * 2.52).toString()), content: renderedHtml, id: newWidget.id + "0"};
       grid.addWidget(widgetdata);
+
+      
 
     });
 
@@ -375,4 +377,15 @@ export class AddPageComponent implements OnInit {
   canclePage() {
     this.router.navigate(['pages']);
   }
+
+  //detectRightMouseClick($event, id) {
+  //  if ($event.which === 3) {
+
+
+
+  //  }
+
+
+ // }
+
 }

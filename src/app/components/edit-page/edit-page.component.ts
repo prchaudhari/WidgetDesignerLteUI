@@ -51,6 +51,8 @@ export class EditPageComponent implements OnInit {
     draggable: {
       handle: '.grid-stack-item-content'
     }
+    ,
+    resizable: { handles: 'all' } // do all sides for testing
   };
 
   mode: GridMode = "edit";
@@ -241,6 +243,7 @@ export class EditPageComponent implements OnInit {
       for (var i = 0; i < this.getState.length; i++) {
         if (this.getState[i].id == newWidget.id) {
           var widgetHtml = this.getState[i].widgetHtml;
+          var widgetHeight = this.getState[i].height;
           var dataBindingJsonNode = this.getState[i].dataBindingJsonNode;
           var dataSourceJson = this.getState[i].dataSourceJson;
           break;
@@ -283,7 +286,7 @@ export class EditPageComponent implements OnInit {
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
     //  const widgetdata ={ x: newWidget.x, y: newWidget.y,w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id + "0" };
-         const widgetdata ={ x: newWidget.x, y: newWidget.y, content: renderedHtml, id: newWidget.id + "0" };
+      const widgetdata = { x: newWidget.x, y: newWidget.y, h: parseInt((widgetHeight * 2.52).toString()) , content: renderedHtml, id: newWidget.id + "0" };
       grid.addWidget(widgetdata);
 
 
