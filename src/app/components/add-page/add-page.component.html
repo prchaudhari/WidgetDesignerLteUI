@@ -1,4 +1,4 @@
-<section id="advancedDemo"  class="main"   [ngStyle]="anyClassgrid">
+<section id="advancedDemo"   [ngStyle]="anyClassgrid">
   <div class="clearfix1">
     <h4>Page Designer</h4>
   </div>
@@ -78,8 +78,8 @@
         <div id="widdiv" name="widdiv"></div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-10" style="padding:0px;" >
-      <div class="grid-container maingrid">
+    <div class="col-sm-12 col-md-10" [ngStyle]="maingrid" style="padding:0px;" >
+      <div class="grid-container ">
         <div class="grid-stack" id="advanced-grid" [ngStyle]="anyClassx"></div>
       </div>
     </div>

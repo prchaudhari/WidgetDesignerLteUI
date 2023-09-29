@@ -1,15 +1,17 @@
- You can add global styles to this file, and also import other style files 
+You can add global styles to this file, and also import other style files
 /*.main {
   background-color: #2F3034;
   width: 2000px;
 }*/
-
 /*.maingrid {
   width: 1750px;
   background-color:yellow;
 }*/
-
-#main1 {
+.scrollable-section {
+  overflow: auto; /* Add vertical and/or horizontal scrollbars if content overflows */
+  /* You can further style the scrollable section as needed */
+}
+  #main1 {
   padding-top: 10px;
   border: 1px solid grey;
  /* width: 1750px;*/
@@ -93,7 +95,7 @@ section {
   }
 
 .rounded-3 {
-  width:1260px;
+  width:1245px;
   border: 1px solid grey;
   padding: 3px;
 }

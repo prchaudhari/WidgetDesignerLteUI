@@ -3855,16 +3855,6 @@
   background-color: #454d55;
 }
 
-::ng-deep .grid-stack > .grid-stack-item > .grid-stack-item-content {
-  background-color: #454d55;
-  background: #454d55 !important;
-  overflow: hidden;
-  margin: 0;
-  position: relative;
-  width: auto;
-}
-
-
 
 ::ng-deep .gs-400 > .grid-stack-item[gs-w='400'] {
   width: auto

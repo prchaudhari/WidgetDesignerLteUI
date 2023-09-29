@@ -39,6 +39,7 @@ export class pagepreviewComponent implements OnInit {
   //}
 
   ngOnInit(): void {
+    document.body.classList.add('sidebar-collapse');
     this.cssFiles = AppConfig.cssFiles;
     if (localStorage.getItem('fileRefCssName')) { this.cssname = localStorage.getItem('fileRefCssName') };
     // Initialize advanced GridStack layout
@@ -61,6 +62,12 @@ export class pagepreviewComponent implements OnInit {
       alert("No data found.")
     }
     this.loadhtml();
+  }
+
+  ngOnDestroy(): void {
+    // Remove the CSS class from the body tag when the component is destroyed
+    //sidebar-collapse
+    document.body.classList.remove('sidebar-collapse');
   }
   //canclePage() {
   //  this.router.navigate(['pages']);

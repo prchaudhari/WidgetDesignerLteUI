@@ -1,5 +1,5 @@
 // Import necessary modules and libraries
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
@@ -36,7 +36,8 @@ export class AddPageComponent implements OnInit {
   cssname: string = "cssTheme1";
   anyClassx: any = {};  
   anyClassgrid: any = {};  
-  maingrid: any = {};  
+  maingrid: any = {};
+  private renderer: Renderer2;
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
     disableResize: false,
@@ -63,9 +64,10 @@ export class AddPageComponent implements OnInit {
     private pagesService: PagesService,
     private widgetService: WidgetService,
     private location: Location,
-    private router: Router
+    private router: Router,
+    private rendererFactory: Renderer2
   ) {
-
+   
     this.getState = location.getState(); // Assign value to getState
     // console.log("getstate" + this.getState.dataSourceJson);
     //console.log(this.getState[1]);
@@ -153,6 +155,12 @@ export class AddPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //const pushMenu = document.querySelector('[data-widget="pushmenu"]');
+    //if (pushMenu) {
+    //  this.renderer.setAttribute(pushMenu, 'data-collapsed', 'false');
+    //}
+ 
+    document.body.classList.add('sidebar-collapse');
     let fileRef;
     fileRef = document.createElement('link');
     fileRef.setAttribute('rel', 'stylesheet');
@@ -169,16 +177,24 @@ export class AddPageComponent implements OnInit {
       'width': pagewt,
       'height': pageht
     };
-    this.anyClassgrid = {
-      'width': '1260px', /* Width of the visible portion */
-      'overflow-x': 'auto', /* Enable horizontal scrolling */   
-     /* 'background-color': 'aqua'*/
-    };
+    //this.anyClassgrid = {
+    //  'width': '1260px', /* Width of the visible portion */
+    //  'overflow-x': 'auto', /* Enable horizontal scrolling */   
+    // /* 'background-color': 'aqua'*/
+    //};
     this.maingrid = {
       'width': pagewt,
       'height': pageht
     }
-   
+
+    // Conditionally set the CSS class based on the page width
+    if (this.getState.pageWidth > 1200) {    
+      this.anyClassgrid = { 'width': '1260px','overflow-x': 'auto' };
+    } else {   
+      // Remove the class if the page width is less than or equal to 1200
+      this.anyClassgrid = {};
+    }
+
     $("#widdiv").html(this.renderedWidgets);
     // Initialize logic on component initialization
     //this.widgetService.getAllWidget().subscribe({
@@ -384,5 +400,11 @@ export class AddPageComponent implements OnInit {
 
   canclePage() {
     this.router.navigate(['pages']);
+  }
+
+  ngOnDestroy(): void {
+    // Remove the CSS class from the body tag when the component is destroyed
+    //sidebar-collapse
+    document.body.classList.remove('sidebar-collapse');
   }
 }
