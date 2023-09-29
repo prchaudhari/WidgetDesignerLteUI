@@ -1,16 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-.main {
+/*.main {
   background-color: #2F3034;
-}
+}*/
 
 #main1 {
  /* padding-top: 10px;*/
   border: 1px solid grey;
 }
 
+::ng-deep .grid-stack {
+  position: relative;
+  /*width: 1750px;*/
+  background-color: white;
+}
+
 .grid-container {
   border: 1px solid grey;
-  max-width: 1228px;
+  /*max-width: 1228px;*/
 }
 
 .center {
@@ -76,10 +82,11 @@ section {
 }
 .clearfix1 {
   text-align: center;
+  width: 1260px;
 }
 
 .rounded-3 {
-  width: 100%;
+  width: 1260px;
   border: 1px solid grey;
   padding: 3px;
 }
@@ -93,10 +100,10 @@ section {
   overflow-y: scroll;
 }
 
-.anyClassx {
+/*.anyClassx {
   width: 900px;
   overflow-x: scroll;
-}
+}*/
 .btn1 {
   background-color: rgba(52,58,64,255);
   color: white;

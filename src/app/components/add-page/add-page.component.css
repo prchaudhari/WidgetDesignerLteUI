@@ -1,16 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
-.main {
+You can add global styles to this file, and also import other style files
+/*.main {
   background-color: #2F3034;
+  width: 2000px;
+}*/
+/*.maingrid {
+  width: 1750px;
+  background-color:yellow;
+}*/
+.scrollable-section {
+  overflow: auto; /* Add vertical and/or horizontal scrollbars if content overflows */
+  /* You can further style the scrollable section as needed */
+}
+  #main1 {
+  padding-top: 10px;
+  border: 1px solid grey;
+ /* width: 1750px;*/
 }
 
-#main1 {
-  /*padding-top: 10px;*/
-  border: 1px solid grey;
+::ng-deep .grid-stack {
+  position: relative;
+  /*width: 1750px;*/
+   background-color: white;
 }
 
 .grid-container {
-  border: 1px solid grey;
-  max-width: 1228px;
+  border: 1px solid groove;
 }
 
 .center {
@@ -72,15 +86,16 @@ section {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow-x: hidden;
-    width: 10px;
+    width: 20px;
     background-color:aqua;
   }
 .clearfix1{
      text-align:center;
+     width:1260px;
   }
 
 .rounded-3 {
-  width: 100%;
+  width:1245px;
   border: 1px solid grey;
   padding: 3px;
 }
@@ -93,16 +108,16 @@ section {
   height: 600px;
   overflow-y: scroll;
 }
-.anyClassx {
-  width:900px;
+/*.anyClassx {
+  width: 1260px;
   overflow-x: scroll;
-}
+}*/
 
 .btn1 {
   background-color: rgba(52,58,64,255);
   color: white;
   border: 1px solid #80bdff;
 }
-/* Importing Bootstrap SCSS file. */
+ 
 
 

@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-.main {
+/*.main {
   background-color: #2F3034;
-}
+}*/
 
 #main1 {
   padding-top: 10px;
@@ -9,8 +9,8 @@
 }
 
 .grid-container {
-  border: 1px solid grey;
-  max-width: 1000px;
+  border: 1px solid groove;
+  /* max-width: 1000px;*/
 }
 
 .center {
@@ -68,14 +68,18 @@ section {
 
 .clearfix1 {
   text-align: center;
+  width: 1260px;
 }
 
 .rounded-3 {
-  width: 100%;
+  width: 1260px;
   border: 1px solid grey;
   padding: 8px;
 }
-
+.anyClass {
+  height: 600px;
+  overflow-y: scroll;
+}
 
 .text-white {
   text-align: center;

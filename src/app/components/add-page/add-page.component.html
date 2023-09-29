@@ -1,7 +1,8 @@
-<section id="advancedDemo" class="main">
+<section id="advancedDemo"   [ngStyle]="anyClassgrid">
   <div class="clearfix1">
     <h4>Page Designer</h4>
   </div>
+  <div>
   <div class="rounded-3">
     <div class="row">
       <div class="col-lg-12 text-white">
@@ -24,7 +25,7 @@
           <!-- Modal -->
           <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div style="background-color: #454d55 ;border: 1px solid grey" class="modal-content">
+              <div style="background-color:#454d55;border:1px solid grey" class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="staticBackdropLabel">Sample Json Data</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -45,7 +46,7 @@
     </div>
   </div>
   <div class="row" id="main1">
-    <div class="d-none d-md-block anyClass" style="width: 15%;padding:5px; border: 1px solid grey; ">
+    <div class="d-none d-md-block anyClass" style="width: 200px;padding:5px; border: 1px solid grey; ">
       <div id="trash" style="margin-bottom:5px; width: 95%" class="text-center text-white">
         <div>
           <!--<ion-icon name="trash" style="font-size: 400%"></ion-icon>-->
@@ -77,11 +78,12 @@
         <div id="widdiv" name="widdiv"></div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-10 anyClassx" style="padding:0px;" >
-      <div class="grid-container main" >
-        <div  class="grid-stack" id="advanced-grid" style="height: 600px; "></div>
+    <div class="col-sm-12 col-md-10" [ngStyle]="maingrid" style="padding:0px;" >
+      <div class="grid-container ">
+        <div class="grid-stack" id="advanced-grid" [ngStyle]="anyClassx"></div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 

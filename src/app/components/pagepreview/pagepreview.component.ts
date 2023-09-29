@@ -23,10 +23,10 @@ export class pagepreviewComponent implements OnInit {
   cssFiles: string[] = [];
   cssname: string|null = "";
   cssNameWithPath: string = "";
-
-
+  anyClassx: any = {};
+  anyClassgrid: any = {};  
+  getState: any = ""; // Initialize getState
   constructor() {
-
   }
 
 
@@ -39,6 +39,7 @@ export class pagepreviewComponent implements OnInit {
   //}
 
   ngOnInit(): void {
+    document.body.classList.add('sidebar-collapse');
     this.cssFiles = AppConfig.cssFiles;
     if (localStorage.getItem('fileRefCssName')) { this.cssname = localStorage.getItem('fileRefCssName') };
     // Initialize advanced GridStack layout
@@ -62,12 +63,16 @@ export class pagepreviewComponent implements OnInit {
     }
     this.loadhtml();
   }
+
+  ngOnDestroy(): void {
+    // Remove the CSS class from the body tag when the component is destroyed
+    //sidebar-collapse
+    document.body.classList.remove('sidebar-collapse');
+  }
   //canclePage() {
   //  this.router.navigate(['pages']);
   //}
-  loadCSS() {
-
-    
+  loadCSS() {    
     let fileRef;
     fileRef = document.createElement('link');
     fileRef.setAttribute('rel', 'stylesheet');
@@ -80,9 +85,22 @@ export class pagepreviewComponent implements OnInit {
     // Assuming this.cssname is a variable that can be either a string or null
     let cssName = this.cssname || ""; // Use an empty string as the default if this.cssname is null
     localStorage.setItem('fileRefCssName', cssName);
-    
-
+    let pageWidth = localStorage.getItem('pagewidth');
+    let pageHeight = localStorage.getItem('pageheight');
+    let pagewt: string = (Number(pageWidth) - 250).toString() + 'px';
+    let pageht: string = (Number(pageHeight)).toString() + 'px';
+    this.anyClassx = {
+      'width': pagewt,
+      'height': pageht,
+      'background-color': 'white'
+    };
+    this.anyClassgrid = {
+      'width': '1260px', /* Width of the visible portion */
+      'overflow-x': 'auto', /* Enable horizontal scrolling */
+      'background-color': 'white'
+    };
   }
+
   changeCSS() {
     this.loadhtml();
   }

@@ -1,9 +1,9 @@
 // Import necessary modules and libraries
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import * as $ from 'jquery'; // Import jQuery library
 import 'bootstrap'; // Import Bootstrap JavaScript
 import 'gridstack'; // Import Gridstack JavaScript
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Widget } from '../../models/widget.model';
 import { WidgetService } from '../../services/widget.service';
 import { GridStack, GridStackOptions } from "gridstack";
@@ -34,6 +34,10 @@ export class AddPageComponent implements OnInit {
   FullJsonDataObject: string = "";
   displayJson: string = "";
   cssname: string = "cssTheme1";
+  anyClassx: any = {};  
+  anyClassgrid: any = {};  
+  maingrid: any = {};
+  private renderer: Renderer2;
   // Configuration options for the GridStack layout
   private gridStackOptions: GridStackOptions = {
     disableResize: false,
@@ -62,9 +66,10 @@ export class AddPageComponent implements OnInit {
     private pagesService: PagesService,
     private widgetService: WidgetService,
     private location: Location,
-    private router: Router
+    private router: Router,
+    private rendererFactory: Renderer2
   ) {
-
+   
     this.getState = location.getState(); // Assign value to getState
    // console.log(this.getState);
     // console.log("getstate" + this.getState.dataSourceJson);
@@ -84,7 +89,7 @@ export class AddPageComponent implements OnInit {
     //  console.log(widgetd.fontName);
     widgetdata = widgetdata + '<div class="card text-white grid-stack-item newWidget" style=" margin-bottom:3px;"  gs-id="' + widgetd.id + '"> \
       <div class="card-body grid-stack-item-content add" style="padding:5px;border:1px solid grey"> \
-        <div style="overflow: hidden; width:100px; white-space: nowrap; text-overflow: ellipsis;" title="' + widgetd.widgetName + '"><i class="' + widgetd.fontName + '"> </i> ' + widgetd.widgetName + '</div> </div> </div>  ';
+        <div style="overflow: hidden; width:150px; white-space: nowrap; text-overflow: ellipsis;" title="' + widgetd.widgetName + '"><i class="' + widgetd.fontName + '"> </i> ' + widgetd.widgetName + '</div> </div> </div>  ';
 
     //<div style="background-color:black" > \
     //<span><i class="' + widgetd.fontName + '"> </i><br/>' + widgetd.widgetName + '</span> </div>\
@@ -153,6 +158,12 @@ export class AddPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //const pushMenu = document.querySelector('[data-widget="pushmenu"]');
+    //if (pushMenu) {
+    //  this.renderer.setAttribute(pushMenu, 'data-collapsed', 'false');
+    //}
+ 
+    document.body.classList.add('sidebar-collapse');
     let fileRef;
     fileRef = document.createElement('link');
     fileRef.setAttribute('rel', 'stylesheet');
@@ -163,6 +174,29 @@ export class AddPageComponent implements OnInit {
       document.getElementsByTagName('head')[0].appendChild(fileRef);
     }
     localStorage.setItem('fileRefCssName', this.cssname);
+    let pagewt: string = (Number(this.getState.pageWidth - 250)).toString() + 'px';
+    let pageht: string = (Number(this.getState.pageHeight)).toString() + 'px';
+    this.anyClassx = {
+      'width': pagewt,
+      'height': pageht
+    };
+    //this.anyClassgrid = {
+    //  'width': '1260px', /* Width of the visible portion */
+    //  'overflow-x': 'auto', /* Enable horizontal scrolling */   
+    // /* 'background-color': 'aqua'*/
+    //};
+    this.maingrid = {
+      'width': pagewt,
+      'height': pageht
+    }
+
+    // Conditionally set the CSS class based on the page width
+    if (this.getState.pageWidth > 1200) {    
+      this.anyClassgrid = { 'width': '1260px','overflow-x': 'auto' };
+    } else {   
+      // Remove the class if the page width is less than or equal to 1200
+      this.anyClassgrid = {};
+    }
 
     $("#widdiv").html(this.renderedWidgets);
     // Initialize logic on component initialization
@@ -303,6 +337,8 @@ export class AddPageComponent implements OnInit {
     widgetsItemsStr = JSON.stringify(widgetsItemsArr)
    
     localStorage.setItem('pagehtml', widgetsItemsStr);
+    localStorage.setItem('pagewidth', this.getState.pageWidth);
+    localStorage.setItem('pageheight', this.getState.pageHeight);
     const url = this.router.createUrlTree(['/pagepreview', '']);
     window.open(url.toString(), '_blank');
   }
@@ -377,15 +413,4 @@ export class AddPageComponent implements OnInit {
   canclePage() {
     this.router.navigate(['pages']);
   }
-
-  //detectRightMouseClick($event, id) {
-  //  if ($event.which === 3) {
-
-
-
-  //  }
-
-
- // }
-
 }

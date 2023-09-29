@@ -1,41 +1,43 @@
-<section id="advancedDemo" class="main">
+<section id="advancedDemo" class="main" [ngStyle]="anyClassgrid">
   <div class="clearfix1">
     <h4>Edit Page Designer</h4>
   </div>
-  <div class="rounded-3">
-    <div class="row">
-      <div class="col-lg-12 text-white">
-        <div class="">
+  <div>
+    <div class="rounded-3">
+      <div class="row">
+        <div class="col-lg-12 text-white">
+          <div class="">
 
-          <button title="Save" (click)="saveAndUpdatePageWidgetContent()" type="button" class="btn btn-primary  ml-2">
-            <i class="fa-regular fa-floppy-disk fa-xl"></i>
-          </button>
-          <button title="Preview" type="button" (click)="previewPage()" class="btn btn-primary  ml-2">
-            <i class="fa-regular fa-eye fa-xl"></i>
-          </button>
-          <button title="Cancel" type="button" (click)="canclePage()" class="btn btn-danger  ml-2">
-            <i class="fa-regular fa-rectangle-xmark fa-xl"></i>
-          </button>&nbsp;
-          <!-- Button trigger modal -->
-          <button title="Data Source Json" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <b>Json</b>
-          </button>
+            <button title="Save" (click)="saveAndUpdatePageWidgetContent()" type="button" class="btn btn-primary  ml-2">
+              <i class="fa-regular fa-floppy-disk fa-xl"></i>
+            </button>
+            <button title="Preview" type="button" (click)="previewPage()" class="btn btn-primary  ml-2">
+              <i class="fa-regular fa-eye fa-xl"></i>
+            </button>
+            <button title="Cancel" type="button" (click)="canclePage()" class="btn btn-danger  ml-2">
+              <i class="fa-regular fa-rectangle-xmark fa-xl"></i>
+            </button>&nbsp;
+            <!-- Button trigger modal -->
+            <button title="Data Source Json" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              <b>Json</b>
+            </button>
 
-          <!-- Modal -->
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div style="background-color: #454d55 ;border: 1px solid grey" class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="staticBackdropLabel">Sample Json Data</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p style="text-align: left; word-wrap: break-word">
-                    {{displayJson | json}}
-                  </p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <!-- Modal -->
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div style="background-color: #454d55 ;border: 1px solid grey" class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Sample Json Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <p style="text-align: left; word-wrap: break-word">
+                      {{displayJson | json}}
+                    </p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -43,43 +45,43 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row" id="main1">
-    <div class="d-none d-md-block anyClass" style="width:15%;padding:5px; border:1px solid grey; ">
-      <div id="trash" style="margin-bottom: 5px; width: 95%" class="text-center text-white">
-        <div>
-          <!--<ion-icon name="trash" style="font-size: 400%"></ion-icon>-->
+    <div class="row" id="main1">
+      <div class="d-none d-md-block anyClass" style="width:200px;padding:5px; border:1px solid grey; ">
+        <div id="trash" style="margin-bottom: 5px; width: 95%" class="text-center text-white">
+          <div>
+            <!--<ion-icon name="trash" style="font-size: 400%"></ion-icon>-->
+          </div>
+          <div style="width:90%;">
+            <span>Drop here to remove widget!</span>
+          </div>
         </div>
-        <div style="width:90%;">
-          <span>Drop here to remove widget!</span>
-        </div>
-      </div>
-      <div id="search" style="width: 100%; margin-bottom: 5px; ">
-        <div style="width: 95%;">
-          <div class="input-group">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Search Widget..."
-                   [(ngModel)]="searchTerm"
-                   (input)="onInputChange()" />
-            <div class="input-group-append">
-              <button class="btn1"
-                      type="button"
-                      *ngIf="searchTerm"
-                      (click)="clearSearch()">
-                <i class="fas fa-times"></i>
-              </button>
+        <div id="search" style="width: 100%; margin-bottom: 5px; ">
+          <div style="width: 95%;">
+            <div class="input-group">
+              <input type="text"
+                     class="form-control"
+                     placeholder="Search Widget..."
+                     [(ngModel)]="searchTerm"
+                     (input)="onInputChange()" />
+              <div class="input-group-append">
+                <button class="btn1"
+                        type="button"
+                        *ngIf="searchTerm"
+                        (click)="clearSearch()">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+        <div style=" width:95%;">
+          <div id="widdiv" name="widdiv"></div>
+        </div>
       </div>
-      <div style=" width:95%;">
-        <div id="widdiv" name="widdiv"></div>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-10 anyClassx" style="padding: 0px;">
-      <div class="grid-container main">
-        <div class="grid-stack" id="edit-advanced-grid" style="height:600px;"></div>
+      <div class="col-sm-12 col-md-10" style="padding: 0px;">
+        <div class="grid-container maingrid">
+          <div class="grid-stack" id="edit-advanced-grid" [ngStyle]="anyClassx"></div>
+        </div>
       </div>
     </div>
   </div>
