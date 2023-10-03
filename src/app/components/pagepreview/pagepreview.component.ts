@@ -91,7 +91,7 @@ export class pagepreviewComponent implements OnInit {
     let pageht: string = (Number(pageHeight)).toString() + 'px';
     this.anyClassx = {
       'width': pagewt,
-      'height': pageht,
+    //  'height': pageht,
       'background-color': 'white'
     };
     this.anyClassgrid = {

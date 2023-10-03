@@ -287,7 +287,11 @@ export class AddPageComponent implements OnInit {
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
 
-      console.log(renderedHtml);
+     // console.log(renderedHtml);
+
+     console.log(widgetHeight * 2.52);
+
+      console.log("widgetHeight"+widgetHeight);
 
 
       const widgetdata =
@@ -368,8 +372,8 @@ export class AddPageComponent implements OnInit {
       nWidget.widgetId = id;
       nWidget.startCol = Number(node.getAttribute("gs-y"));
       nWidget.startRow = Number(node.getAttribute("gs-x"));
-      //  console.log("width", node.offsetWidth);
-      //  console.log("height", node.scrollHeight);
+        console.log("width", node.offsetWidth);
+        console.log("height", node.scrollHeight);
       nWidget.width = parseInt((node.offsetWidth / 2.52).toString());
       nWidget.height = parseInt((node.scrollHeight / 2.52).toString());
       //nWidget.width = Number(node.getAttribute("gs-w"));

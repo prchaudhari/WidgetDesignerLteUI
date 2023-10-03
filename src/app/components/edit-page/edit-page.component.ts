@@ -108,7 +108,7 @@ export class EditPageComponent implements OnInit {
     let pageht: string = (Number(this.getState.pageHeight)).toString() + 'px';
     this.anyClassx = {
       'width': pagewt,
-      'height': pageht
+    //  'height': pageht
     };
     this.anyClassgrid = {
       'width': '1260px', /* Width of the visible portion */
@@ -117,7 +117,7 @@ export class EditPageComponent implements OnInit {
     };
     this.maingrid = {
       'width': pagewt,
-      'height': pageht
+      //'height': pageht
     }
 
     $("#widdiv").html(this.renderedWidgets);
@@ -187,7 +187,7 @@ export class EditPageComponent implements OnInit {
 
 
                     //let newWidget = { x: widgetData.startRow, y: widgetData.startCol, w: widgetData.width, h: widgetData.height, content: renderedHtml, id: widgetData.widgetId + "0" };
-                    let newWidget = { x: widgetData.startRow, y: widgetData.startCol,  content: renderedHtml, id: widgetData.widgetId + "0" };
+                    let newWidget = { x: widgetData.startRow, y: widgetData.startCol,  h: widgetData.height, content: renderedHtml, id: widgetData.widgetId + "0" };
 
                     grid.addWidget(newWidget);
                     if (page.pageCSSUrl) {

@@ -76,13 +76,33 @@ section {
   border: 1px solid grey;
   padding: 8px;
 }
-.anyClass {
+/*.anyClass {
   height: 600px;
   overflow-y: scroll;
-}
+}*/
 
 .text-white {
   text-align: center;
+}
+
+@media print {
+  .content{
+    display: none;
+  }
+
+  .main-footer{
+    display: none;
+  }
+
+  print-area * {  
+    transform: scale(29)
+  }
+
+  @page {
+    size: landscape;
+  }
+
+
 }
 
 
