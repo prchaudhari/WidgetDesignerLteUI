@@ -3881,4 +3881,50 @@
   width: auto;
 }
 
+@media print {
+  footer {
+    display: none;
+  }
+  @page {
+    margin: 0;
+    size:0mm 0mm;
+  }
+  body {
+      margin:0;
+  }
+/*  table {
+    page-break-inside: avoid !important;
+  }
+*/
+  
+ 
+  
+
+  table {
+    page-break-inside: auto;
+    background-color: lightblue;
+    border: 2px solid black;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  td {
+    border: 2px solid navy;
+  }
+
+}
+
+
+
 

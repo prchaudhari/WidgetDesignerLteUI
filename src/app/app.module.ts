@@ -20,6 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { EditPageComponent } from './components/edit-page/edit-page.component';
+import { NgxPrintModule } from 'ngx-print';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,7 @@ import { EditPageComponent } from './components/edit-page/edit-page.component';
     EditPageWizard1Component,
     AddPageComponent,
     pagepreviewComponent,
-    EditPageComponent,
+    EditPageComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +44,7 @@ import { EditPageComponent } from './components/edit-page/edit-page.component';
     HttpClientModule,
     FormsModule,
     NgSelectModule,
+    NgxPrintModule
   ],
   providers: [{ provide: 'APP_CONFIG', useValue: AppConfig }],
   bootstrap: [AppComponent]

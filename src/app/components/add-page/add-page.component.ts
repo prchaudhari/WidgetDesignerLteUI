@@ -289,14 +289,14 @@ export class AddPageComponent implements OnInit {
 
      // console.log(renderedHtml);
 
-     console.log(widgetHeight * 2.52);
+     console.log(widgetHeight);
 
       console.log("widgetHeight"+widgetHeight);
 
 
       const widgetdata =
         // { x: newWidget.x, y: newWidget.y, w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id+"0"  };
-        { x: newWidget.x, y: newWidget.y, h: parseInt((widgetHeight * 2.52).toString()), content: renderedHtml, id: newWidget.id + "0"};
+        { x: newWidget.x, y: newWidget.y,  h: parseInt((widgetHeight).toString()), content: renderedHtml, id: newWidget.id + "0"};
       grid.addWidget(widgetdata);
 
       
@@ -372,10 +372,12 @@ export class AddPageComponent implements OnInit {
       nWidget.widgetId = id;
       nWidget.startCol = Number(node.getAttribute("gs-y"));
       nWidget.startRow = Number(node.getAttribute("gs-x"));
-        console.log("width", node.offsetWidth);
-        console.log("height", node.scrollHeight);
-      nWidget.width = parseInt((node.offsetWidth / 2.52).toString());
-      nWidget.height = parseInt((node.scrollHeight / 2.52).toString());
+      nWidget.width = parseInt((node.offsetWidth / 2.625).toString());
+      nWidget.height = parseInt((Number(node.getAttribute("gs-h"))).toString());
+
+    //  console.log(nWidget.width);
+    //  console.log(nWidget.height);
+
       //nWidget.width = Number(node.getAttribute("gs-w"));
       //nWidget.height = Number(node.getAttribute("gs-h"));
 

@@ -29,41 +29,49 @@
 
 
               <!--<select class="form-control"
-            id="cssname"
-            name="cssname"
-            [(ngModel)]="cssname"
-            (change)="changeCSS()"
-            required>
-      <option value="assets/dynamicThemes/cssTheme1.css" selected>Theme1</option>
-      <option value="assets/dynamicThemes/cssTheme2.css">Theme2</option>
-      <option value="assets/dynamicThemes/cssTheme3.css">Theme3</option>
-    </select>-->
+                      id="cssname"
+                      name="cssname"
+                      [(ngModel)]="cssname"
+                      (change)="changeCSS()"
+                      required>
+                <option value="assets/dynamicThemes/cssTheme1.css" selected>Theme1</option>
+                <option value="assets/dynamicThemes/cssTheme2.css">Theme2</option>
+                <option value="assets/dynamicThemes/cssTheme3.css">Theme3</option>
+              </select>-->
             </div>
+            <!--<div style="width:30%;float:right">
+              <button type="button" class="btn btn-primary" onclick="window.print()">Print Preview</button>
+            </div>-->
             <div style="width:30%;float:right">
+              <!--<button type="button" class="btn btn-primary" printSectionId="advanced-grid-preview" ngxPrint>Print Preview</button>-->
               <button type="button" class="btn btn-primary" onclick="window.print()">Print Preview</button>
             </div>
-              <!--<div style="width:30%;float:right">
-    <button type="button"
-            class="btn btn-primary"
-            (click)="changeCSS()">
-      Change Theme
-    </button>
-  </div>-->
-            </div>
-    </div>
+
+            <!--<div style="width:30%;float:right">
+              <button type="button"
+                      class="btn btn-primary"
+                      (click)="changeCSS()">
+                Change Theme
+              </button>
+            </div>-->
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
-  <section id="advancedDemo"  >  
+  <section id="advancedDemo">
     <div class="col-sm-12 col-md-10" style="padding-bottom: 0px;">
       <div class="grid-container main">
-        <div class="grid-stack" id="advanced-grid-preview"  [ngStyle]="anyClassx"></div>
+        <div class="grid-stack" id="advanced-grid-preview" [ngStyle]="anyClassx"></div>
       </div>
     </div>
 
   </section>
+
+ 
+
 </div>
 
 
