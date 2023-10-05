@@ -108,7 +108,7 @@ export class EditPageComponent implements OnInit {
     let pageht: string = (Number(this.getState.pageHeight)).toString() + 'px';
     this.anyClassx = {
       'width': pagewt,
-      'height': pageht
+    //  'height': pageht
     };
     this.anyClassgrid = {
       'width': '1260px', /* Width of the visible portion */
@@ -117,7 +117,7 @@ export class EditPageComponent implements OnInit {
     };
     this.maingrid = {
       'width': pagewt,
-      'height': pageht
+      //'height': pageht
     }
 
     $("#widdiv").html(this.renderedWidgets);
@@ -187,7 +187,7 @@ export class EditPageComponent implements OnInit {
 
 
                     //let newWidget = { x: widgetData.startRow, y: widgetData.startCol, w: widgetData.width, h: widgetData.height, content: renderedHtml, id: widgetData.widgetId + "0" };
-                    let newWidget = { x: widgetData.startRow, y: widgetData.startCol,  content: renderedHtml, id: widgetData.widgetId + "0" };
+                    let newWidget = { x: widgetData.startRow, y: widgetData.startCol, w: widgetData.width, h: widgetData.height, content: renderedHtml, id: widgetData.widgetId + "0" };
 
                     grid.addWidget(newWidget);
                     if (page.pageCSSUrl) {
@@ -302,7 +302,7 @@ export class EditPageComponent implements OnInit {
       // alert("heloo");
       if (removeEl) grid.removeWidget(removeEl);
     //  const widgetdata ={ x: newWidget.x, y: newWidget.y,w: newWidget.w, h: newWidget.h, content: renderedHtml, id: newWidget.id + "0" };
-      const widgetdata = { x: newWidget.x, y: newWidget.y, h: parseInt((widgetHeight * 2.52).toString()) , content: renderedHtml, id: newWidget.id + "0" };
+      const widgetdata = { x: newWidget.x, y: newWidget.y, h: parseInt((widgetHeight).toString()) , content: renderedHtml, id: newWidget.id + "0" };
       grid.addWidget(widgetdata);
 
 
@@ -443,8 +443,8 @@ export class EditPageComponent implements OnInit {
         nWidget.pageId = this.editPageId;
         nWidget.startCol = Number(node.getAttribute("gs-y"));
         nWidget.startRow = Number(node.getAttribute("gs-x"));
-        nWidget.width = parseInt((node.offsetWidth / 2.52).toString());
-        nWidget.height = parseInt((node.scrollHeight / 2.52).toString());
+        nWidget.width = parseInt((node.offsetWidth / 2.625).toString());
+        nWidget.height = parseInt(Number(node.getAttribute("gs-h")).toString());
         widgetsItemsArr.push(nWidget);
         /****************************/
 
