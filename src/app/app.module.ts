@@ -20,6 +20,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { EditPageComponent } from './components/edit-page/edit-page.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,8 @@ import { EditPageComponent } from './components/edit-page/edit-page.component';
     EditPageComponent,
   ],
   imports: [
+    NgxPageScrollCoreModule.forRoot({ duration: 1600 }),
+    ScrollingModule,
     BrowserModule,
     AppRoutingModule,
     CKEditorModule,  

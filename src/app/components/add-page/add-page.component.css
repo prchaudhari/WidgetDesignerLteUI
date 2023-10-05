@@ -13,7 +13,7 @@ You can add global styles to this file, and also import other style files
 }
   #main1 {
   padding-top: 10px;
-  border: 1px solid grey;
+  border: 1px solid groove;
  /* width: 1750px;*/
 }
 
@@ -25,6 +25,7 @@ You can add global styles to this file, and also import other style files
 
 .grid-container {
   border: 1px solid groove;
+  width:100%;
 }
 
 .center {
@@ -95,7 +96,7 @@ section {
   }
 
 .rounded-3 {
-  width:1245px;
+  width:100%;
   border: 1px solid grey;
   padding: 3px;
 }
@@ -105,7 +106,7 @@ section {
     text-align: center;
   }
 .anyClass {
-  height: 600px;
+  height: 475px;
   overflow-y: scroll;
 }
 /*.anyClassx {

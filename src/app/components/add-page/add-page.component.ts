@@ -192,7 +192,7 @@ export class AddPageComponent implements OnInit {
 
     // Conditionally set the CSS class based on the page width
     if (this.getState.pageWidth > 1200) {    
-      this.anyClassgrid = { 'width': '1260px','overflow-x': 'auto' };
+      this.anyClassgrid = { 'width': '100%','overflow-x': 'auto' };
     } else {   
       // Remove the class if the page width is less than or equal to 1200
       this.anyClassgrid = {};

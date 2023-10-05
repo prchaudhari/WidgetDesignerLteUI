@@ -46,7 +46,7 @@
     </div>
   </div>
   <div class="row" id="main1">
-    <div class="d-none d-md-block anyClass" style="width: 200px;padding:5px; border: 1px solid grey; ">
+    <div class="d-none d-md-block anyClass" style="width: 15%;padding:5px; border: 1px solid grey; ">
       <div id="trash" style="margin-bottom:5px; width: 95%" class="text-center text-white">
         <div>
           <!--<ion-icon name="trash" style="font-size: 400%"></ion-icon>-->
@@ -78,9 +78,13 @@
         <div id="widdiv" name="widdiv"></div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-10" [ngStyle]="maingrid" style="padding:0px;" >
+    <div class="col-sm-12 col-md-10"  style="padding:0px;" >
       <div class="grid-container ">
-        <div class="grid-stack" id="advanced-grid" [ngStyle]="anyClassx"></div>
+
+        <cdk-virtual-scroll-viewport style="height: 475px" itemSize="50" autosize>
+    <div class="grid-stack" id="advanced-grid" [ngStyle]="anyClassx"></div>
+  </cdk-virtual-scroll-viewport>
+
       </div>
     </div>
   </div>

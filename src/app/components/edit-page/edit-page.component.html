@@ -80,7 +80,9 @@
       </div>
       <div class="col-sm-12 col-md-10" style="padding: 0px;">
         <div class="grid-container maingrid">
-          <div class="grid-stack" id="edit-advanced-grid" [ngStyle]="anyClassx"></div>
+          <cdk-virtual-scroll-viewport style="height: 475px" itemSize="50" autosize>
+            <div class="grid-stack" id="edit-advanced-grid" [ngStyle]="anyClassx"></div>
+          </cdk-virtual-scroll-viewport>
         </div>
       </div>
     </div>

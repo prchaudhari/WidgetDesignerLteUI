@@ -2,59 +2,41 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-6">
-          <h1>Page Preview</h1>
+        <div class="col-3">
+          <h2>Page Preview</h2>
+        </div>
+        <label style="width: 150px; padding-top: 20px">Change Theme:</label>
+        <div style="width:30%; padding-top:1rem">
+          <select class="form-control"
+                  id="cssname"
+                  name="cssname"
+                  [(ngModel)]="cssname"
+                  (change)="changeCSS()"
+                  required>
+            <option value="">Select a CSS file</option>
+            <option *ngFor="let cssFile of cssFiles" [value]="cssFile">{{ cssFile }}</option>
+          </select>
         </div>
       </div>
     </div>
-  </section>
-  <section class="content px-2">
-    <div class="container-fluid">
-      <div class="card">
-        <div class="card-header">
-    <div class="row">
-    <label style="width:150px">Change Theme:</label>
-    <div style="width:30%; float:left">
-      <select class="form-control"
-              id="cssname"
-              name="cssname"
-              [(ngModel)]="cssname"
-              (change)="changeCSS()"
-              required>
-        <option value="">Select a CSS file</option>
-        <option *ngFor="let cssFile of cssFiles" [value]="cssFile">{{ cssFile }}</option>
-      </select>
-      <!--<select class="form-control"
-          id="cssname"
-          name="cssname"
-          [(ngModel)]="cssname"
-          (change)="changeCSS()"
-          required>
-    <option value="assets/dynamicThemes/cssTheme1.css" selected>Theme1</option>
-    <option value="assets/dynamicThemes/cssTheme2.css">Theme2</option>
-    <option value="assets/dynamicThemes/cssTheme3.css">Theme3</option>
-  </select>-->
-    </div>
-    <!--<div style="width:30%;float:right">
-      <button type="button"
-              class="btn btn-primary"
-              (click)="changeCSS()">
-        Change Theme
-      </button>
-    </div>-->
-    </div>
-    </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="advancedDemo"  >  
     <div class="col-sm-12 col-md-10" style="padding-bottom: 0px;">
-      <div class="grid-container main">
-        <div class="grid-stack" id="advanced-grid-preview"  [ngStyle]="anyClassx"></div>
+      <div class="data">
+        <cdk-virtual-scroll-viewport style="height:505px" itemSize="50" autosize>
+          <div class="grid-stack" id="advanced-grid-preview" [ngStyle]="anyClassx"></div>
+        </cdk-virtual-scroll-viewport>
       </div>
     </div>
+  </section>
+  
+
+  <section style="background-color:aqua" id="advancedDemo"  >  
+    <!--<div class="col-sm-12 col-md-10" style="padding-bottom: 0px;">
+      <div class="data">
+        <cdk-virtual-scroll-viewport style="height: 475px" itemSize="50" autosize>
+          <div class="grid-stack" id="advanced-grid-preview" [ngStyle]="anyClassx"></div>
+        </cdk-virtual-scroll-viewport>
+      </div>
+    </div>-->
 
   </section>
 </div>

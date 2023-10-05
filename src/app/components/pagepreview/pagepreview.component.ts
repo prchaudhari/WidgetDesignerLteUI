@@ -90,13 +90,13 @@ export class pagepreviewComponent implements OnInit {
     let pagewt: string = (Number(pageWidth) - 250).toString() + 'px';
     let pageht: string = (Number(pageHeight)).toString() + 'px';
     this.anyClassx = {
-      'width': pagewt,
+     
       'height': pageht,
       'background-color': 'white'
     };
     this.anyClassgrid = {
-      'width': '1260px', /* Width of the visible portion */
-      'overflow-x': 'auto', /* Enable horizontal scrolling */
+      //'width': '1260px', /* Width of the visible portion */
+      //'overflow-x': 'auto', /* Enable horizontal scrolling */
       'background-color': 'white'
     };
   }
