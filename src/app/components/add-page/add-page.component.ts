@@ -22,6 +22,8 @@ type GridMode = "edit" | "view";
   styleUrls: ['./add-page.component.css']
 })
 export class AddPageComponent implements OnInit {
+  ReadMore: boolean = true
+  visible: boolean = true
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
@@ -96,6 +98,11 @@ export class AddPageComponent implements OnInit {
 
     return widgetdata;
 
+  }
+
+  onclick() {
+    this.ReadMore = !this.ReadMore; //not equal to condition
+    this.visible = !this.visible
   }
 
   onInputChange() {
@@ -174,7 +181,7 @@ export class AddPageComponent implements OnInit {
       document.getElementsByTagName('head')[0].appendChild(fileRef);
     }
     localStorage.setItem('fileRefCssName', this.cssname);
-    let pagewt: string = (Number(this.getState.pageWidth - 250)).toString() + 'px';
+    let pagewt: string = (Number(this.getState.pageWidth)).toString() + 'px';
     let pageht: string = (Number(this.getState.pageHeight)).toString() + 'px';
     this.anyClassx = {
       'width': pagewt,
@@ -192,7 +199,7 @@ export class AddPageComponent implements OnInit {
 
     // Conditionally set the CSS class based on the page width
     if (this.getState.pageWidth > 1200) {    
-      this.anyClassgrid = { 'width': '100%','overflow-x': 'auto' };
+      this.anyClassgrid = { 'width': '100%' ,'overflow-x': 'auto' };
     } else {   
       // Remove the class if the page width is less than or equal to 1200
       this.anyClassgrid = {};
@@ -339,10 +346,12 @@ export class AddPageComponent implements OnInit {
     // console.log(widgetsItemsArr);
     let widgetsItemsStr = "";
     widgetsItemsStr = JSON.stringify(widgetsItemsArr)
-   
+    const minHeight = $('#advanced-grid').css('min-height');
+    console.log('Min Height:', minHeight);
     localStorage.setItem('pagehtml', widgetsItemsStr);
     localStorage.setItem('pagewidth', this.getState.pageWidth);
-    localStorage.setItem('pageheight', this.getState.pageHeight);
+    localStorage.setItem('pageheight', minHeight);
+    console.log(localStorage.getItem('pageheight'));
     const url = this.router.createUrlTree(['/pagepreview', '']);
     window.open(url.toString(), '_blank');
   }
@@ -390,6 +399,8 @@ export class AddPageComponent implements OnInit {
 
    // console.log("pagecssurl",this.getState.pageCSSUrl);
 
+    const minHeight = $('#advanced-grid').css('min-height');
+    console.log('Min Height:', minHeight);
 
    // console.log("fileRefCssName", fileRefCssName);
     // Create data object to save
@@ -401,7 +412,7 @@ export class AddPageComponent implements OnInit {
       pageCSSUrl: fileRefCssName ?? "",
       Widgets: widgetsItemsArr,
       pageWidth: this.getState.pageWidth,
-      pageHeight: this.getState.pageHeight
+      pageHeight: Number(minHeight.replace('px', ''))
     }
     // Call the addPage method from pagesService to save the data
     this.pagesService.addPage(savedpage).subscribe({

@@ -22,14 +22,18 @@
   color: black;
 }
 
-.adharnumbercss{
-    font-weight:bold;
-    color:white;
-    font-size:23px;
+.adharnumbercss {
+  font-weight: bold;
+  color: white;
+  font-size: 23px;
+  width: 100%;
+  height: 100%;
 }
 
 .profilephoto {
   border: 3px solid brown;
+  width: 100%;
+  height: 100%;
 }
 
 .widgetHtml {

@@ -9,22 +9,22 @@
       
         <form #form="ngForm" (ngSubmit)="addPage(form.value)">
 
-          <div class="form-group row required mb-3">
-            <label class="col-md-3 col-form-label" for="">
+          <div class="form-group row required">
+            <label class="col-md-3 col-form-label" for="pageName">
               Page Name:
             </label>
             <div class="col-md-9">
-              <input type="text" class="form-control" id="pageName" name="pageName" ngModel />
+              <input type="text" class="form-control" id="pageName" name="pageName" ngModel required/>
             </div>
           </div>
 
-          <div class="form-group row required mb-3">
+          <div class="form-group row required">
             <label class="col-md-3 col-form-label" for="description">
               Description:
             </label>
             <div class="col-md-9">
               <textarea placeholder="Enter description" type="text" class="form-control" name="description"
-                        id="description" ngModel>
+                        id="description" ngModel required>
                  </textarea>
             </div>
           </div>

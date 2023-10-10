@@ -12,7 +12,7 @@ You can add global styles to this file, and also import other style files
   /* You can further style the scrollable section as needed */
 }
   #main1 {
-  padding-top: 10px;
+  padding-top: 5px;
   border: 1px solid groove;
  /* width: 1750px;*/
 }
@@ -24,7 +24,7 @@ You can add global styles to this file, and also import other style files
 }
 
 .grid-container {
-  border: 1px solid groove;
+  border: 1px solid grey;
   width:100%;
 }
 
@@ -91,8 +91,8 @@ section {
     background-color:aqua;
   }
 .clearfix1{
-     text-align:center;
-     width:1260px;
+     text-align:left;
+    
   }
 
 .rounded-3 {

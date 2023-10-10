@@ -39,6 +39,7 @@ export class pagepreviewComponent implements OnInit {
   //}
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('pageheight'));
     document.body.classList.add('sidebar-collapse');
     this.cssFiles = AppConfig.cssFiles;
     if (localStorage.getItem('fileRefCssName')) { this.cssname = localStorage.getItem('fileRefCssName') };
@@ -87,10 +88,10 @@ export class pagepreviewComponent implements OnInit {
     localStorage.setItem('fileRefCssName', cssName);
     let pageWidth = localStorage.getItem('pagewidth');
     let pageHeight = localStorage.getItem('pageheight');
-    let pagewt: string = (Number(pageWidth) - 250).toString() + 'px';
+    let pagewt: string = (Number(pageWidth)).toString() + 'px';
     let pageht: string = (Number(pageHeight)).toString() + 'px';
     this.anyClassx = {
-     
+      'width': pagewt,
       'height': pageht,
       'background-color': 'white'
     };

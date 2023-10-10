@@ -24,6 +24,8 @@ type GridMode = "edit" | "view";
   styleUrls: ['./edit-page.component.css']
 })
 export class EditPageComponent implements OnInit {
+  ReadMore: boolean = true
+  visible: boolean = true
   // Initialize variables
   widget: Widget[] = [];
   getState: any = ""; // Initialize getState
@@ -104,11 +106,11 @@ export class EditPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let pagewt: string = (Number(this.getState.pageWidth - 250)).toString() + 'px';
+    let pagewt: string = (Number(this.getState.pageWidth)).toString() + 'px';
     let pageht: string = (Number(this.getState.pageHeight)).toString() + 'px';
     this.anyClassx = {
       'width': pagewt,
-    //  'height': pageht
+      'height': pageht
     };
     this.anyClassgrid = {
       'width': '1260px', /* Width of the visible portion */
@@ -322,6 +324,11 @@ export class EditPageComponent implements OnInit {
 
   }
 
+  onclick() {
+    this.ReadMore = !this.ReadMore; //not equal to condition
+    this.visible = !this.visible
+  }
+
   onInputChange() {
     var widgetdata: string = "";
     if (this.searchTerm) {
@@ -368,7 +375,7 @@ export class EditPageComponent implements OnInit {
     $("#widdiv").html(this.renderedWidgets);
     // Initialize advanced GridStack layout
     const grid = GridStack.init(this.gridStackOptions
-      , '#advanced-grid');
+      , '#edit-advanced-grid');
 
     // Setup drag-and-drop for new widgets
     GridStack.setupDragIn('.newWidget', {
@@ -408,10 +415,11 @@ export class EditPageComponent implements OnInit {
     // console.log(widgetsItemsArr);
     let widgetsItemsStr = "";
     widgetsItemsStr = JSON.stringify(widgetsItemsArr)
- 
+    const minHeight = $('#edit-advanced-grid').css('min-height');
+    console.log('Min Height:', minHeight);
     localStorage.setItem('pagehtml', widgetsItemsStr);
     localStorage.setItem('pagewidth', this.getState.pageWidth);
-    localStorage.setItem('pageheight', this.getState.pageHeight);
+    localStorage.setItem('pageheight', minHeight);
     const url = this.router.createUrlTree(['/pagepreview', '']);
     window.open(url.toString(), '_blank');
   }
@@ -450,7 +458,8 @@ export class EditPageComponent implements OnInit {
 
       });
     let fileRefCssName = (localStorage.getItem('fileRefCssName') != "" ? localStorage.getItem('fileRefCssName') : this.getState.pageCSSUrl);
-
+    const minHeight = $('#edit-advanced-grid').css('min-height');
+    console.log('Min Height:', minHeight);
     console.log("pagecssurl", this.getState.pageCSSUrl);
     console.log("fileRefCssName", fileRefCssName);
     // Create data object to save
@@ -462,7 +471,7 @@ export class EditPageComponent implements OnInit {
       pageCSSUrl: fileRefCssName ?? "",
       Widgets: widgetsItemsArr,
       pageWidth: this.getState.pageWidth,
-      pageHeight: this.getState.pageHeight
+      pageHeight: Number(minHeight.replace('px', ''))
     }   
     // Call the addPage method from pagesService to save the data
     this.pagesService.updatePage(this.editPageId, savedpage).subscribe({

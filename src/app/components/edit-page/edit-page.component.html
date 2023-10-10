@@ -1,26 +1,30 @@
 <section id="advancedDemo" class="main" [ngStyle]="anyClassgrid">
-  <div class="clearfix1">
-    <h4>Edit Page Designer</h4>
-  </div>
-  <div>
-    <div class="rounded-3">
+  <button class="nav-link" (click)="onclick()">
+    <i class="fas fa-bars"></i>
+  </button>
+    <div *ngIf="visible" class="rounded-3">
       <div class="row">
         <div class="col-lg-12 text-white">
-          <div class="">
-
-            <button title="Save" (click)="saveAndUpdatePageWidgetContent()" type="button" class="btn btn-primary  ml-2">
-              <i class="fa-regular fa-floppy-disk fa-xl"></i>
-            </button>
-            <button title="Preview" type="button" (click)="previewPage()" class="btn btn-primary  ml-2">
-              <i class="fa-regular fa-eye fa-xl"></i>
-            </button>
-            <button title="Cancel" type="button" (click)="canclePage()" class="btn btn-danger  ml-2">
-              <i class="fa-regular fa-rectangle-xmark fa-xl"></i>
-            </button>&nbsp;
-            <!-- Button trigger modal -->
-            <button title="Data Source Json" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              <b>Json</b>
-            </button>
+          <table>
+            <tr>
+              <td style="width:450px;text-align:left"><h4>Edit Page Designer</h4></td>
+              <td>
+                <button title="Save" (click)="saveAndUpdatePageWidgetContent()" type="button" class="btn btn-primary  ml-2">
+                  <i class="fa-regular fa-floppy-disk fa-xl"></i>
+                </button>
+                <button title="Preview" type="button" (click)="previewPage()" class="btn btn-primary  ml-2">
+                  <i class="fa-regular fa-eye fa-xl"></i>
+                </button>
+                <button title="Cancel" type="button" (click)="canclePage()" class="btn btn-danger  ml-2">
+                  <i class="fa-regular fa-rectangle-xmark fa-xl"></i>
+                </button>&nbsp;
+                <!-- Button trigger modal -->
+                <button title="Data Source Json" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <b>Json</b>
+                </button>
+              </td>
+            </tr>
+          </table>
 
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -41,16 +45,13 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
     <div class="row" id="main1">
-      <div class="d-none d-md-block anyClass" style="width:200px;padding:5px; border:1px solid grey; ">
+      <div class="d-none d-md-block anyClass" style="width:200px;padding:5px; border:1px solid grey;height:700px ">
         <div id="trash" style="margin-bottom: 5px; width: 95%" class="text-center text-white">
-          <div>
-            <!--<ion-icon name="trash" style="font-size: 400%"></ion-icon>-->
-          </div>
+         
           <div style="width:90%;">
             <span>Drop here to remove widget!</span>
           </div>
@@ -78,15 +79,14 @@
           <div id="widdiv" name="widdiv"></div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-10" style="padding: 0px;">
-        <div class="grid-container maingrid">
-          <cdk-virtual-scroll-viewport style="height: 475px" itemSize="50" autosize>
+      <div class="col-sm-12 col-md-10">
+        <div class="grid-container ">
+          <cdk-virtual-scroll-viewport style="height: 700px ;padding-bottom:5px" itemSize="50" autosize>
             <div class="grid-stack" id="edit-advanced-grid" [ngStyle]="anyClassx"></div>
           </cdk-virtual-scroll-viewport>
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 
