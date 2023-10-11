@@ -12,6 +12,8 @@ import { EditPageWizard1Component } from './components/edit-page-wizard1/edit-pa
 import { AddPageComponent } from './components/add-page/add-page.component';
 import { pagepreviewComponent } from './components/pagepreview/pagepreview.component';
 import { EditPageComponent } from './components/edit-page/edit-page.component';
+import { PagesGeneratorComponent } from './components/pages-generator/pages-generator.component';
+import { GenerateComponent } from './components/generate/generate.component';
 
 const routes: Routes = [
   {
@@ -73,6 +75,14 @@ const routes: Routes = [
   {
     path: 'pages/editpage',
     component: EditPageComponent
+  },
+  {
+    path: 'pages-generator',
+    component: PagesGeneratorComponent
+  },
+  {
+    path: 'pages/generate',
+    component: GenerateComponent
   }
 ];
 

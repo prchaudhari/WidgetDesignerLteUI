@@ -1,0 +1,35 @@
+<div class="container">
+
+  <div class="rounded-3" style=" width: 100%; border: 1px solid grey; padding: 8px;">
+    <h4 style="text-align:center">Pages </h4>
+  </div>
+
+  <div class="card-body rounded-3" style=" width: 100%; border: 1px solid grey; padding: 8px">
+    <div class="table-responsive">
+      <table class="table table-bordered table-success table-striped">
+        <thead class="bg-light">
+          <tr>
+            <th>Page Name</th>
+            <th>Generator Type</th>
+            <th style="width: 200px">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let pages  of pages">
+            <tr>
+              <td>{{pages.pageName}}</td>
+              <td></td>
+              <td style="text-align:center">
+                <a title="Preview" (click)="previewPage()"><i class="fa-regular fa-eye"></i></a>&nbsp;
+                <button class="btn btn-primary" type="button">
+                  <a style="color:white" href="pages/generate">Generate </a>
+                </button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
