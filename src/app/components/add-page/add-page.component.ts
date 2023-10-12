@@ -409,6 +409,7 @@ export class AddPageComponent implements OnInit {
       description: this.getState.description ?? "",
       dataSourceJson: this.FullJsonDataObject ?? "",//we have doubt here
       pageHtml: this.pageHtml ?? "",
+      pageContent:  "",
       pageCSSUrl: fileRefCssName ?? "",
       Widgets: widgetsItemsArr,
       pageWidth: this.getState.pageWidth,

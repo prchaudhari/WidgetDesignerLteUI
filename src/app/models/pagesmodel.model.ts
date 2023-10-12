@@ -6,6 +6,7 @@ export interface PageModel {
   description: string;
   dataSourceJson: string;
   pageHtml: string;
+  pageContent: string;
   pageCSSUrl: string;
   pageWidth: number;
   pageHeight: number;
