@@ -23,6 +23,8 @@ import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPrintModule } from 'ngx-print';
+import { PagesGeneratorComponent } from './components/pages-generator/pages-generator.component';
+import { GenerateComponent } from './components/generate/generate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { NgxPrintModule } from 'ngx-print';
     EditPageWizard1Component,
     AddPageComponent,
     pagepreviewComponent,
-    EditPageComponent
+    EditPageComponent,
+    PagesGeneratorComponent,
+    GenerateComponent
   ],
   imports: [
     NgxPageScrollCoreModule.forRoot({ duration: 1600 }),
