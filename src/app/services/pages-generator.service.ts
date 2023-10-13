@@ -13,6 +13,9 @@ export class PagesGeneratorService {
 
   constructor(private http: HttpClient) { }
 
+
+  
+
   getAllPages(): Observable<PagesGenerator[]> {
     return this.http.get<PagesGenerator[]>(this.baseApiUrl + '/api/pages');
   }

@@ -70,4 +70,10 @@ export class PagesService {
       .btn1 {{\r\n  background-color: rgba(52,58,64,255);\r\n  color: white;\r\n  border: 1px solid #80bdff;\r\n}}\r\n";
     return cssContent;
   }
+
+  getpdf(filename: string): Observable<boolean> {
+    alert(filename);
+    return this.http.get<boolean>(this.baseApiUrl + '/api/Documents/api/GetPDF?filepath="' + filename+'"');
+    //return this.http.get<boolean>("https://localhost:44381/api/Documents/api/GetPDF?filepath=C:\Users\chaud\Downloads\myFile.html");
+  }
 }
