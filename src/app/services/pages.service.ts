@@ -73,6 +73,7 @@ export class PagesService {
 
   getpdf(filename: string): Observable<boolean> {
     alert(filename);
-    return this.http.get<boolean>(this.baseApiUrl + '/api/Documents/api/GetPDF?filepath=' + filename);
+    return this.http.get<boolean>(this.baseApiUrl + '/api/Documents/api/GetPDF?filepath="' + filename+'"');
+    //return this.http.get<boolean>("https://localhost:44381/api/Documents/api/GetPDF?filepath=C:\Users\chaud\Downloads\myFile.html");
   }
 }

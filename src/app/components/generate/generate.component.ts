@@ -15,5 +15,6 @@ export class GenerateComponent {
     this.pageId = Number(localStorage.getItem('generateId'));
   }
 
+
 }
 

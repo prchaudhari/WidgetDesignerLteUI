@@ -79,9 +79,10 @@ export class JsRenderTryComponent {
 
     // Save the Blob as a file
     fileSaver.saveAs(blob, fileName);
+
     this.pagesService.getpdf("C:\\Users\\chaud\\Downloads\\myFile.html");
   }
-
+  
   async createPDFs() {
     let pageID: number = 33;
     let FullHTML: string = "";
