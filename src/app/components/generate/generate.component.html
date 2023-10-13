@@ -11,21 +11,22 @@
         <form #form="ngForm">
 
           <div class="form-group row required">
-            <label class="col-md-3 col-form-label" for="json">
+            <label class="col-md-3 col-form-label" for="JsonData">
               Enter Json:
             </label>
             <div class="col-md-9">
               <textarea type="text"
                         rows="6"
                         class="form-control"
-                        id="json" name="json"
-                        ngModel required>
+                        id="JsonData" name="JsonData"
+                        [(ngModel)]="JsonData"
+                         required>
            </textarea>
             </div>
           </div>
 
           <div style="padding:10px">
-            <button style="color:white" class="btn btn-primary" type="submit">
+            <button style="color:white" (click)="GeneratePdfs()" class="btn btn-primary" type="submit">
               Generate Pdf
             </button>
             &nbsp;
