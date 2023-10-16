@@ -18,6 +18,7 @@ export class GenerateComponent {
   pagewidget: Widget;
   pageInfo: Pages;
   JsonData: string;
+  htmlFileNames: string[]; 
   constructor(private route: ActivatedRoute,
     private pagesService: PagesService,
     private widgetService: WidgetService,
@@ -32,6 +33,7 @@ export class GenerateComponent {
     let FullHTML: string = "";
     let chilrenAfterReplace: any;
     let jasondata = this.JsonData;
+    this.htmlFileNames = [];
     //alert(jasondata);
     //let jasondata = `[
     //    { "AdharcardUniqueNo":  { "adharnumber": "0000 1111 2222" } , "AdharcardQR": { "src": "assets/sampleAdharQr.jpg" }  , "AdharCardHeader": { "src": "assets/sampleHeader.jpg" },"SatyaMevLogo": { "src": "assets/logosatya.jpg" }},
@@ -66,6 +68,7 @@ export class GenerateComponent {
 
            this.generateAndSaveHtmlFile(FullHTML, fileNameFromJson);   // need to complete
         }
+        this.pagesService.getpdf(this.htmlFileNames);  
       },
     });
   }
@@ -88,9 +91,10 @@ export class GenerateComponent {
     const fileName = filenamevalues + '.html'  //'myFile.html';   // need to change the file name
     console.log(fileName);
     // Save the Blob as a file
-     fileSaver.saveAs(blob, fileName);
-  
-    this.pagesService.getpdf(fileName);  //need to change the path
+    fileSaver.saveAs(blob, fileName);
+    this.htmlFileNames.push(fileName);
+    console.log(this.htmlFileNames);
+   //need to change the path
   }
 
 
@@ -132,4 +136,6 @@ export class GenerateComponent {
   }
 
 }
+
+
 
