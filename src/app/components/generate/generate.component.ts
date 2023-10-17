@@ -68,12 +68,16 @@ export class GenerateComponent {
              var fileNameFromJson = firstRow[Object.keys(firstRow)[0]];
             }        
 
-          this.generateAndSaveHtmlFile(FullHTML, fileNameFromJson);   // need to complete
+       //   this.generateAndSaveHtmlFile(FullHTML, fileNameFromJson);   // need to complete
+          const filenamevalues = Object.values(fileNameFromJson);
+          if (filenamevalues.length > 0) {
+            console.log(filenamevalues[0]);
+          }
 
           let savedpage: PageGenerationLogModel = {
             pageId: this.pageId,
             fullHTML: FullHTML,
-            fileName: fileNameFromJson,
+            fileName: filenamevalues.toString(),
             status:false
           }
           // Call the addPage method from pagesService to save the data
@@ -87,7 +91,7 @@ export class GenerateComponent {
           });
 
         }
-        this.pageGenerationLogService.CreatePdfs(this.pageId);  
+       // this.pageGenerationLogService.CreatePdfs(this.pageId);  
       },
     });
   }
