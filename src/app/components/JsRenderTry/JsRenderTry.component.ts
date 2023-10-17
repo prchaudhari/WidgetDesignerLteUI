@@ -13,7 +13,7 @@ import { PagesService } from '../../services/pages.service';
 import { Widget } from '../../models/widget.model';
 //import { content } from 'html2canvas/dist/types/css/property-descriptors/content';
 import { Pages } from '../../models/pages.model';
-import { PagesGeneratorService } from '../../services/pages-generator.service';
+import { PageGenerationLogService } from '../../services/pages-generator.service';
 
 @Component({
   selector: 'app-JsRenderTry',
@@ -34,7 +34,7 @@ export class JsRenderTryComponent {
   constructor(
     private pagesService: PagesService,
     private widgetService: WidgetService,
-    private pagegenService: PagesGeneratorService) {
+    private pagegenService: PageGenerationLogService) {
 
   }
 

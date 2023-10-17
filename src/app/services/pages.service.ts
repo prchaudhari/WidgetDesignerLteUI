@@ -71,20 +71,5 @@ export class PagesService {
     return cssContent;
   }
 
-  getpdf(filename: string[]): boolean {
-   // alert(filename);
-    //return this.http.get<boolean>(this.baseApiUrl + '/api/pages/api/GetPDF?filepath="' + filename + '"');
-  //  this.http.post<boolean>(this.baseApiUrl + '/api/Documents/GetPDF',filename);
-    this.http.post<boolean>(this.baseApiUrl + '/api/Documents/GetPDF', filename)
-      .subscribe(
-        result => {
-          // Handle the response from the C# controller
-        },
-        error => {
-          console.error('Error:', error);
-        }
-      );
-    return true;
-    //return this.http.get<boolean>("https://localhost:44381/api/Documents/api/GetPDF?filepath=C:\Users\chaud\Downloads\myFile.html");
-  }
+ 
 }

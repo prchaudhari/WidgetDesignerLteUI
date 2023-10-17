@@ -1,5 +1,5 @@
-export interface PageGenerationLog {
-  id: number;
+export interface PageGenerationLogModel {
+ 
   pageId: number;
   fullHTML: string;
   fileName: string;
