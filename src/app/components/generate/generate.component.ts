@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Pages } from '../../models/pages.model';
 import { Widget } from '../../models/widget.model';
-import { PagesGeneratorService } from '../../services/pages-generator.service';
 import { PagesService } from '../../services/pages.service';
 import { WidgetService } from '../../services/widget.service';
 import * as jsrender from 'jsrender';
 import * as fileSaver from 'file-saver';
+import { PageGenerationLog } from '../../models/pages-generator.model';
+import { PageGenerationLogModel } from '../../models/pages-generatormodel.model';
+import { PageGenerationLogService } from '../../services/pages-generator.service';
 
 @Component({
   selector: 'app-generate',
@@ -21,8 +23,8 @@ export class GenerateComponent {
   htmlFileNames: string[]; 
   constructor(private route: ActivatedRoute,
     private pagesService: PagesService,
-    private widgetService: WidgetService,
-    private pagegenService: PagesGeneratorService) { }
+    private pageGenerationLogService: PageGenerationLogService,  
+    private widgetService: WidgetService) { }
 
   ngOnInit(): void {
     this.pageId = Number(localStorage.getItem('generateId'));
@@ -66,9 +68,30 @@ export class GenerateComponent {
              var fileNameFromJson = firstRow[Object.keys(firstRow)[0]];
             }        
 
-           this.generateAndSaveHtmlFile(FullHTML, fileNameFromJson);   // need to complete
+       //   this.generateAndSaveHtmlFile(FullHTML, fileNameFromJson);   // need to complete
+          const filenamevalues = Object.values(fileNameFromJson);
+          if (filenamevalues.length > 0) {
+            console.log(filenamevalues[0]);
+          }
+
+          let savedpage: PageGenerationLogModel = {
+            pageId: this.pageId,
+            fullHTML: FullHTML,
+            fileName: filenamevalues.toString(),
+            status:false
+          }
+          // Call the addPage method from pagesService to save the data
+          this.pageGenerationLogService.addPageGenerationLog(savedpage).subscribe({
+            next: (response) => {         
+            
+            },
+            error: (error) => {           
+              console.log(error);
+            },
+          });
+
         }
-        this.pagesService.getpdf(this.htmlFileNames);  
+       // this.pageGenerationLogService.CreatePdfs(this.pageId);  
       },
     });
   }
