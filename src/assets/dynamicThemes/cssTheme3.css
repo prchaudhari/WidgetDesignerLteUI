@@ -18,7 +18,6 @@
 
 .redLine {
   background-color: white;
-  background-size:auto;
 }
 
 .divdemo {
@@ -39,7 +38,7 @@
 }
 
 .profilephoto {
-  border: 3px solid grey;
+  border: 1px solid grey;
   width: 100%;
   height: 100%;
 }
