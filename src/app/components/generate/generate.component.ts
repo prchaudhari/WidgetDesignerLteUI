@@ -91,7 +91,7 @@ export class GenerateComponent {
           });
 
         }
-       // this.pageGenerationLogService.CreatePdfs(this.pageId);  
+       this.pageGenerationLogService.CreatePdfs(this.pageId);  
       },
     });
   }

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Pages } from '../models/pages.model';
-import { PageModel } from '../models/pagesmodel.model';
 import { PageGenerationLog } from '../models/pages-generator.model';
 
 @Injectable({
@@ -42,20 +40,22 @@ export class PageGenerationLogService {
   } 
 
 
-  CreatePdfs(templateid:number): boolean {
+  CreatePdfs(templateid: number): Observable<boolean> {
+    alert('hi');
+    return this.http.post<boolean>(this.baseApiUrl + '/api/Documents/CreatePDfs', templateid);
     // alert(filename);
     //return this.http.get<boolean>(this.baseApiUrl + '/api/pages/api/GetPDF?filepath="' + filename + '"');
     //  this.http.post<boolean>(this.baseApiUrl + '/api/Documents/GetPDF',filename);
-    this.http.post<boolean>(this.baseApiUrl + '/api/Documents/CreatePDfs', templateid)
-      .subscribe(
-        result => {
-          // Handle the response from the C# controller
-        },
-        error => {
-          console.error('Error:', error);
-        }
-      );
-    return true;
+    //this.http.post<boolean>(this.baseApiUrl + '/api/Documents/CreatePDfs', templateid)
+    //  .subscribe(
+    //    result => {
+    //      // Handle the response from the C# controller
+    //    },
+    //    error => {
+    //      console.error('Error:', error);
+    //    }
+    //  );
+   // return true;
     //return this.http.get<boolean>("https://localhost:44381/api/Documents/api/GetPDF?filepath=C:\Users\chaud\Downloads\myFile.html");
   }
 }
